@@ -1,0 +1,23 @@
+# Navigation links
+nav_title: Main Menu
+docs:
+
+- title: Home
+  url: /
+  active: home
+
+- title: Projects
+  url: /projects/
+  active: projects
+
+- title: About
+  url: /about/
+  active: about
+
+- title: Contact
+  url: /contact/
+  active: contact
+
+- title: Resume
+  url: /resume/
+  active: resume

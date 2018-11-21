@@ -1,0 +1,57 @@
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+# Site settings
+title: Draw Code Build
+author: Mike Jandreau
+job: Web Developer
+email: your-email@example.com
+description: >- # ignore newlines until "baseurl:"
+  I draw pictures, play music, code websites, and write stories.
+  Every now and then I even do something useful.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Social
+twitter_username: losaidos
+github_username:  mikejandreau
+
+# Lunr search on/off
+search: false # true, false (default)
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+
+# Exclude from processing
+exclude:
+  - package.json
+  - node_modules
+  - gulpfile.js
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Include for processing
+include:
+  - _pages
+
+# Links in main navigation
+# header_pages:
+#   - about.md
+#   - portfolio.md
+#   - contact.md
+
+
+# Porfolio items
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:path/
+
