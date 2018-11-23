@@ -37,6 +37,7 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - assets/src/
 
 # Include for processing
 include:
