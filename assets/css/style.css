@@ -1,0 +1,30 @@
+/* test styles */
+
+* {
+	box-sizing: border-box;
+}
+
+.site-header {
+	background: #efefef;
+}
+
+.active {
+	color: red;
+	font-weight: bold;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+nav li {
+	display: inline-block;
+}
+
+nav a {
+	display: block;
+	color: blue;
+}
+
+
