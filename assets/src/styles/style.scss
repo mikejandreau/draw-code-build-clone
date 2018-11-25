@@ -1,22 +1,35 @@
 // test styles
 
+
+.site-header {
+	background: #ddd;
+}
+
 .active {
-	color: red;
+	color: purple;
 	font-weight: bold;
 }
 
 nav {
-	backround: #efefef;
+	background: #efefef;
 
 	ul {
-		background: red;
+		padding: 0;
+		margin: 0;
 	}
 
 	li {
-		border: orange;
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+
+		& + li {
+			margin-left: 10px; 
+			// background: red;
+		}
 	}
 
 	a {
-		color: blue;
+		color: teal;
 	}
 }
