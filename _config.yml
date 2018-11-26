@@ -28,6 +28,7 @@ plugins:
 
 # Exclude from processing
 exclude:
+  - _assets/
   - package.json
   - node_modules
   - gulpfile.js
@@ -38,18 +39,10 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-  - assets/src/
 
 # Include for processing
 include:
   - _pages
-
-# Links in main navigation
-# header_pages:
-#   - about.md
-#   - portfolio.md
-#   - contact.md
-
 
 # Porfolio items
 collections:
