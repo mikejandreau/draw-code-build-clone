@@ -1,0 +1,4 @@
+js/**.min.js
+node_modules/**
+bower_components/**
+_assets/scripts/vendor/**
