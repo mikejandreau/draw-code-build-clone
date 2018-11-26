@@ -7,7 +7,6 @@ const postcss       = require("gulp-postcss");
 const cssnano       = require("cssnano");
 const rename        = require("gulp-rename");
 const cp            = require("child_process");
-const notify        = require('gulp-notify');
 const del           = require("del");
 
 // var jekyllPlatform   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
@@ -39,9 +38,9 @@ function browserSyncReload(done) {
 }
 
 var jekyllPlatform = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
-var messages = {
-    jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
-};
+// var messages = {
+//     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
+// };
 
 function jekyll() {
   return cp.spawn( jekyllPlatform , ['build'], {stdio: 'inherit'})
@@ -82,12 +81,18 @@ function clean() {
 // BrowserSync
 function browserSync(done) {
   browsersync.init({
-    injectChanges: true,
+    notify: {
+        styles: {
+            top: 'auto',
+            bottom: '0',
+            borderBottomLeftRadius: "0",
+        }
+    },
     server: {
       baseDir: "./_site/"
-    },
-    port: 3000
-  });
+  },
+  port: 3000
+});
   done();
 }
 
@@ -114,13 +119,11 @@ function css() {
     .pipe(plumber())
     .pipe(sass({ outputStyle: "expanded" }))
     .pipe(gulp.dest("./_site/assets/css"))
-    .pipe(gulp.dest("./assets/css"))
     .pipe(rename({ suffix: ".min" }))
     .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(gulp.dest("./_site/assets/css"))
     .pipe(gulp.dest("./assets/css"))
     .pipe(browsersync.stream())
-    .pipe(notify({ message: 'Styles task complete', onLast: true }));
 }
 
 
@@ -139,6 +142,7 @@ function watchFiles() {
   gulp.watch("assets/src/styles/**/*.scss", css);
   gulp.watch(
     [
+      "./_data/**/*",
       "./_includes/**/*",
       "./_layouts/**/*",
       "./_pages/**/*",
@@ -179,4 +183,4 @@ gulp.task(
 );
 
 // watch
-gulp.task("watch", gulp.parallel(watchFiles, browserSync));
+gulp.task("default", gulp.parallel(watchFiles, browserSync));
