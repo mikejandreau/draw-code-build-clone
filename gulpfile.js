@@ -172,3 +172,40 @@ gulp.task(
 
 // watch
 gulp.task("default", gulp.parallel(jekyllBuild, browserSync, watchFiles));
+
+
+
+
+
+
+
+// experiment with this later
+
+// // function to properly reload your browser
+// function reload(done) {
+//   browserSync.reload();
+//   done();
+// }
+// // 'gulp serve' -- open site in browser and watch for changes
+// // in source files and update them when needed
+// gulp.task('serve', (done) => {
+//   browserSync.init({
+//     // tunnel: true,
+//     // open: false,
+//     port: 4000, // change port to match default Jekyll
+//     ui: {
+//       port: 4001
+//     },
+//     server: [paths.tempFolderName, paths.siteFolderName]
+//   });
+//   done();
+
+//   // watch various files for changes and do the needful
+//   gulp.watch([paths.mdFilesGlob, paths.htmlFilesGlob, paths.ymlFilesGlob], gulp.series('build:site', reload));
+//   gulp.watch([paths.xmlFilesGlob, paths.txtFilesGlob], gulp.series('site', reload));
+//   gulp.watch(paths.jsFilesGlob, gulp.series('scripts', reload));
+//   gulp.watch(paths.sassFilesGlob, gulp.series('styles', reload));
+//   gulp.watch(paths.imageFilesGlob, gulp.series('copy:images', 'images:lazyload', 'images:feature', reload));
+// });
+
+
