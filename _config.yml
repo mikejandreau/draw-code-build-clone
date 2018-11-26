@@ -21,6 +21,7 @@ github_username:  mikejandreau
 search: false # true, false (default)
 
 # Build settings
+incremental: true
 markdown: kramdown
 plugins:
   - jekyll-feed
