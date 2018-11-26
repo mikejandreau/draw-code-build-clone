@@ -1,0 +1,456 @@
+// base.scss
+
+// Responsive breakpoints for mixins
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+$column_margin: 20px; 
+$width_mobile: 480px;
+$width_phablet: 576px;
+$width_tablet: 768px;
+$width_laptop: 992px;
+$width_desktop: 1200px;
+
+// Inset/drop shadow color and size
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+$shadow_inset: rgba(0,0,0,0.2);
+$shadow_outer: rgba(0,0,0,0.2);
+$shadow_size: $column_margin;
+
+
+// Media queries
+// @include mobile { selector: style; }
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+@mixin mobile   { @media (min-width: #{$width_mobile})  { @content; } }
+@mixin phablet  { @media (min-width: #{$width_phablet}) { @content; } }
+@mixin tablet   { @media (min-width: #{$width_tablet})  { @content; } }
+@mixin laptop   { @media (min-width: #{$width_laptop})  { @content; } }
+@mixin desktop  { @media (min-width: #{$width_desktop}) { @content; } }
+@mixin nophablet  { @media (max-width: #{$width_phablet - 1px}) { @content; } }
+
+// Aspect ratio 
+// @include aspectRatio(16, 9);
+@mixin aspectRatio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+// Make background images fill div, marked !important to override WordPress featured image placement
+// @include bgImage;
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+@mixin bgImage() {
+  background-repeat: no-repeat !important; 
+  background-position: center !important;
+  background-size: cover !important;
+}
+
+// Top and bottom inset box shadow
+// @include innerShadow;
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+@mixin innerShadow() {
+    box-shadow: inset 0 $shadow_size $shadow_size (-$shadow_size) $shadow_inset, 
+                inset 0 (-$shadow_size) $shadow_size (-$shadow_size) $shadow_inset;
+}
+
+// Outer box shadow
+// @include dropShadow;
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+@mixin dropShadow() {
+    box-shadow: 0 0 $shadow_size 0 $shadow_outer;
+}
+
+
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+// body {
+//   padding-top: 54px;
+// }
+
+// @media (min-width: 992px) {
+//   body {
+//     padding-top: 56px;
+//   }
+// }
+
+.business-header {
+  // height: 50vh;
+  // min-height: 300px;
+  background: url('http://placehold.it/1920x400') center center no-repeat scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  text-align: center;
+  padding: 80px 0;
+
+  margin-bottom: 2rem;
+}
+
+.carousel-item {
+  height: 65vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.portfolio-item {
+  margin-bottom: 30px;
+}
+
+
+
+
+
+/*
+------------------------------
+scroll to top button
+------------------------------
+*/
+
+.scrollup {
+  @extend .btn;
+  @extend .btn-primary;
+
+  line-height: 36px;
+  height: 40px;
+  width: 40px; 
+
+  position: fixed;
+  z-index: 1000;
+  opacity:0;
+  right:-100%;
+  bottom: 20px;
+  transition: all 1s;
+
+  &:active, 
+  &:focus {
+    outline: none;
+    border: none;
+    // box-shadow: 0 1px 4px rgba(0,0,0,0.4); // materia theme only
+    box-shadow: none;
+  }
+
+  &.show {
+    opacity:1;
+    right: 20px;
+  }
+}
+
+.scrollup-chevron {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 16px;
+  width: 16px;
+  fill: #fff;
+    // fill: $link-color;
+}
+
+
+
+
+
+
+
+
+
+
+.triple-feature {
+  // @include innerShadow;
+  background-color: #f9f9f9;
+  padding: 60px 0;
+
+  @include tablet {
+    padding: 80px 0;
+  }
+}
+
+.card {
+  // @include dropShadow;
+  margin-bottom: 30px;
+
+  @include tablet {
+    margin-bottom: 0;
+  }
+}
+
+.card-image {
+  @include bgImage;
+  @include aspectRatio(3,2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// footer fix
+.site {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* 1, 3 */
+}
+
+.site-header,
+.site-footer {
+  flex: none; /* 2 */
+}
+
+.site-content {
+  flex: 1 0 auto; /* 2 */
+  padding: 0 0;
+  width: 100%;
+}
+.site-content::after {
+  content: '\00a0'; /* &nbsp; */
+  display: block;
+  margin-top: 0;
+  height: 0px;
+  visibility: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// fix navbar container left-right padding from phablet to tablet size
+@media (min-width:576px) and (max-width: 767.98px) {
+  .navbar-expand-md>.container, 
+  .navbar-expand-md>.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+
+
+
+
+
+
+
+// Custom fancybox styles 
+figure {
+  float: left;
+}
+
+figcaption {
+  display: none;
+}
+
+.fancybox-show-caption .fancybox-caption, .fancybox-show-infobar .fancybox-infobar, .fancybox-show-nav .fancybox-navigation .fancybox-button, .fancybox-show-toolbar .fancybox-toolbar {
+    opacity: 1;
+    transition: opacity .25s ease 0s,visibility 0s ease 0s;
+    visibility: visible;
+}
+
+.fancybox-caption {
+    bottom: 0;
+    color: #eee;
+    font-size: 14px;
+    font-weight: 400;
+    left: 0;
+    line-height: 1.5;
+    padding: 25px 44px;
+    right: 0;
+    text-align: center;
+    z-index: 99996;
+}
+
+
+
+
+
+
+
+
+// accordion
+.accordion-header {
+  padding: 0;
+  margin-bottom: 0;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0,0,0,0.125);
+
+  a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    background-color: rgba(0,0,0,0.03);
+    
+    &:hover {
+      text-decoration: none;
+      background-color: rgba(0,0,0,0.06);
+    }
+
+  }
+}
+
+
+
+
+
+
+// Header variables - height, margin, WP admin offset, and internal anchor link offset
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+$header_height: 36px;
+
+
+// Transition duration for hover/toggle effects
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+$transistion_duration: 0.3s;
+
+$menu_toggle_width: $header_height / 1.6; // width of button area
+$menu_toggle_height: $header_height;       // height of button area
+$menu_toggle_bar: 2px;                    // thickness of button bars
+$menu_toggle_pad: 0;   // left/right padding between button area and bars.
+$menu_toggle_bar_space: 4px;              // spacing between button bars
+$menu_toggle_color: #404040;
+
+// menu-toggle
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+button.navbar-toggler {
+  display: block;
+  z-index: 20;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: $menu_toggle_width;
+  height: $menu_toggle_height;
+  font-size: 0;
+  text-indent: -9999px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  float: right;
+  position: relative;
+  background-color: transparent;
+
+  @include laptop {
+    display: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  // active state, i.e. menu open 
+  &.is-active span {
+    transform: rotate(-225deg);
+  }
+
+  &.is-active span::before {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  &.is-active span::after {
+    background-color: transparent;
+    bottom: 0;
+    transform: rotate(-0deg);
+  }
+
+  &.is-active span::before,
+  &.is-active span::after {
+    transition: $transistion_duration;
+  }
+
+  span {
+    display: block;
+    position: absolute;
+    top: ($menu_toggle_height / 2) - ($menu_toggle_bar / 2);
+    left: $menu_toggle_pad;
+    right: $menu_toggle_pad;
+    height: $menu_toggle_bar;
+    background-color: $menu_toggle_color;
+    transition-duration: $transistion_duration;
+
+    &::before, 
+    &::after {
+      position: absolute;
+      display: block;
+      left: 0;
+      width: 100%;
+      height: $menu_toggle_bar;
+      background-color: $menu_toggle_color;
+      content: "";
+      transition-duration: $transistion_duration;
+    }
+    
+    &::before {
+      top: -$menu_toggle_bar - $menu_toggle_bar_space;
+      transition-property: top, transform;
+    }
+
+    &::after {
+      bottom: -$menu_toggle_bar - $menu_toggle_bar_space;
+      transition-property: bottom, transform;
+    }
+  }
+}
+
+
+
+
+
+
+
+

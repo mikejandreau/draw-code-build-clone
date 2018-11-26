@@ -1,0 +1,44 @@
+// main.scss
+
+// theme
+// @import "themes/bootstrap-dist"; // default bootstrap
+// @import "themes/cerulean";
+// @import "themes/cosmo";
+// @import "themes/cyborg";
+// @import "themes/darkly";
+// @import "themes/flatly";
+// @import "themes/journal";
+// @import "themes/litera";
+// @import "themes/lumen";
+// @import "themes/lux";
+// @import "themes/materia";
+// @import "themes/minty";
+// @import "themes/pulse";
+// @import "themes/sandstone";
+// @import "themes/simplex";
+// @import "themes/sketchy";
+// @import "themes/slate";
+// @import "themes/solar";
+// @import "themes/spacelab";
+// @import "themes/superhero";
+@import "themes/united";
+// @import "themes/yeti";
+
+// Code highlighting
+@import "vendor/prism";
+
+// Lightbox gallery
+@import "vendor/fancybox";
+
+// Additional custom styling
+@import "base";
+
+
+.bs-component+.bs-component {
+    margin-top: 1rem;
+}
+.bs-docs-section {
+    margin-top: 4em;
+}
+
+
