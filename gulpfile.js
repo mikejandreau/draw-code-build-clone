@@ -21,6 +21,7 @@ var imagesDest              = "./assets/img/"; // Dest folder of optimized image
 var styleWatchFiles         = "./assets/scss/**/*.scss"; // Path to all *.scss files inside css folder and inside them
 var scriptWatchFiles        = ["./assets/js/vendor/*.js", "./assets/js/custom/*.js"]; // Path to all JS files.
 var markupWatchFiles        = ["*.html", "./_data/**/*", "./_includes/**/*", "./_layouts/**/*", "./_pages/**/*", "./_posts/**/*", "./_projects/**/*" ]; // Path to all markup files.
+var assetBuildFolder        = ["./_site/assets/"]; // assets folder in _site to be cleared after build
 
 // Browsers we care about for autoprefixing
 const AUTOPREFIXER_BROWSERS = ["last 2 versions", "> 1%", "ie >= 9", "ie_mob >= 10", "ff >= 30", "chrome >= 34", "safari >= 7", "opera >= 23", "ios >= 7", "android >= 4", "bb >= 10"];
@@ -127,7 +128,7 @@ function images() {
 
 // Clean assets
 function clean() {
-  return del(["./_site/assets/"]);
+  return del(assetBuildFolder);
 }
 
 // Watch files
