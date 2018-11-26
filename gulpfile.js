@@ -1,30 +1,35 @@
 // START Project Variables
 
 // Style paths
-var styleSRC                = "_assets/src/styles/style.scss"; // Path to main .scss file.
-var styleDest               = "./_site/assets/css"; // Places compiled CSS file in root folder, could also be "./assets/css/" or some other folder, just remember to update file path in functions.php
+var styleSRC                = "./_assets/styles/style.scss"; // Path to main .scss file.
+var styleDest               = "./assets/css"; // Places compiled CSS file in root folder, could also be "./assets/css/" or some other folder, just remember to update file path in functions.php
+var styleFile               = "styles"; // Compiled scss file name.
+
 
 // JavaScript paths
 var scriptSRC             = [
-                              "./assets/js/**/*", // Include jQuery if you want
-                              "./assets/js/vendor/class-helpers.js", // Pure JS class toggling
-                              "./assets/js/custom/*.js" // menu-controls.js, scroll-to-top.js, etc.
+                              "./_assets/scripts/vendor/jquery-3.3.1.min.js",
+                              // "./_assets/scripts/vendor/bootstrap.bundle.min.js",
+                              // "./_assets/scripts/vendor/jquery.easing.min.js",
+                              // "./_assets/scripts/vendor/jquery.fancybox.min.js",
+                              // "./_assets/scripts/vendor/prism.js",
+                              "./_assets/scripts/custom.js"
                             ]; // Path to JS vendor and custom files in order.
-var scriptDest            = "./assets/js/"; // Path to save the compiled JS file.
+var scriptDest            = "./assets/js"; // Path to save the compiled JS file.
 var scriptFile            = "scripts"; // Compiled JS file name.
 
 // Images
-var imagesSRC               = "./assets/img/raw/**/*.{png,jpg,gif,svg}"; // Source folder of unoptimized images
-var imagesDest              = "./assets/img/"; // Dest folder of optimized images
+var imagesSRC               = "./_assets/images/**/*"; // Source folder of unoptimized images
+var imagesDest              = "./assets/img"; // Dest folder of optimized images
 
 // File paths
-var styleWatchFiles         = "./assets/scss/**/*.scss"; // Path to all *.scss files inside css folder and inside them
-var scriptWatchFiles        = ["./assets/js/vendor/*.js", "./assets/js/custom/*.js"]; // Path to all JS files.
-var markupWatchFiles        = ["*.html", "./_data/**/*", "./_includes/**/*", "./_layouts/**/*", "./_pages/**/*", "./_posts/**/*", "./_projects/**/*" ]; // Path to all markup files.
+var styleWatchFiles         = "./_assets/styles/**/*.scss"; // Path to all *.scss files inside css folder and inside them
+var scriptWatchFiles        = "./_assets/scripts/**/*.js"; // Path to all JS files.
+var markupWatchFiles        = ["./*.html", "./_data/**/*", "./_includes/**/*", "./_layouts/**/*", "./_pages/**/*", "./_posts/**/*", "./_projects/**/*" ]; // Path to all markup files.
 var assetBuildFolder        = ["./_site/assets/"]; // assets folder in _site to be cleared after build
 
 // Browsers we care about for autoprefixing
-const AUTOPREFIXER_BROWSERS = ["last 2 versions", "> 1%", "ie >= 9", "ie_mob >= 10", "ff >= 30", "chrome >= 34", "safari >= 7", "opera >= 23", "ios >= 7", "android >= 4", "bb >= 10"];
+const autoprefixBrowsers    = ["last 2 versions", "> 1%", "ie >= 9", "ie_mob >= 10", "ff >= 30", "chrome >= 34", "safari >= 7", "opera >= 23", "ios >= 7", "android >= 4", "bb >= 10"];
 
 // END Project Variables
 
@@ -39,18 +44,27 @@ const cssnano       = require("cssnano");
 const rename        = require("gulp-rename");
 const cp            = require("child_process");
 const del           = require("del");
-const jekyll        = process.platform === "win32" ? "jekyllBuild.bat" : "jekyllBuild";
-
-const jshint       = require("gulp-jshint"); // Checks JS for errors
-const concat       = require("gulp-concat"); // Concatenates JS files
-const uglify       = require("gulp-uglify"); // Minifies JS files
-
-var imagemin     = require('gulp-imagemin'); // Minify PNG, JPEG, GIF and SVG images with imagemin.
+const jshint        = require("gulp-jshint"); // Checks JS for errors
+const concat        = require("gulp-concat"); // Concatenates JS files
+const uglify        = require("gulp-uglify"); // Minifies JS files
+const newer         = require("gulp-newer");
+const imagemin      = require("gulp-imagemin"); // Minify PNG, JPEG, GIF and SVG images with imagemin.
 
 
 
 
 
+
+
+// // Jekyll
+// const jekyll        = process.platform === "win32" ? "jekyllBuild.bat" : "jekyllBuild";
+// function jekyllBuild() {
+//   return cp.spawn(jekyll, ["build"], {stdio: "inherit"});
+// }
+
+function jekyllBuild() {
+  return cp.spawn("bundle", ["exec", "jekyll", "build"], { stdio: "inherit" });
+}
 
 
 function browserSync(done) {
@@ -77,22 +91,17 @@ function browserSyncReload(done) {
 }
 
 
-// Jekyll
-function jekyllBuild() {
-  return cp.spawn( jekyll , ["build"], {stdio: "inherit"})
-}
-
-
-
 // CSS task
 function styles() {
   return gulp
     .src(styleSRC)
     .pipe(plumber())
     .pipe(sass({ outputStyle: "expanded" }))
-    .pipe(gulp.dest(styleDest))
-    .pipe(rename({ suffix: ".min" }))
-    .pipe(postcss([autoprefixer(AUTOPREFIXER_BROWSERS), cssnano()]))
+    .pipe(postcss([autoprefixer(autoprefixBrowsers), cssnano()]))
+    .pipe(rename({
+      basename: styleFile,
+      suffix: ".min"
+    }))
     .pipe(gulp.dest(styleDest))
     .pipe(browsersync.stream())
 }
@@ -114,41 +123,52 @@ function scripts() {
     .pipe(browsersync.stream())
 }
 
+
 // Optimize Images
 function images() {
   return gulp
     .src(imagesSRC)
     .pipe(newer(imagesDest))
-    .pipe(imagemin({
+    .pipe(
+      imagemin({
         progressive: true,
         svgoPlugins: [{ removeViewBox: false }]
-      }))
+      })
+    )
     .pipe(gulp.dest(imagesDest));
 }
 
-// Clean assets
+
+
+
+
+
+// clean assets
 function clean() {
   return del(assetBuildFolder);
 }
 
-// Watch files
+// watch
 function watchFiles() {
   gulp.watch(styleWatchFiles, styles);
   gulp.watch(scriptWatchFiles, scripts);
-  gulp.watch(markupWatchFiles, gulp.series(jekyllBuild, browserSyncReload));
   gulp.watch(imagesSRC, images);
+  gulp.watch(markupWatchFiles, gulp.series(jekyllBuild, browserSyncReload));
 }
 
-// Tasks
+// tasks
 gulp.task("styles", styles);
 gulp.task("scripts", scripts);
 gulp.task("images", images);
 gulp.task("jekyllBuild", jekyllBuild);
 gulp.task("clean", clean);
 
-
 // build
-gulp.task("build", gulp.series(clean, gulp.parallel(styles, scripts, images, jekyllBuild)));
+gulp.task(
+  "build",
+  gulp.series(clean, gulp.series(styles, scripts, images, jekyllBuild, browserSyncReload))
+);
+
 
 // watch
-gulp.task("default", gulp.parallel(watchFiles, browserSync));
+gulp.task("default", gulp.parallel(jekyllBuild, browserSync, watchFiles));
