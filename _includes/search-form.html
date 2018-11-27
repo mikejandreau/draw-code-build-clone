@@ -1,12 +1,7 @@
 <div class="inner">
-
-
-  {% if site.search %}
-  
-        <label class="visually-hidden" for="search">{{ site.data.theme.t.site_search | default: 'Site Search' }}</label>
-        <input type="text" id="search" class="search-input" aria-describedby="results-count" tabindex="-1" placeholder="{{ site.data.theme.t.menu.search_placeholder_text | default: 'Enter your search term...' }}" />
-        <div id="results" class="results"></div>
-        
-  {% endif %}
-
+	{% if site.search %}
+		<label class="visually-hidden" for="search">{{ site.data.theme.t.site_search | default: 'Site Search' }}</label>
+		<input type="text" id="search" class="search-input" aria-describedby="results-count" tabindex="-1" placeholder="{{ site.data.theme.t.menu.search_placeholder_text | default: 'Enter your search term...' }}" />
+		<div id="results" class="results"></div>
+	{% endif %}
 </div>
