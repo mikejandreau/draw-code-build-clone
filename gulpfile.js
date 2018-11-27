@@ -4,31 +4,31 @@
 // START Project Variables
 
 // Style paths
-var styleSRC                = "./_assets/styles/styles.scss"; // Path to main .scss file.
+var styleSRC                = "./assets/styles/styles.scss"; // Path to main .scss file.
 var styleDest               = "./assets/css"; // Places compiled CSS file in root folder, cou
 var styleDestSite           = "./_site/assets/css"; // Places compiled CSS file in root folder, could also be "./assets/css/" or some other folder, just remember to update file path in functions.php
 
 // JavaScript paths
 var scriptSRC             = [
-                              "./_assets/scripts/vendor/jquery-3.3.1.min.js",
-                              // "./_assets/scripts/vendor/bootstrap.bundle.min.js",
-                              // "./_assets/scripts/vendor/jquery.easing.min.js",
-                              // "./_assets/scripts/vendor/jquery.fancybox.min.js",
-                              // "./_assets/scripts/vendor/prism.js",
-                              "./_assets/scripts/custom.js"
+                              "./assets/scripts/vendor/jquery-3.3.1.min.js",
+                              // "./assets/scripts/vendor/bootstrap.bundle.min.js",
+                              // "./assets/scripts/vendor/jquery.easing.min.js",
+                              // "./assets/scripts/vendor/jquery.fancybox.min.js",
+                              // "./assets/scripts/vendor/prism.js",
+                              "./assets/scripts/custom.js"
                             ]; // Path to JS vendor and custom files in order.
 var scriptDest            = "./assets/js"; // Path to save the compiled JS file.
 var scriptDestSite        = "./_site/assets/js"; // Path to save the compiled JS file.
 var scriptFile            = "scripts"; // Compiled JS file name.
 
 // Images
-var imagesSRC               = "./_assets/images/**/*"; // Source folder of unoptimized images
+var imagesSRC               = "./assets/images/**/*"; // Source folder of unoptimized images
 var imagesDest              = "./assets/img"; // Dest folder of optimized images
 var imagesDestSite          = "./_site/assets/img"; // Dest folder of optimized images
 
 // File paths
-var styleWatchFiles         = "./_assets/styles/**/*.scss"; // Path to all *.scss files inside css folder and inside them
-var scriptWatchFiles        = "./_assets/scripts/**/*.js"; // Path to all JS files.
+var styleWatchFiles         = "./assets/styles/**/*.scss"; // Path to all *.scss files inside css folder and inside them
+var scriptWatchFiles        = "./assets/scripts/**/*.js"; // Path to all JS files.
 var markupWatchFiles        = ["./*.html", "./_data/**/*", "./_includes/**/*", "./_layouts/**/*", "./_pages/**/*", "./_posts/**/*", "./_projects/**/*" ]; // Path to all markup files.
 var assetBuildFolder        = ["./_site/assets/"]; // assets folder in _site to be cleared after build
 
@@ -45,6 +45,7 @@ var gulp        = require("gulp");
 var browserSync = require('browser-sync').create();
 var sass        = require("gulp-sass");
 var prefix      = require("gulp-autoprefixer");
+var imagemin    = require('gulp-imagemin');
 var minifycss   = require("gulp-clean-css");
 var uglify      = require("gulp-uglify");
 var rename      = require("gulp-rename");
@@ -72,7 +73,7 @@ gulp.task("jekyll-rebuild", gulp.series("jekyll-build", function(done) {
 
 
 // Compile _scss into both _site/css (live injecting) and site (jekyll builds)
-gulp.task("sass", function () {
+gulp.task("styles", function () {
   return gulp.src(styleSRC)
   .pipe(sass({
     includePaths: ["scss"],
@@ -102,25 +103,20 @@ gulp.task("scripts", function() {
 });
 
 
-// Wait for jekyll-build, then launch the Server
-function browserSync(done) {
-  browserSync.init({
-    server: {
-      baseDir: "./_site"
-    },
-    notify: {
-      styles: {
-        top: "auto",
-        bottom: "0",
-        borderBottomLeftRadius: "0",
-      }
-    },
-    port: 3000
-  });
-  done();
-}
+// Optimize Images
+gulp.task("images", function() {
+  return gulp.src(imagesSRC)
+  .pipe(imagemin())
+  .pipe(gulp.dest(imagesDest))
+  .pipe(browserSync.reload({stream:true}))
+  .pipe(gulp.dest(imagesDestSite))
+});
 
-gulp.task('browser-sync', gulp.series("sass", "scripts", "jekyll-build", function(done) {
+
+
+// Wait for jekyll-build, then launch the Server
+
+gulp.task('browser-sync', gulp.series("styles", "scripts", "images", "jekyll-build", function(done) {
   browserSync.init({
     server: {
       baseDir: "./_site"
@@ -137,25 +133,17 @@ gulp.task('browser-sync', gulp.series("sass", "scripts", "jekyll-build", functio
   done();
 }));
 
-
-
-
-
-
-// function to properly reload your browser
 function reload(done) {
   browserSync.reload();
   done();
 }
 
-// Watch scss/js files for changes & recompile
-// Watch html/md files, run jekyll & reload BrowserSync
 gulp.task("watch", function () {
-    gulp.watch(styleWatchFiles, gulp.series("sass", reload));
+    gulp.watch(styleWatchFiles, gulp.series("styles", reload));
     gulp.watch(scriptWatchFiles, gulp.series("scripts", reload));
+    gulp.watch(imagesSRC, gulp.series("images", reload));
     gulp.watch(markupWatchFiles, gulp.series("jekyll-rebuild", reload));
 });
-
 
 gulp.task("default", gulp.series("browser-sync", "watch"));
 

@@ -18,7 +18,7 @@ twitter_username: losaidos
 github_username:  mikejandreau
 
 # Lunr search on/off
-search: false # true, false (default)
+search: true # true, false (default)
 
 # Build settings
 incremental: true
@@ -28,8 +28,9 @@ plugins:
 
 # Exclude from processing
 exclude:
-  - _assets/
+  - assets/src
   - package.json
+  - package-lock.json
   - node_modules
   - gulpfile.js
   - Gemfile
@@ -39,6 +40,7 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - README.md
 
 # Include for processing
 include:
