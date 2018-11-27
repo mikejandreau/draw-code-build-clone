@@ -92,11 +92,11 @@
 
 
 
-	<style type="text/css">{% include critical.css %}</style>
+	<link rel="stylesheet" href="{{ "/assets/css/styles.min.css" | prepend: site.baseurl }}">
 
 	{% comment %}
 	<!-- When we generate critical CSS, uncomment this Jekyll statement -->
-	<link rel="stylesheet" href="{{ "/assets/css/styles.min.css" | prepend: site.baseurl }}">
+	<style type="text/css">{% include critical.css %}</style>
 	{% endcomment %}
 
 </head>
