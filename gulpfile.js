@@ -1,12 +1,11 @@
 // GulpJS config for building static sites with Jekyll, SASS & BrowserSync
-
-
-// START Project Variables
+// Project Variables
 
 // Style paths
 var styleSRC                = "./assets/styles/styles.scss"; // Path to main .scss file.
 var styleDest               = "./assets/css"; // Places compiled CSS file in root folder, cou
-var styleDestSite           = "./_site/assets/css"; // Places compiled CSS file in root folder, could also be "./assets/css/" or some other folder, just remember to update file path in functions.php
+var styleDestSite           = "./_site/assets/css"; // Places compiled CSS file in root folder, could also be "./asset
+var criticalStyles          = "./assets/css/styles.min.css"; // Path
 
 // JavaScript paths
 var scriptSRC             = [
@@ -32,15 +31,22 @@ var scriptWatchFiles        = "./assets/scripts/**/*.js"; // Path to all JS file
 var markupWatchFiles        = ["./*.html", "./_data/**/*", "./_includes/**/*", "./_layouts/**/*", "./_pages/**/*", "./_posts/**/*", "./_projects/**/*" ]; // Path to all markup files.
 var assetBuildFolder        = ["./_site/assets/"]; // assets folder in _site to be cleared after build
 
-// Browsers we care about for autoprefixing
-var autoprefixBrowsers      = ["last 2 versions", "> 1%", "ie >= 9", "ie_mob >= 10", "ff >= 30", "chrome >= 34", "safari >= 7", "opera >= 23", "ios >= 7", "android >= 4", "bb >= 10"];
+// Browsers for autoprefixing
+var autoprefixBrowsers      = [
+                                "last 2 versions", 
+                                "> 1%", 
+                                "ie >= 9", 
+                                "ie_mob >= 10", 
+                                "ff >= 30", 
+                                "chrome >= 34", 
+                                "safari >= 7", 
+                                "opera >= 23", 
+                                "ios >= 7", 
+                                "android >= 4", 
+                                "bb >= 10"
+                              ];
 
-
-
-
-
-
-
+// Task packages
 var gulp        = require("gulp");
 var browserSync = require('browser-sync').create();
 var sass        = require("gulp-sass");
@@ -50,9 +56,9 @@ var minifycss   = require("gulp-clean-css");
 var uglify      = require("gulp-uglify");
 var rename      = require("gulp-rename");
 var concat      = require("gulp-concat");
+var critical    = require('critical');
 var cp          = require("child_process");
-
-var jekyll   = process.platform === "win32" ? "jekyll.bat" : "jekyll";
+var jekyll      = process.platform === "win32" ? "jekyll.bat" : "jekyll";
 
 // Build the Jekyll Site
 gulp.task("jekyll-build", function (done) {
@@ -66,13 +72,7 @@ gulp.task("jekyll-rebuild", gulp.series("jekyll-build", function(done) {
     done();
 }));
 
-
-
-
-
-
-
-// Compile _scss into both _site/css (live injecting) and site (jekyll builds)
+// styles
 gulp.task("styles", function () {
   return gulp.src(styleSRC)
   .pipe(sass({
@@ -87,8 +87,31 @@ gulp.task("styles", function () {
   .pipe(gulp.dest(styleDestSite))
 });
 
+// run after pages have build to generate critical css
+gulp.task('critical', function (done) {
+  critical.generate({
+    base: '_site/',
+    src: 'index.html',
+    css: criticalStyles,
+    dimensions: [{
+      width: 320,
+      height: 480
+    },{
+      width: 768,
+      height: 1024
+    },{
+      width: 1280,
+      height: 960
+    }],
+    dest: '../_includes/critical.css',
+    minify: true,
+    extract: false,
+    ignore: ['font-face']
+  });
+  done();
+});
 
-// Compile _scripts into both _site/js (live injecting) and site (jekyll builds)
+// scripts
 gulp.task("scripts", function() {
   return gulp.src(scriptSRC)
   .pipe(concat(scriptFile + ".js"))
@@ -115,7 +138,6 @@ gulp.task("images", function() {
 
 
 // Wait for jekyll-build, then launch the Server
-
 gulp.task('browser-sync', gulp.series("styles", "scripts", "images", "jekyll-build", function(done) {
   browserSync.init({
     server: {
@@ -133,11 +155,13 @@ gulp.task('browser-sync', gulp.series("styles", "scripts", "images", "jekyll-bui
   done();
 }));
 
+// Reload helper function
 function reload(done) {
   browserSync.reload();
   done();
 }
 
+// Watch files
 gulp.task("watch", function () {
     gulp.watch(styleWatchFiles, gulp.series("styles", reload));
     gulp.watch(scriptWatchFiles, gulp.series("scripts", reload));
@@ -145,6 +169,7 @@ gulp.task("watch", function () {
     gulp.watch(markupWatchFiles, gulp.series("jekyll-rebuild", reload));
 });
 
+// Default task
 gulp.task("default", gulp.series("browser-sync", "watch"));
 
 
@@ -242,6 +267,24 @@ gulp.task("default", gulp.series("browser-sync", "watch"));
 
 
 // // // experiment with this later
+
+
+
+
+
+// 'gulp build' -- same as 'gulp' but doesn't serve site
+// 'gulp build --prod' -- same as above but with production settings
+gulp.task('build', gulp.series('clean', 'assets', 'build:site', 'html', 'xml'));
+
+// 'gulp critical' -- builds critical path CSS includes
+//   WARNING: run this after substantial CSS changes
+//   WARNING: .html files referenced need to exist, run after `gulp build` to ensure.
+gulp.task('critical', gulp.series('styles:critical:home', 'styles:critical:archive', 'styles:critical:post'));
+
+
+
+
+
 
 // // // // function to properly reload your browser
 // // // function reload(done) {
