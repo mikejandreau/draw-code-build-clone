@@ -3,7 +3,9 @@
 _site
 .sass-cache
 .jekyll-metadata
-assets
+assets/css
+assets/js
+assets/img
 
 # Packages #
 ############
