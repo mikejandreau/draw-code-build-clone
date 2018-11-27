@@ -52,8 +52,15 @@ const imagemin      = require("gulp-imagemin"); // Minify PNG, JPEG, GIF and SVG
 
 
 
+const spawn = require('cross-spawn');
 
+// gulp.task('jekyll', function (){
+//     spawn('jekyll', ['build'], {stdio: 'inherit'});
+// });
 
+function jekyllBuild() {
+  spawn('jekyll', ['build'], {stdio: 'inherit'});
+}
 
 
 // // Jekyll
@@ -62,9 +69,9 @@ const imagemin      = require("gulp-imagemin"); // Minify PNG, JPEG, GIF and SVG
 //   return cp.spawn(jekyll, ["build"], {stdio: "inherit"});
 // }
 
-function jekyllBuild() {
-  return cp.spawn("bundle", ["exec", "jekyll", "build"], { stdio: "inherit" });
-}
+// function jekyllBuild() {
+//   return cp.spawn("bundle", ["exec", "jekyll", "build"], { stdio: "inherit" });
+// }
 
 
 function browserSync(done) {
@@ -149,11 +156,12 @@ function clean() {
 }
 
 // watch
-function watchFiles() {
+function watchFiles(done) {
   gulp.watch(styleWatchFiles, styles);
   gulp.watch(scriptWatchFiles, scripts);
   gulp.watch(imagesSRC, images);
   gulp.watch(markupWatchFiles, gulp.series(jekyllBuild, browserSyncReload));
+  done();
 }
 
 // tasks
