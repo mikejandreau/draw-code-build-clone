@@ -2,75 +2,75 @@
 // Project Variables
 
 // Style paths
-var styleSRC                = "./assets/styles/styles.scss"; // Path to main .scss file.
-var styleDest               = "./assets/css"; // Places compiled CSS file in root folder, cou
-var styleDestSite           = "./_site/assets/css"; // Places compiled CSS file in root folder, could also be "./asset
-var criticalStyles          = "./assets/css/styles.min.css"; // Path
+var styleSRC                = "./assets/styles/styles.scss"; // Path to main source .scss file
+var styleDest               = "./assets/css"; // Destination path for compiled styles
+var styleDestSite           = "./_site/assets/css"; // Destination path for compiled styles
+var criticalStyles          = "./assets/css/styles.min.css"; // Critical styles path (run 'gulp critical' to generate)
 
-// JavaScript paths
+// JavaScript paths - add or remove JS files as needed
 var scriptSRC             = [
-                              "./assets/scripts/vendor/jquery-3.3.1.min.js",
-                              // "./assets/scripts/vendor/bootstrap.bundle.min.js",
-                              // "./assets/scripts/vendor/jquery.easing.min.js",
-                              // "./assets/scripts/vendor/jquery.fancybox.min.js",
-                              // "./assets/scripts/vendor/prism.js",
+                              "./assets/scripts/vendor/jquery-3.3.1.min.js", // jQuery
+                              "./assets/scripts/vendor/bootstrap.bundle.min.js", // Bootstrap/PopperJS bundle
+                              "./assets/scripts/vendor/jquery.easing.min.js", // jQuery plugin for smooth scrolling
+                              "./assets/scripts/vendor/jquery.fancybox.min.js", // Lightbox plugin for galleries
+                              "./assets/scripts/vendor/prism.js", // Syntax highlighting for code samples
                               "./assets/scripts/custom.js"
-                            ]; // Path to JS vendor and custom files in order.
-var scriptDest            = "./assets/js"; // Path to save the compiled JS file.
-var scriptDestSite        = "./_site/assets/js"; // Path to save the compiled JS file.
-var scriptFile            = "scripts"; // Compiled JS file name.
+                            ]; // Path to JS vendor and custom files in desired concat order.
+var scriptDest            = "./assets/js"; // Path to save the compiled JS file
+var scriptDestSite        = "./_site/assets/js"; // Path to save the compiled JS file
+var scriptFile            = "scripts"; // Compiled JS file name
 
 // Images
 var imagesSRC               = "./assets/images/**/*"; // Source folder of unoptimized images
-var imagesDest              = "./assets/img"; // Dest folder of optimized images
-var imagesDestSite          = "./_site/assets/img"; // Dest folder of optimized images
+var imagesDest              = "./assets/img"; // Destination folder of optimized images
+var imagesDestSite          = "./_site/assets/img"; // Destination folder of optimized images
 
 // File paths
-var styleWatchFiles         = "./assets/styles/**/*.scss"; // Path to all *.scss files inside css folder and inside them
-var scriptWatchFiles        = "./assets/scripts/**/*.js"; // Path to all JS files.
-var markupWatchFiles        = ["./*.html", "./_data/**/*", "./_includes/**/*", "./_layouts/**/*", "./_pages/**/*", "./_posts/**/*", "./_projects/**/*" ]; // Path to all markup files.
+var styleWatchFiles         = "./assets/styles/**/*.scss"; // Path to all *.scss files in all subfolders
+var scriptWatchFiles        = "./assets/scripts/**/*.js"; // Path to all JS files in all subfolders
+var markupWatchFiles        = ["./*.html", "./_data/**/*", "./_includes/**/*", "./_layouts/**/*", "./_pages/**/*", "./_posts/**/*", "./_projects/**/*" ]; // Paths to all markup files.
 var assetBuildFolder        = ["./_site/assets/"]; // assets folder in _site to be cleared after build
 
 // Browsers for autoprefixing
-var autoprefixBrowsers      = [
-                                "last 2 versions", 
-                                "> 1%", 
-                                "ie >= 9", 
-                                "ie_mob >= 10", 
-                                "ff >= 30", 
-                                "chrome >= 34", 
-                                "safari >= 7", 
-                                "opera >= 23", 
-                                "ios >= 7", 
-                                "android >= 4", 
-                                "bb >= 10"
-                              ];
+var autoprefixBrowsers      = ["last 2 versions", "> 1%", "ie >= 9", "ie_mob >= 10", "ff >= 30", "chrome >= 34", "safari >= 7", "opera >= 23", "ios >= 7", "android >= 4", "bb >= 10"];
 
-// Task packages
+
+
+// Task plugins
 var gulp        = require("gulp");
+var cp          = require("child_process");
 var browserSync = require('browser-sync').create();
+var jekyll      = process.platform === "win32" ? "jekyll.bat" : "jekyll";
+
+// Style related
 var sass        = require("gulp-sass");
 var prefix      = require("gulp-autoprefixer");
-var imagemin    = require('gulp-imagemin');
 var minifycss   = require("gulp-clean-css");
-var uglify      = require("gulp-uglify");
-var rename      = require("gulp-rename");
-var concat      = require("gulp-concat");
 var critical    = require('critical');
-var cp          = require("child_process");
-var jekyll      = process.platform === "win32" ? "jekyll.bat" : "jekyll";
+
+// Script related
+var concat      = require("gulp-concat");
+var rename      = require("gulp-rename");
+var uglify      = require("gulp-uglify");
+
+// Image related
+var imagemin    = require('gulp-imagemin');
+
+
 
 // Build the Jekyll Site
 gulp.task("jekyll-build", function (done) {
-    return cp.spawn( jekyll , ["build"], {stdio: "inherit"})
-    done();
+  return cp.spawn( jekyll , ["build"], {stdio: "inherit"})
+  done();
 });
+
 
 // Rebuild Jekyll & do page reload
 gulp.task("jekyll-rebuild", gulp.series("jekyll-build", function(done) {
-    browserSync.reload();
-    done();
+  browserSync.reload();
+  done();
 }));
+
 
 // styles
 gulp.task("styles", function () {
@@ -86,6 +86,7 @@ gulp.task("styles", function () {
   .pipe(browserSync.reload({stream:true}))
   .pipe(gulp.dest(styleDestSite))
 });
+
 
 // run after pages have build to generate critical css
 gulp.task('critical', function (done) {
@@ -110,6 +111,7 @@ gulp.task('critical', function (done) {
   });
   done();
 });
+
 
 // scripts
 gulp.task("scripts", function() {
@@ -136,7 +138,6 @@ gulp.task("images", function() {
 });
 
 
-
 // Wait for jekyll-build, then launch the Server
 gulp.task('browser-sync', gulp.series("styles", "scripts", "images", "jekyll-build", function(done) {
   browserSync.init({
@@ -155,19 +156,22 @@ gulp.task('browser-sync', gulp.series("styles", "scripts", "images", "jekyll-bui
   done();
 }));
 
+
 // Reload helper function
 function reload(done) {
   browserSync.reload();
   done();
 }
 
+
 // Watch files
 gulp.task("watch", function () {
-    gulp.watch(styleWatchFiles, gulp.series("styles", reload));
-    gulp.watch(scriptWatchFiles, gulp.series("scripts", reload));
-    gulp.watch(imagesSRC, gulp.series("images", reload));
-    gulp.watch(markupWatchFiles, gulp.series("jekyll-rebuild", reload));
+  gulp.watch(styleWatchFiles, gulp.series("styles", reload));
+  gulp.watch(scriptWatchFiles, gulp.series("scripts", reload));
+  gulp.watch(imagesSRC, gulp.series("images", reload));
+  gulp.watch(markupWatchFiles, gulp.series("jekyll-rebuild", reload));
 });
+
 
 // Default task
 gulp.task("default", gulp.series("browser-sync", "watch"));
@@ -272,14 +276,14 @@ gulp.task("default", gulp.series("browser-sync", "watch"));
 
 
 
-// 'gulp build' -- same as 'gulp' but doesn't serve site
-// 'gulp build --prod' -- same as above but with production settings
-gulp.task('build', gulp.series('clean', 'assets', 'build:site', 'html', 'xml'));
+// // 'gulp build' -- same as 'gulp' but doesn't serve site
+// // 'gulp build --prod' -- same as above but with production settings
+// gulp.task('build', gulp.series('clean', 'assets', 'build:site', 'html', 'xml'));
 
-// 'gulp critical' -- builds critical path CSS includes
-//   WARNING: run this after substantial CSS changes
-//   WARNING: .html files referenced need to exist, run after `gulp build` to ensure.
-gulp.task('critical', gulp.series('styles:critical:home', 'styles:critical:archive', 'styles:critical:post'));
+// // 'gulp critical' -- builds critical path CSS includes
+// //   WARNING: run this after substantial CSS changes
+// //   WARNING: .html files referenced need to exist, run after `gulp build` to ensure.
+// gulp.task('critical', gulp.series('styles:critical:home', 'styles:critical:archive', 'styles:critical:post'));
 
 
 
