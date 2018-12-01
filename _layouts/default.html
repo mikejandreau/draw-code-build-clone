@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
-  {%- include head.html -%}
+{%- include head.html -%}
 
 <body id="page-top" class="site">
 
@@ -9,32 +9,34 @@
     {%- include header.html -%}
   </div>
 
+  {% if site.search %}
+  <div class="search-content">
+    <div class="container">
+      {% include search-form.html %}
+    </div>
+  </div>
+
+  {% endif %}
+
+
   <main class="site-content">
-      <div class="container">
+    <div class="container">
 
-{% if site.search %}
-
-        <div class="search-content">
-          {% include search-form.html %}
-        </div>
-
-{% endif %}
-
-        <div class="main-content"><!-- in scripts it was labelled "initial-content" -->
-          {{ content }}
-        </div>
-
-
+      <div class="main-content"><!-- in scripts it was labelled "initial-content" -->
+        {{ content }}
       </div>
 
-    </main>
 
-    <footer class="site-footer">
-      {%- include footer.html -%}
-    </footer>
+    </div>
 
-    {%- include scripts.html -%}
+  </main>
 
-  </body>
+  <footer class="site-footer">
+    {%- include footer.html -%}
+  </footer>
+
+  {%- include scripts.html -%}
+
+</body>
 
 </html>
