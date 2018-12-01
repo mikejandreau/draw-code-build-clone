@@ -36,6 +36,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eg
 
 Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum.
 
+rel="CSS"
+
 ```html
 <html>
   <head>
@@ -44,6 +46,19 @@ Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin con
     <p>Hello, World!</p>
   </body>
 </html>
+```
+
+
+
+```css
+.someclass {
+	color: blue;
+}
+```
+
+
+```javascript
+function();
 ```
 
 

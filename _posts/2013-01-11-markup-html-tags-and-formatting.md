@@ -27,6 +27,40 @@ A variety of common markup showing how the theme styles them.
 
 ###### Header six
 
+
+
+<hr>
+
+
+
+
+
+```html
+<html>
+  <head>
+  </head>
+  <body>
+    <p>Hello, World!</p>
+  </body>
+</html>
+```
+
+
+
+```css
+.someclass {
+  color: blue;
+}
+```
+
+
+```javascript
+function();
+```
+
+<hr>
+
+
 ## Blockquotes
 
 Single line blockquote:

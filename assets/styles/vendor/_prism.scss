@@ -59,6 +59,7 @@ $border_radius: 4px;
 // Prism code styles
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 
+
 pre {
 	background: $color_background_pre;
 	font-family: $font_pre;
@@ -71,23 +72,22 @@ pre {
 	margin-top: 0;
 	margin-bottom: 1.6em;
 	max-width: 100%;
-	padding: 1.6em;
+	// padding: 1.6em;
+	padding: 0;
 	tab-size: 4;
-}
+	// padding: $code_block_padding;
+	// background: $base00;
 
-
-
-pre {
-	padding: $code_block_padding;
-	background: $base00;
-
+	&[class*="language-"],
 	&[rel] {
 		padding: $code_block_title 0 0;
 	}
 
+	&[class*="language-"]::before,
 	&[rel]::before {
 		line-height: $code_block_title;
-		content: attr(rel);
+		// content: attr(rel);
+		content: 'code';
 		color: white;
 		position: absolute;
 		top: 0;
@@ -97,6 +97,8 @@ pre {
 		background: $base02;
 		text-indent: $code_block_padding;
 		text-transform: uppercase;
+		height: $code_block_title;
+		color: #fff;
 		// @include font-size(1);
 	}
 
@@ -104,29 +106,40 @@ pre {
 	// 	content: "JS";
 	// }
 
-	&[rel="JavaScript"]::before {
+	// &[rel="JavaScript"]::before,
+	&[class*="-javascript"]::before {
 		background: darken($base0A, 15%);
+		content: 'JavaScript';
 	}
-
-	&[rel="CSS"]::before {
+	
+	// &[rel="CSS"]::before,
+	&[class*="-css"]::before {
 		background: darken($base0B, 10%);
+		content: 'CSS';
 	}
 
-	&[rel="SCSS"]::before {
+	// &[rel="SCSS"]::before,
+	&[class*="-scss"]::before {
 		background: darken($base0C, 10%);
+		content: 'SCSS';
 	}
 
-	&[rel="HTML"]::before {
+	// &[rel="HTML"]::before,
+	&[class*="-html"]::before {
 		background: darken($base0D, 10%);
+		content: 'HTML';
 	}
 
-	&[rel="PHP"]::before {
+	// &[rel="php"]::before,
+	&[class*="-php"]::before {
 		background: darken($base0E, 10%);
+		content: 'PHP';
 	}
 
-	&[rel="jQuery"]::before, 
-	&[rel="JSX"]::before {
+	// &[rel="jQuery"]::before, 
+	&[class*="-jsx"]::before {
 		background: darken($base0F, 5%);
+		content: 'jQuery';
 	}
 
 	code {
