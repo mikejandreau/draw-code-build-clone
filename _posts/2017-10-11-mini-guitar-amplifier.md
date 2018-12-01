@@ -5,6 +5,40 @@ date:   2017-10-11 00:00:00 -0500
 author: Mike Jandreau
 categories: builds music
 excerpt: Building a battery powered guitar amplifier from the ground up.
+---
+
+<div class="row">
+<div class="column lg-8">
+
+<h2>Overview</h2>
+<p>A more detailed write-up is coming, but for now you can peruse the photo gallery below.</p>
+
+<h3>About the Audio Demo</h3>
+<p>The SoundCloud demo in the sidebar features the mini amp on the guitar tracks. The only effect is a DIY tubscreamer pushing the clean channel. The tubescreamer was made by the talented Steve Spencer. I don't think he has a website or YouTube channel, but I'll pester him to make one.</p>
+<p>Guitars were recorded with a condenser mic in front of the cab with minimal processing to sit in the mix. The guitar solo has delay added and the rhythm guitars have some EQ to remove low end below 80hz.</p>
+
+<p>Drums are programmed in Addictive Drums, and the Scarbee Rickenbacker VST is holding down the low end.</p>
+
+{% comment %}
+<p>After the parts came in, I started by making a cardboard mockup to decide how I wanted to lay out the controls and get a rough idea of how big it had to be.</p>
+
+<p>When your table saw is out of commission, you can still make long, straight cuts by clamping a straight edge or sheetrock square to your board and following the edge with your saw.</p>
+
+<p>I used a leftover piece of duct to make the chassis that would hold the electronics and control panel. To get clean-ish edges, I folded the metal over a straight edge and used a piece of scrap wood as an anvil.</p>
+
+<p>The marks are for making sure the holes for the controls and inputs/outputs are centered in the face plate.</p>
+
+<p>TIme to spray paint the inside of the box. Totally optional, but the covering is going to be black, and it'd look weird to me to have unfinished wood inside.</p>
+<p>During a test fit, I snapped the positive (red) connection for the battery box.</p>
+<p>Fortunately I have a makeshift soldering station.</p>
+{% endcomment %}
+
+<p>Testing another gallery format: </p>
+
+
+
+
+{% comment %}
 
 featured_image: /assets/images/mini-amp/mini-amp-featured.jpg
 featured_thumb: /assets/images/mini-amp/thumbs/mini-amp-featured.jpg
@@ -129,35 +163,8 @@ img_large_24: /assets/images/mini-amp/mini-amp-24.jpg
 img_small_24: /assets/images/mini-amp/mini-amp-24.jpg
 img_title_24: Completed Amplifier
 img_descr_24: Almost looks like I knew what I was doing.
----
 
-<div class="row">
-<div class="column lg-8">
-
-<h2>Overview</h2>
-<p>A more detailed write-up is coming, but for now you can peruse the photo gallery below.</p>
-
-<h3>About the Audio Demo</h3>
-<p>The SoundCloud demo in the sidebar features the mini amp on the guitar tracks. The only effect is a DIY tubscreamer pushing the clean channel. The tubescreamer was made by the talented Steve Spencer. I don't think he has a website or YouTube channel, but I'll pester him to make one.</p>
-<p>Guitars were recorded with a condenser mic in front of the cab with minimal processing to sit in the mix. The guitar solo has delay added and the rhythm guitars have some EQ to remove low end below 80hz.</p>
-
-<p>Drums are programmed in Addictive Drums, and the Scarbee Rickenbacker VST is holding down the low end.</p>
-
-{% comment %}
-<p>After the parts came in, I started by making a cardboard mockup to decide how I wanted to lay out the controls and get a rough idea of how big it had to be.</p>
-
-<p>When your table saw is out of commission, you can still make long, straight cuts by clamping a straight edge or sheetrock square to your board and following the edge with your saw.</p>
-
-<p>I used a leftover piece of duct to make the chassis that would hold the electronics and control panel. To get clean-ish edges, I folded the metal over a straight edge and used a piece of scrap wood as an anvil.</p>
-
-<p>The marks are for making sure the holes for the controls and inputs/outputs are centered in the face plate.</p>
-
-<p>TIme to spray paint the inside of the box. Totally optional, but the covering is going to be black, and it'd look weird to me to have unfinished wood inside.</p>
-<p>During a test fit, I snapped the positive (red) connection for the battery box.</p>
-<p>Fortunately I have a makeshift soldering station.</p>
 {% endcomment %}
-
-<p>Testing another gallery format: </p>
 
 <div class="photo-block one-two">
 <a href="{{ page.img_large_1 }}" class="glightbox1"><span style="background-image: url({{ page.img_small_1 }});"></span></a>
