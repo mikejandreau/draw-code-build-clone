@@ -236,7 +236,7 @@ if ( isotopeWrapper != null ) {
 
 // Make sure scripts rendered
 $(document).ready(function (){
-	console.log('document is ready, aww hell yeah');
+	console.log('document is ready, aww yeah');
 });
 
 

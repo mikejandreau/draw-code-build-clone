@@ -176,14 +176,14 @@ function reload(done) {
 
 
 // Watch files
-gulp.task("watch", function () {
+function watch(done) {
   gulp.watch(styleWatchFiles, gulp.series("styles", reload));
   gulp.watch(scriptWatchFiles, gulp.series("scripts", reload));
   gulp.watch(imagesSRC, gulp.series("images", reload));
   gulp.watch(markupWatchFiles, gulp.series("jekyll-rebuild", reload));
-});
+  done();
+}
 
 
 // Default task
-gulp.task("default", gulp.series("browser-sync", "watch"));
-
+gulp.task("default", gulp.series("browser-sync", watch));
