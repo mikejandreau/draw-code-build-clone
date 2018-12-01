@@ -1,15 +1,7 @@
 ---
 layout: post
 title: "Antidisestablishmentarianism"
-categories:
-  - Edge Case
-tags:
-  - content
-  - css
-  - edge case
-  - html
-  - layout
-  - title
+categories: Outliers
 ---
 
 ## Title should not overflow the content area

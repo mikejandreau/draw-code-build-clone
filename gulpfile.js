@@ -9,10 +9,21 @@ var criticalStyles          = "./assets/css/styles.min.css"; // Critical styles 
 
 // JavaScript paths - add or remove JS files as needed
 var scriptSRC             = [
+                              // // '_scripts/vendor/jquery-2.2.4.js', // Include jQuery if you want
+                              // '_scripts/class-helpers.js', // Pure JS class toggling
+                              // '_scripts/menu-controls.js', // Mobile menu controls
+                              // // '_scripts/vendor/baguetteBox.js', // Pure js image lightbox & slideshow (optional)
+                              // // '_scripts/vendor/flickity.pkgd.js', // slideshow carousel (optional)
+                              // '_scripts/vendor/glightbox.js', // Pure js multimedia lightbox & slideshow (optional)
+                              // '_scripts/vendor/autosize.js', // autosize text area in forms to fit content (optional)
+                              // '_scripts/scroll-to-top.js', // Internal link scrolling
+                              // '_scripts/main.js' // main JS file
                               "./assets/scripts/vendor/jquery-3.3.1.min.js", // jQuery
                               "./assets/scripts/vendor/bootstrap.bundle.min.js", // Bootstrap/PopperJS bundle
                               "./assets/scripts/vendor/jquery.easing.min.js", // jQuery plugin for smooth scrolling
                               "./assets/scripts/vendor/jquery.fancybox.min.js", // Lightbox plugin for galleries
+                              "./assets/scripts/vendor/imagesloaded.pkgd.js", // Pure js image loading
+                              "./assets/scripts/vendor/isotope-pkgd.js", // Isotope filtering (optional)
                               "./assets/scripts/vendor/prism.js", // Syntax highlighting for code samples
                               "./assets/scripts/custom.js"
                             ]; // Path to JS vendor and custom files in desired concat order.
@@ -175,146 +186,4 @@ gulp.task("watch", function () {
 
 // Default task
 gulp.task("default", gulp.series("browser-sync", "watch"));
-
-
-
-
-
-
-// // // CSS task
-// // function styles() {
-// //   return gulp
-// //     .src(styleSRC)
-// //     .pipe(plumber())
-// //     .pipe(sass({ outputStyle: "expanded" }))
-// //     .pipe(postcss([autoprefixer(autoprefixBrowsers), cssnano()]))
-// //     .pipe(rename({
-// //       basename: styleFile,
-// //       suffix: ".min"
-// //     }))
-// //     .pipe(gulp.dest(styleDest))
-// //     .pipe(browsersync.stream())
-// // }
-
-// // // Transpile, concatenate and minify scripts (returns a stream)
-// // function scripts() {
-// //   return gulp
-// //     .src(scriptSRC)
-// //     .pipe(plumber())
-// //     .pipe(jshint())
-// //     .pipe(jshint.reporter("jshint-stylish"))
-// //     .pipe(concat(scriptFile + ".js"))
-// //     .pipe(rename({
-// //       basename: scriptFile,
-// //       suffix: ".min"
-// //     }))
-// //     .pipe(uglify())
-// //     .pipe(gulp.dest(scriptDest))
-// //     .pipe(browsersync.stream())
-// // }
-
-
-// // // Optimize Images
-// // function images() {
-// //   return gulp
-// //     .src(imagesSRC)
-// //     .pipe(newer(imagesDest))
-// //     .pipe(
-// //       imagemin({
-// //         progressive: true,
-// //         svgoPlugins: [{ removeViewBox: false }]
-// //       })
-// //     )
-// //     .pipe(gulp.dest(imagesDest));
-// // }
-
-
-
-
-
-
-// // // clean assets
-// // function clean() {
-// //   return del(assetBuildFolder);
-// // }
-
-// // // watch
-// // function watchFiles(done) {
-// //   gulp.watch(styleWatchFiles, styles);
-// //   gulp.watch(scriptWatchFiles, scripts);
-// //   gulp.watch(imagesSRC, images);
-// //   gulp.watch(markupWatchFiles, gulp.series(jekyllBuild, browserSyncReload));
-// //   done();
-// // }
-
-// // // tasks
-// // gulp.task("styles", styles);
-// // gulp.task("scripts", scripts);
-// // gulp.task("images", images);
-// // gulp.task("jekyllBuild", jekyllBuild);
-// // gulp.task("clean", clean);
-
-// // // build
-// // gulp.task(
-// //   "build",
-// //   gulp.series(clean, gulp.series(styles, scripts, images, jekyllBuild, browserSyncReload))
-// // );
-
-
-// // // watch
-// // gulp.task("default", gulp.parallel(jekyllBuild, browserSync, watchFiles));
-
-
-
-
-
-
-
-// // // experiment with this later
-
-
-
-
-
-// // 'gulp build' -- same as 'gulp' but doesn't serve site
-// // 'gulp build --prod' -- same as above but with production settings
-// gulp.task('build', gulp.series('clean', 'assets', 'build:site', 'html', 'xml'));
-
-// // 'gulp critical' -- builds critical path CSS includes
-// //   WARNING: run this after substantial CSS changes
-// //   WARNING: .html files referenced need to exist, run after `gulp build` to ensure.
-// gulp.task('critical', gulp.series('styles:critical:home', 'styles:critical:archive', 'styles:critical:post'));
-
-
-
-
-
-
-// // // // function to properly reload your browser
-// // // function reload(done) {
-// // //   browserSync.reload();
-// // //   done();
-// // // }
-// // // // "gulp serve" -- open site in browser and watch for changes
-// // // // in source files and update them when needed
-// // // gulp.task("serve", (done) => {
-// // //   browserSync.init({
-// // //     // tunnel: true,
-// // //     // open: false,
-// // //     port: 4000, // change port to match default Jekyll
-// // //     ui: {
-// // //       port: 4001
-// // //     },
-// // //     server: [paths.tempFolderName, paths.siteFolderName]
-// // //   });
-// // //   done();
-
-// // //   // watch various files for changes and do the needful
-// // //   gulp.watch([paths.mdFilesGlob, paths.htmlFilesGlob, paths.ymlFilesGlob], gulp.series("build:site", reload));
-// // //   gulp.watch([paths.xmlFilesGlob, paths.txtFilesGlob], gulp.series("site", reload));
-// // //   gulp.watch(paths.jsFilesGlob, gulp.series("scripts", reload));
-// // //   gulp.watch(paths.sassFilesGlob, gulp.series("styles", reload));
-// // //   gulp.watch(paths.imageFilesGlob, gulp.series("copy:images", "images:lazyload", "images:feature", reload));
-// // // });
-
 
