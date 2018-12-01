@@ -102,29 +102,29 @@ img {
 	font-weight: bold;
 }
 
-nav {
-	background: #efefef;
+// nav {
+// 	background: #efefef;
 
-	ul {
-		padding: 0;
-		margin: 0;
-	}
+// 	ul {
+// 		padding: 0;
+// 		margin: 0;
+// 	}
 
-	li {
-		display: inline-block;
-		margin: 0;
-		padding: 0;
+// 	li {
+// 		display: inline-block;
+// 		margin: 0;
+// 		padding: 0;
 
-		& + li {
-			margin-left: 10px; 
-			// background: red;
-		}
-	}
+// 		& + li {
+// 			margin-left: 10px; 
+// 			// background: red;
+// 		}
+// 	}
 
-	a {
-		color: orange;
-	}
-}
+// 	a {
+// 		color: orange;
+// 	}
+// }
 
 
 
@@ -144,10 +144,10 @@ nav {
   background-color: transparent;
   cursor: pointer;
 
-
-    line-height: 52px;
-    float: right;
-    margin: 0 0 0 20px;
+    line-height: 30px;
+    // line-height: 52px;
+    // float: right;
+    // margin: 0 0 0 20px;
   // -webkit-transition: 0.2s;
   // transition: 0.2s;
 

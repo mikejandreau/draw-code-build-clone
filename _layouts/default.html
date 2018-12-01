@@ -3,11 +3,13 @@
 
   {%- include head.html -%}
 
-  <body>
+<body id="page-top" class="site">
 
+  <div class="site-header">
     {%- include header.html -%}
+  </div>
 
-    <main class="page-content" aria-label="Content">
+  <main class="site-content">
       <div class="container">
 
 {% if site.search %}
@@ -27,7 +29,9 @@
 
     </main>
 
-    {%- include footer.html -%}
+    <footer class="site-footer">
+      {%- include footer.html -%}
+    </footer>
 
     {%- include scripts.html -%}
 
