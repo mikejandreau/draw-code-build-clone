@@ -1,9 +1,11 @@
 ---
 layout: post
 title: "This post demonstrates post content styles"
-categories: junk
-author: "Bart Simpson"
-meta: "Springfield"
+date: 2016-05-20 00:00:00 -0500
+categories: Builds DIY Music
+excerpt: Two old doors become a hall tree with shoe cubby and bench.
+featured_image: /assets/img/featured08.jpg
+featured_image_thumb: /assets/img/thumbs/featured08.jpg
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.

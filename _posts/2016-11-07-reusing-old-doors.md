@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Reusing Old Doors"
-date:   2016-11-07 00:00:00 -0500
-author: Mike Jandreau
+title: "Reusing Old Doors"
+date: 2016-11-07 00:00:00 -0500
 categories: Builds DIY
 excerpt: Two old doors become a hall tree with shoe cubby and bench.
 featured_image: /assets/img/featured03.jpg
+featured_image_thumb: /assets/img/thumbs/featured03.jpg
 ---
 
 <div class="row">

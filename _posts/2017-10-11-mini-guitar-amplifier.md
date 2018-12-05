@@ -2,9 +2,10 @@
 layout: post
 title:  "Mini Guitar Amplifier"
 date:   2017-10-11 00:00:00 -0500
-author: Mike Jandreau
 categories: Builds Music
 excerpt: Building a battery powered guitar amplifier from the ground up.
+featured_image: /assets/img/featured07.jpg
+featured_image_thumb: /assets/img/thumbs/featured07.jpg
 ---
 
 <div class="row">

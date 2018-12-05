@@ -175,61 +175,6 @@ searchToggle.onclick = function() {
 
 
 
-// // ISOTOPE FILTERING
-// // external js: isotope.pkgd.js
-// var isotopeWrapper =  document.querySelector('.grid-row');
-// if ( isotopeWrapper != null ) {
-
-//   // // init Isotope
-//   // var iso = new Isotope( '.grid-row', {
-//   //   itemSelector: '.preview-item',
-//   //   layoutMode: 'fitRows'
-//   // });
-  
-//   var iso;
-
-//   imagesLoaded( isotopeWrapper, function() {
-//     // init Isotope after all images have loaded
-//     iso = new Isotope( isotopeWrapper, {
-//       itemSelector: '.preview-item',
-//       layoutMode: 'fitRows'
-//     });
-//   });
-
-//   // bind filter button click
-//   var filtersElem = document.querySelector('.filter-buttons');
-//   filtersElem.addEventListener( 'click', function( event ) {
-//     // only work with buttons
-//     if ( !matchesSelector( event.target, 'button' ) ) {
-//       return;
-//     }
-//     var filterValue = event.target.getAttribute('data-filter');
-//     // use matching filter function
-//     // filterValue = filterFns[ filterValue ] || filterValue;
-//     iso.arrange({ filter: filterValue });
-//   });
-
-//   // change is-checked class on buttons
-//   var buttonGroups = document.querySelectorAll('.button-group');
-//   for ( var i=0, len = buttonGroups.length; i < len; i++ ) {
-//     var buttonGroup = buttonGroups[i];
-//     radioButtonGroup( buttonGroup );
-//   }
-
-//   function radioButtonGroup( buttonGroup ) {
-//     buttonGroup.addEventListener( 'click', function( event ) {
-//       // only work with buttons
-//       if ( !matchesSelector( event.target, 'button' ) ) {
-//         return;
-//       }
-//       buttonGroup.querySelector('.is-checked').classList.remove('is-checked');
-//       event.target.classList.add('is-checked');
-//     });
-//   }
-// }
-
-
-
 
 
 
@@ -355,7 +300,7 @@ if ( contactForm != null ) {
 
 // Init fancyBox
 $().fancybox({
-  selector : '.preview-item:visible > a',
+  selector : '.preview-item:visible > .preview-item-container > a',
   margin: 0,
   infobar: false,
   buttons: [
@@ -371,16 +316,75 @@ $().fancybox({
   idleTime : false
 })
 
-// Init Isotope
-var $grid = $('.grid').isotope({
-  // options
-});
+// // Init Isotope
+// var $grid = $('.grid').isotope({
+//   // options
+// });
 
-// Filter items on button click
-$('.filter-button-group').on( 'click', 'button', function() {
-  $grid.isotope({ filter: $(this).attr('data-filter') });
-});
+// // Filter items on button click
+// $('.filter-button-group').on( 'click', 'button', function() {
+//   $grid.isotope({ filter: $(this).attr('data-filter') });
+// });
 
+
+
+
+
+
+
+
+// ISOTOPE FILTERING
+// external js: isotope.pkgd.js
+var isotopeWrapper =  document.querySelector('.grid');
+if ( isotopeWrapper != null ) {
+
+  // // init Isotope
+  // var iso = new Isotope( '.grid-row', {
+  //   itemSelector: '.preview-item',
+  //   layoutMode: 'fitRows'
+  // });
+  
+  var iso;
+
+  imagesLoaded( isotopeWrapper, function() {
+    // init Isotope after all images have loaded
+    iso = new Isotope( isotopeWrapper, {
+      itemSelector: '.preview-item',
+      layoutMode: 'fitRows'
+    });
+  });
+
+  // bind filter button click
+  var filtersElem = document.querySelector('.filter-button-group');
+  filtersElem.addEventListener( 'click', function( event ) {
+    // only work with buttons
+    if ( !matchesSelector( event.target, 'button' ) ) {
+      return;
+    }
+    var filterValue = event.target.getAttribute('data-filter');
+    // use matching filter function
+    // filterValue = filterFns[ filterValue ] || filterValue;
+    iso.arrange({ filter: filterValue });
+  });
+
+  // change is-checked class on buttons
+  var buttonGroups = document.querySelectorAll('.button-group');
+  for ( var i=0, len = buttonGroups.length; i < len; i++ ) {
+    var buttonGroup = buttonGroups[i];
+    radioButtonGroup( buttonGroup );
+  }
+
+  function radioButtonGroup( buttonGroup ) {
+    buttonGroup.addEventListener( 'click', function( event ) {
+      // only work with buttons
+      if ( !matchesSelector( event.target, 'button' ) ) {
+        return;
+      }
+      buttonGroup.querySelector('.is-checked').classList.remove('is-checked');
+      event.target.classList.add('is-checked');
+    });
+  }
+}
 
 
 

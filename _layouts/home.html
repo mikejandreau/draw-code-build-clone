@@ -2,6 +2,7 @@
 layout: default
 ---
 
+
 <div class="home">
   {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
@@ -9,6 +10,10 @@ layout: default
 
   {{ content }}
 
+
+
+
+{% comment %}
   {%- if site.posts.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
     <ul class="post-list">
@@ -28,7 +33,13 @@ layout: default
       {%- endfor -%}
     </ul>
 
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+
   {%- endif -%}
 
+{% endcomment %}
+
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+
+    
 </div>
