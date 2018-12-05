@@ -3,7 +3,7 @@ layout: post
 title:  "Yoga Block Boombox"
 date:   2018-02-28 00:00:00 -0500
 author: Mike Jandreau
-categories: builds music
+categories: Builds Music
 excerpt: The perfect workout companion, with a 3D printed outer shell.
 ---
 

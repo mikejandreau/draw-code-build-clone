@@ -3,7 +3,7 @@ layout: post
 title:  "Box Guitar"
 date:   2015-02-02 00:00:00 -0500
 author: Mike Jandreau
-categories: builds music
+categories: Builds Music
 excerpt: A stripped down 3-string electric guitar made from leftover parts.
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title:  "Old Door Trunk"
 date:   2017-09-04 00:00:00 -0500
 author: Mike Jandreau
-categories: builds diy
+categories: Builds DIY
 excerpt: Two more old doors become a trunk for pillows and blankets.
 featured_image: /assets/img/featured02.jpg
 ---
