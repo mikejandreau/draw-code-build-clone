@@ -28,18 +28,25 @@ active: home
 
 <div class="grid row">
   {% for post in site.posts %}
-  <div class="col-sm-6 col-md-4 element-item {{ post.categories | join: ' ' }}" data-category="{{ post.categories | join: ' ' }}">
+  <div class="col-sm-6 col-md-4 preview-item {{ post.categories | join: ' ' }}" data-category="{{ post.categories | join: ' ' }}">
 
-    <a href="{{ post.featured_image }}" data-fancybox="images" data-caption="&lt;h2&gt;{{ post.title }}&lt;/h2&gt;&lt;p&gt;{{ post.excerpt }}&lt;/p&gt;&lt;a href='{{ post.url | prepend: site.baseurl }}'&gt;Read More&lt;/a&gt;"><img src="{{ post.featured_image }}" alt="{{ post.title }}"/></a>
+    <a class="preview-item-link" href="{{ post.featured_image }}" data-fancybox="images" data-caption="&lt;h2&gt;{{ post.title }}&lt;/h2&gt;&lt;p&gt;{{ post.excerpt }}&lt;/p&gt;&lt;a href='{{ post.url | prepend: site.baseurl }}'&gt;Read More&lt;/a&gt;">
 
-    <div class="element-block">
-      <div class="element-text">
-        <a href="{{ post.url | prepend: site.baseurl }}"><h2>{{ post.title }}</h2></a>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <span>&bull; posted in {{ post.categories | join: ', ' }}</span>
-        <p>{{ post.excerpt }}</p>
-        <a class="button" href="{{ post.url | prepend: site.baseurl }}">Read Post</a>
+      <div class="overlay">
+        <span><svg class="icon" width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"">
+          <title>{{ site.data.theme.t.search | default: 'Search' }}</title>
+          <path class="path1" d="M26.819 24.917c0.262 0.262 0.262 0.688 0 0.951l-0.951 0.951c-0.263 0.262-0.688 0.262-0.951 0l-6.656-6.656c-0.072-0.072-0.12-0.158-0.153-0.248-1.365 0.998-3.041 1.593-4.862 1.593-4.562 0-8.261-3.699-8.261-8.261s3.699-8.261 8.261-8.261c4.562 0 8.261 3.699 8.261 8.261 0 1.821-0.595 3.497-1.593 4.862 0.091 0.032 0.176 0.080 0.248 0.153l6.656 6.656zM13.246 7.739c-3.041 0-5.508 2.466-5.508 5.508s2.466 5.508 5.508 5.508 5.508-2.466 5.508-5.508c0-3.041-2.466-5.508-5.508-5.508z"/>
+        </svg></span>
       </div>
+
+  <img class="preview-item-image" src="{{ post.featured_image }}" alt="{{ post.title }}"/></a>
+
+    <div class="preview-text">
+      <a href="{{ post.url | prepend: site.baseurl }}"><h2>{{ post.title }}</h2></a>
+      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+      <span>&bull; posted in {{ post.categories | join: ', ' }}</span>
+      <p>{{ post.excerpt }}</p>
+      <a class="btn btn-primary" href="{{ post.url | prepend: site.baseurl }}">Read Post</a>
     </div>
 
   </div>
@@ -60,10 +67,10 @@ active: home
 <div class="grid-row row">
 
   {% for post in site.posts %}
-  <div class="col-sm-6 col-md-4 element-item {{ post.categories | join: ' ' }}" data-category="{{ post.categories | join: ' ' }}">
-    <div class="element-block">
+  <div class="col-sm-6 col-md-4 preview-item {{ post.categories | join: ' ' }}" data-category="{{ post.categories | join: ' ' }}">
+    <div class="preview-block">
       <a href="{{ post.url | prepend: site.baseurl }}"><img src="{{ post.featured_image }}" alt="{{ post.title }}"/></a>
-      <div class="element-text">
+      <div class="preview-text">
           
         <a href="{{ post.url | prepend: site.baseurl }}"><h2>{{ post.title }}</h2></a>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>

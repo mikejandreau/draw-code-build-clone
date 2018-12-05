@@ -182,7 +182,7 @@ searchToggle.onclick = function() {
 
 //   // // init Isotope
 //   // var iso = new Isotope( '.grid-row', {
-//   //   itemSelector: '.element-item',
+//   //   itemSelector: '.preview-item',
 //   //   layoutMode: 'fitRows'
 //   // });
   
@@ -191,7 +191,7 @@ searchToggle.onclick = function() {
 //   imagesLoaded( isotopeWrapper, function() {
 //     // init Isotope after all images have loaded
 //     iso = new Isotope( isotopeWrapper, {
-//       itemSelector: '.element-item',
+//       itemSelector: '.preview-item',
 //       layoutMode: 'fitRows'
 //     });
 //   });
@@ -355,15 +355,16 @@ if ( contactForm != null ) {
 
 // Init fancyBox
 $().fancybox({
-  selector : '.element-item:visible > a',
+  selector : '.preview-item:visible > a',
   margin: 0,
+  infobar: false,
   buttons: [
     "zoom",
     //"share",
-    "slideShow",
+    // "slideShow",
     //"fullScreen",
     //"download",
-    "thumbs",
+    // "thumbs",
     "close"
   ],
   animationEffect : "fade",
