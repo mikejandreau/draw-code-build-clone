@@ -16,6 +16,40 @@ active: home
 
 
 
+<h2>fancyBox v3.1 + Isotope</h2>
+
+<div class="button-group filter-button-group">
+  <button class="filter-button" data-filter="*">Show All</button>
+  {% for category in site.categories %}
+    <button class="filter-button" data-filter=".{{ category | first }}">{{ category | first }}</button>
+  {% endfor %}
+</div>
+
+
+<div class="grid row">
+  {% for post in site.posts %}
+  <div class="col-sm-6 col-md-4 element-item {{ post.categories | join: ' ' }}" data-category="{{ post.categories | join: ' ' }}">
+
+    <a href="{{ post.featured_image }}" data-fancybox="images" data-caption="&lt;h2&gt;{{ post.title }}&lt;/h2&gt;&lt;p&gt;{{ post.excerpt }}&lt;/p&gt;&lt;a href='{{ post.url | prepend: site.baseurl }}'&gt;Read More&lt;/a&gt;"><img src="{{ post.featured_image }}" alt="{{ post.title }}"/></a>
+
+    <div class="element-block">
+      <div class="element-text">
+        <a href="{{ post.url | prepend: site.baseurl }}"><h2>{{ post.title }}</h2></a>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <span>&bull; posted in {{ post.categories | join: ', ' }}</span>
+        <p>{{ post.excerpt }}</p>
+        <a class="button" href="{{ post.url | prepend: site.baseurl }}">Read Post</a>
+      </div>
+    </div>
+
+  </div>
+  {% endfor %}
+</div>
+
+
+
+{% comment %}
+
 <div class="button-group filter-buttons center-text">
   <button class="filter-button is-checked" data-filter="*">Show All</button>
   {% for category in site.categories %}
@@ -43,6 +77,10 @@ active: home
   </div>
   {% endfor %}
 </div> 
+
+
+
+{% endcomment %}
 
 
   <hr style="display: block; margin: 50px 0;">

@@ -175,58 +175,58 @@ searchToggle.onclick = function() {
 
 
 
-// ISOTOPE FILTERING
-// external js: isotope.pkgd.js
-var isotopeWrapper =  document.querySelector('.grid-row');
-if ( isotopeWrapper != null ) {
+// // ISOTOPE FILTERING
+// // external js: isotope.pkgd.js
+// var isotopeWrapper =  document.querySelector('.grid-row');
+// if ( isotopeWrapper != null ) {
 
-  // // init Isotope
-  // var iso = new Isotope( '.grid-row', {
-  //   itemSelector: '.element-item',
-  //   layoutMode: 'fitRows'
-  // });
+//   // // init Isotope
+//   // var iso = new Isotope( '.grid-row', {
+//   //   itemSelector: '.element-item',
+//   //   layoutMode: 'fitRows'
+//   // });
   
-  var iso;
+//   var iso;
 
-  imagesLoaded( isotopeWrapper, function() {
-    // init Isotope after all images have loaded
-    iso = new Isotope( isotopeWrapper, {
-      itemSelector: '.element-item',
-      layoutMode: 'fitRows'
-    });
-  });
+//   imagesLoaded( isotopeWrapper, function() {
+//     // init Isotope after all images have loaded
+//     iso = new Isotope( isotopeWrapper, {
+//       itemSelector: '.element-item',
+//       layoutMode: 'fitRows'
+//     });
+//   });
 
-  // bind filter button click
-  var filtersElem = document.querySelector('.filter-buttons');
-  filtersElem.addEventListener( 'click', function( event ) {
-    // only work with buttons
-    if ( !matchesSelector( event.target, 'button' ) ) {
-      return;
-    }
-    var filterValue = event.target.getAttribute('data-filter');
-    // use matching filter function
-    // filterValue = filterFns[ filterValue ] || filterValue;
-    iso.arrange({ filter: filterValue });
-  });
+//   // bind filter button click
+//   var filtersElem = document.querySelector('.filter-buttons');
+//   filtersElem.addEventListener( 'click', function( event ) {
+//     // only work with buttons
+//     if ( !matchesSelector( event.target, 'button' ) ) {
+//       return;
+//     }
+//     var filterValue = event.target.getAttribute('data-filter');
+//     // use matching filter function
+//     // filterValue = filterFns[ filterValue ] || filterValue;
+//     iso.arrange({ filter: filterValue });
+//   });
 
-  // change is-checked class on buttons
-  var buttonGroups = document.querySelectorAll('.button-group');
-  for ( var i=0, len = buttonGroups.length; i < len; i++ ) {
-    var buttonGroup = buttonGroups[i];
-    radioButtonGroup( buttonGroup );
-  }
+//   // change is-checked class on buttons
+//   var buttonGroups = document.querySelectorAll('.button-group');
+//   for ( var i=0, len = buttonGroups.length; i < len; i++ ) {
+//     var buttonGroup = buttonGroups[i];
+//     radioButtonGroup( buttonGroup );
+//   }
 
-  function radioButtonGroup( buttonGroup ) {
-    buttonGroup.addEventListener( 'click', function( event ) {
-      // only work with buttons
-      if ( !matchesSelector( event.target, 'button' ) ) {
-        return;
-      }
-      buttonGroup.querySelector('.is-checked').classList.remove('is-checked');
-      event.target.classList.add('is-checked');
-    });
-  }
-}
+//   function radioButtonGroup( buttonGroup ) {
+//     buttonGroup.addEventListener( 'click', function( event ) {
+//       // only work with buttons
+//       if ( !matchesSelector( event.target, 'button' ) ) {
+//         return;
+//       }
+//       buttonGroup.querySelector('.is-checked').classList.remove('is-checked');
+//       event.target.classList.add('is-checked');
+//     });
+//   }
+// }
 
 
 
@@ -324,16 +324,67 @@ window.addEventListener("scroll", showScrollToTop);
     }
   });
 
-  // Closes responsive menu when a scroll trigger link is clicked
-  $('.js-scroll-trigger').click(function() {
-    $('.navbar-collapse').collapse('hide');
-  });
+  // // Closes responsive menu when a scroll trigger link is clicked
+  // $('.js-scroll-trigger').click(function() {
+  //   $('.navbar-collapse').collapse('hide');
+  // });
 
-  // Activate scrollspy to add active class to navbar items on scroll
-  $('body').scrollspy({
-    target: '#mainNav',
-    offset: 54
-  });
+  // // Activate scrollspy to add active class to navbar items on scroll
+  // $('body').scrollspy({
+  //   target: '#mainNav',
+  //   offset: 54
+  // });
+
+
+
+
+
+// CONTACT FORM
+// If contact form is present, add action attribute and email
+// Shortened from => if (typeof(contactForm) != 'undefined' && contactForm != null) 
+var contactForm =  document.getElementById('contactform');
+if ( contactForm != null ) {
+
+    contactForm.setAttribute('action', '//formspree.io/' + 'northeastcreativedesign' + '@' + 'gmail' + '.' + 'com');
+
+}
+
+
+
+
+
+// Init fancyBox
+$().fancybox({
+  selector : '.element-item:visible > a',
+  margin: 0,
+  buttons: [
+    "zoom",
+    //"share",
+    "slideShow",
+    //"fullScreen",
+    //"download",
+    "thumbs",
+    "close"
+  ],
+  animationEffect : "fade",
+  idleTime : false
+})
+
+// Init Isotope
+var $grid = $('.grid').isotope({
+  // options
+});
+
+// Filter items on button click
+$('.filter-button-group').on( 'click', 'button', function() {
+  $grid.isotope({ filter: $(this).attr('data-filter') });
+});
+
+
+
+
+
+
 
 })(jQuery); // End of use strict
 

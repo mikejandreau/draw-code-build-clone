@@ -43,6 +43,26 @@
 
 
 
+
+
+
+.element-item {
+  border: 1px solid red;
+  margin-bottom: 30px;
+
+  a {
+    background-color: pink;
+  }
+
+  img {
+    border: 5px solid orange;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+
 // .element-block {
 //   a {
 //     display: block;
