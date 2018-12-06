@@ -289,23 +289,38 @@ figcaption {
   display: none;
 }
 
-.fancybox-show-caption .fancybox-caption, .fancybox-show-infobar .fancybox-infobar, .fancybox-show-nav .fancybox-navigation .fancybox-button, .fancybox-show-toolbar .fancybox-toolbar {
+.fancybox-show-caption .fancybox-caption, 
+.fancybox-show-infobar .fancybox-infobar, 
+.fancybox-show-nav .fancybox-navigation .fancybox-button, 
+.fancybox-show-toolbar .fancybox-toolbar {
     opacity: 1;
     transition: opacity .25s ease 0s,visibility 0s ease 0s;
     visibility: visible;
 }
 
 .fancybox-caption {
-    bottom: 0;
-    color: #eee;
-    font-size: 14px;
-    font-weight: 400;
-    left: 0;
-    line-height: 1.5;
-    padding: 25px 44px;
-    right: 0;
-    text-align: center;
-    z-index: 99996;
+  bottom: 0;
+  color: #eee;
+  font-size: 14px;
+  font-weight: 400;
+  left: 0;
+  line-height: 1.5;
+  padding: 25px 44px;
+  right: 0;
+  text-align: center;
+  z-index: 99996;
+
+  a {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    color: #ccc;
+
+    &:hover {
+      text-decoration: none;
+      border-color: #fff;
+    }
+  }
 }
 
 
@@ -337,22 +352,20 @@ figcaption {
 
 
 
-
-
-
 // Header variables - height, margin, WP admin offset, and internal anchor link offset
 //––––––––––––––––––––––––––––––––––––––––––––––––––
-$header_height: 36px;
+$header_height: 60px;
+$toggler_height: 40px;
 
 
 // Transition duration for hover/toggle effects
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 $transistion_duration: 0.3s;
 
-$menu_toggle_width: $header_height / 1.6; // width of button area
-$menu_toggle_height: $header_height;       // height of button area
+$menu_toggle_width: $toggler_height; // width of button area
+$menu_toggle_height: $toggler_height;       // height of button area
 $menu_toggle_bar: 2px;                    // thickness of button bars
-$menu_toggle_pad: 0;   // left/right padding between button area and bars.
+$menu_toggle_pad: 5px;   // left/right padding between button area and bars.
 $menu_toggle_bar_space: 4px;              // spacing between button bars
 $menu_toggle_color: #404040;
 

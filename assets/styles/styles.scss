@@ -1,14 +1,14 @@
 // main.scss
 
 // theme
-@import "themes/bootstrap-dist"; // default bootstrap
+// @import "themes/bootstrap-dist"; // default bootstrap
 // @import "themes/cerulean";
 // @import "themes/cosmo";
 // @import "themes/cyborg";
 // @import "themes/darkly";
 // @import "themes/flatly";
 // @import "themes/journal";
-// @import "themes/litera";
+@import "themes/litera";
 // @import "themes/lumen";
 // @import "themes/lux";
 // @import "themes/materia";
@@ -268,9 +268,11 @@ img {
 // test styles
 
 
-// .site-header {
-// 	background: #ddd;
-// }
+.site-header {
+	background: #ddd;
+  position: relative;
+  z-index: 9000;
+}
 
 // make nav text bold when on the page
 .active {
@@ -318,24 +320,57 @@ img {
   outline: none;
   background-color: transparent;
   cursor: pointer;
+  padding: 0;
+  line-height: 38px;
+  height: 40px;
+  width: 38px;
+  margin-right: 10px;
+  position: relative;
+  z-index: 20;
 
-    line-height: 30px;
+    // line-height: 30px;
     // line-height: 52px;
     // float: right;
     // margin: 0 0 0 20px;
   // -webkit-transition: 0.2s;
   // transition: 0.2s;
 
-
+  &:focus {
+    outline: none;
+  }
 }
 
+.icon {
+    position: relative;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 1.8em;
+    height: 1.8em;
+    margin: 0 auto;
+    // bottom: -.125em;
+    bottom: 0;
+    fill: currentColor;
+    // fill: red;
+}
+
+
 .search-content {
-  display: none;
-  visibility: hidden;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  // display: none;
+  // visibility: hidden;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  transition: all .5s;
+
+  position: absolute;
+  top: -100%;
+  width: 100%;
+  left: 0;
+
+  &.is--visible {
+    top: 58px;
+  }
   
-  background-color: tan;
+  background-color: #efefef;
 
   .inner {
     // padding: 0 0.5rem;
@@ -392,12 +427,29 @@ img {
 
 
 
-.is--hidden {
-  display: none;
-  visibility: hidden;
-}
+// .is--hidden {
+//   display: none;
+//   visibility: hidden;
+// }
 
-.is--visible {
-  display: block;
-  visibility: visible;
-}
+// .is--visible {
+//   display: block;
+//   visibility: visible;
+// }
+
+
+
+
+
+
+
+
+// // testing navbar and search toggle placement
+
+// .navbar-toggler,
+// .search-toggle {
+//   // border: 1px solid red !important;
+//   background: orange !important;
+
+// }
+

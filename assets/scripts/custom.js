@@ -47,12 +47,18 @@ var searchToggle = document.querySelector('.search-toggle');
 
 searchToggle.onclick = function() {
   toggleClass(mySearchContent, 'is--visible');
-  toggleClass(myInitialContent, 'is--hidden');
+  // toggleClass(myInitialContent, 'is--hidden');
 };
 
 
 
-
+// // close search if page is clicked
+// $("html").click(function () {
+//   if (removeClass) {
+//     $(".search-content").removeClass('is--visible');
+//   }
+//   removeClass = true;
+// });
 
 
 

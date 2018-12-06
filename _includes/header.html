@@ -1,42 +1,37 @@
 
-<nav class="navbar navbar-expand-md navbar-light bg-light">
+<nav class="navbar navbar-expand-md navbar-light bg-light justify-content-end">
   <div class="container">
 
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
     <a class="navbar-brand" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
-        <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar top-bar"></span>
-          <span class="icon-bar middle-bar"></span>
-          <span class="icon-bar bottom-bar"></span>
-        </button>
-
-      
-    {%- if page_paths -%}
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-           {% for item in site.data.navigation.docs %}
-            {% if {{page.active}} == {{item.active}} %}
-              <li class="nav-item"><a class="nav-link active" href="{{ item.url }}" alt="{{ item.title }}">{{ item.title }}</a></li>
-            {% else %}
-              <li class="nav-item"><a class="nav-link" href="{{ item.url }}" alt="{{ item.title }}">{{ item.title }}</a></li>
-            {% endif %}
-           {% endfor %}
-
-
     {% if site.search %}
-    <li class="nav-item">
-      <button class="search-toggle btn navbar-btn" type="button">
+      <button class="search-toggle ml-auto order-md-last" type="button">
         <svg class="icon" width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"">
           <title>{{ site.data.theme.t.search | default: 'Search' }}</title>
           <path class="path1" d="M26.819 24.917c0.262 0.262 0.262 0.688 0 0.951l-0.951 0.951c-0.263 0.262-0.688 0.262-0.951 0l-6.656-6.656c-0.072-0.072-0.12-0.158-0.153-0.248-1.365 0.998-3.041 1.593-4.862 1.593-4.562 0-8.261-3.699-8.261-8.261s3.699-8.261 8.261-8.261c4.562 0 8.261 3.699 8.261 8.261 0 1.821-0.595 3.497-1.593 4.862 0.091 0.032 0.176 0.080 0.248 0.153l6.656 6.656zM13.246 7.739c-3.041 0-5.508 2.466-5.508 5.508s2.466 5.508 5.508 5.508 5.508-2.466 5.508-5.508c0-3.041-2.466-5.508-5.508-5.508z"/>
-        </svg> Search
+        </svg>
       </button>
-    </li>
     {% endif %}
 
+    <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar top-bar"></span>
+      <span class="icon-bar middle-bar"></span>
+      <span class="icon-bar bottom-bar"></span>
+    </button>
+
+    {%- if page_paths -%}
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+         {% for item in site.data.navigation.docs %}
+          {% if {{page.active}} == {{item.active}} %}
+            <li class="nav-item"><a class="nav-link active" href="{{ item.url }}" alt="{{ item.title }}">{{ item.title }}</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="{{ item.url }}" alt="{{ item.title }}">{{ item.title }}</a></li>
+          {% endif %}
+         {% endfor %}
       </ul>
     </div>
     {%- endif -%}
