@@ -9,7 +9,7 @@ featured_image_thumb: /assets/img/thumbs/featured08.jpg
 ---
 
 <div class="row">
-<div class="column lg-8">
+<div class="col-lg-8">
 
 
 <img src="{{ page.featured_image }}" alt="{{ page.title }}">
@@ -80,7 +80,7 @@ featured_image_thumb: /assets/img/thumbs/featured08.jpg
 </div>
 
 </div>
-<div class="column lg-4">
+<div class="col-lg-4">
 	<div class="sidebar-block">
 		<h3>Project Info</h3>
 		<p>Some info about the project.</p>

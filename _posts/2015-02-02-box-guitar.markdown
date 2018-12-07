@@ -8,7 +8,7 @@ excerpt: A stripped down 3-string electric guitar made from leftover parts.
 ---
 
 <div class="row">
-<div class="column lg-8">
+<div class="col-lg-8">
 	
 
 <h2>Overview</h2>
@@ -295,7 +295,7 @@ function showall() {
 
 
 </div>
-<div class="column lg-4">
+<div class="col-lg-4">
 <div class="sidebar-block">
 		<h3>Project Info</h3>
 		<p>In progress - parts list and dimensions will go here.</p>

@@ -9,7 +9,7 @@ featured_image_thumb: /assets/img/thumbs/featured07.jpg
 ---
 
 <div class="row">
-<div class="column lg-8">
+<div class="col-lg-8">
 
 <h2>Overview</h2>
 <p>A more detailed write-up is coming, but for now you can peruse the photo gallery below.</p>
@@ -302,7 +302,7 @@ img_descr_24: Almost looks like I knew what I was doing.
 
 
 </div>
-<div class="column lg-4">
+<div class="col-lg-4">
 	<div class="sidebar-block">
 		<h3>Project Info</h3>
 		<p>Guitar amplifier made with scrap wood and electronics purchased on eBay.</p>

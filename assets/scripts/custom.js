@@ -42,12 +42,12 @@ function toggleClass(elem, className) {
 
 // Toggle search icon and content
 var searchToggle = document.querySelector('.search-toggle');
-    myInitialContent = document.querySelector('.initial-content');
+    myInitialContent = document.querySelector('.main-content');
     mySearchContent = document.querySelector('.search-content');
 
 searchToggle.onclick = function() {
   toggleClass(mySearchContent, 'is--visible');
-  // toggleClass(myInitialContent, 'is--hidden');
+  toggleClass(myInitialContent, 'is--hidden');
 };
 
 
@@ -391,7 +391,6 @@ if ( isotopeWrapper != null ) {
     });
   }
 }
-
 
 
 

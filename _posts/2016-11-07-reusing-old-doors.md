@@ -9,7 +9,7 @@ featured_image_thumb: /assets/img/thumbs/featured03.jpg
 ---
 
 <div class="row">
-<div class="column lg-8">
+<div class="col-lg-8">
 
 <h2>Overview</h2>
 <p>After the renovation was more or less complete, we had a lot of scrap wood and leftover pieces that still had some life in them. For this project, I used a couple of the half-dozen old doors that were in the first floor of the house.</p>
@@ -90,7 +90,7 @@ featured_image_thumb: /assets/img/thumbs/featured03.jpg
 <p>I debated whether or not to paint the finished product, but I kind of like the well-worn look. Maybe I'll paint it in the future, but I'll keep it as-is for now.</p>
 
 </div>
-<div class="column lg-4">
+<div class="col-lg-4">
 	<div class="sidebar-block">
 		<h3>Project Info</h3>
 		<p>Some info about the project.</p>

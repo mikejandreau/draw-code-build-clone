@@ -9,7 +9,7 @@ featured_image_thumb: /assets/img/thumbs/featured06.jpg
 ---
 
 <div class="row">
-<div class="column lg-8">
+<div class="col-lg-8">
 
 <h2>Overview</h2>
 <p>The goal of this project was to build a portable audio amplifier that balanced decent volume with long battery life. I considered building the outer shell out of wood, but we have a 3D printer at work and I had the opportunity to try it out. Since 3D printers rely on 3D designs, I needed to "build" the shell virtually first.</p>
@@ -214,7 +214,7 @@ featured_image_thumb: /assets/img/thumbs/featured06.jpg
 
 </div>
 
-<div class="column lg-4">
+<div class="col-lg-4">
 	<div class="sidebar-block">
 		<h3>Project Info</h3>
 		<p>The yoga block amplifier was designed in Tinkercad and printed on an Ultimaker 3.</p>
