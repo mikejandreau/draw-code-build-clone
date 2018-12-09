@@ -51,7 +51,14 @@ excerpt: Some excerpt about some stuff
     <div class="preview-text">
       {% comment %}<a href="{{ post.url | prepend: site.baseurl }}"><h2>{{ post.title }}</h2></a>{% endcomment %}
       <h4>{{ post.title }}</h4>
-      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+      {% comment %}<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>{% endcomment %}
+      <p class="post-meta">
+        {% include article-date.html %} • {% include article-read-time.html %}
+      </p>
+      
+
+
+
       {% comment %}<span>&bull; posted in {{ post.categories | join: ', ' }}</span>{% endcomment %}
       <p>{{ post.excerpt }}</p>
       <a class="btn btn-primary" href="{{ post.url | prepend: site.baseurl }}">Read Post</a>
