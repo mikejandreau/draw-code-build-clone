@@ -1,3 +1,4 @@
+{% comment %}
 <span class="article-read-time" title="Read Time">
   {% assign words = content | number_of_words %}
   {% if words < 360 %}
@@ -7,4 +8,23 @@
   {% endif %}
 </span>
 
+
+
+
+<!-- use in post -->
+<p class="post-meta">
+	{% include article-read-time.html content=content %}
+</p>
+
+<!-- use in index -->
+<p class="post-meta">
+	{% include article-read-time.html content=post.content %}
+</p>
+{% endcomment %}
+
+
+<span class="article-read-time" title="Read Time">
+    {% assign words = include.content | strip_html | number_of_words %}
+    {{ words | divided_by: 180 | plus: 1 }} min read.
+</span>
 

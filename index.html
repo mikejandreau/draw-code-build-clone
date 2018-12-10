@@ -53,7 +53,7 @@ excerpt: Some excerpt about some stuff
       <h4>{{ post.title }}</h4>
       {% comment %}<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>{% endcomment %}
       <p class="post-meta">
-        {% include article-date.html %} • {% include article-read-time.html %}
+        {% include article-date.html %} • {% include article-read-time.html content=post.content %}
       </p>
       
 

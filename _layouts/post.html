@@ -9,7 +9,7 @@ layout: default
     <p class="post-meta">
       <span class="article-date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {{ page.date | date: "%b %-d, %Y" }}
-      </span> • {% include article-author.html %} • {% include article-read-time.html %}
+      </span> • {% include article-author.html %} • {% include article-read-time.html content=content %}
       </p>
     </div>
   </header>
