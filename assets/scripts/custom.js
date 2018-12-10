@@ -356,7 +356,7 @@ if ( isotopeWrapper != null ) {
     // init Isotope after all images have loaded
     iso = new Isotope( isotopeWrapper, {
       itemSelector: '.preview-item',
-      layoutMode: 'fitRows'
+      layoutMode: 'fitRows' // fitRows, masonry, packery
     });
   });
 
