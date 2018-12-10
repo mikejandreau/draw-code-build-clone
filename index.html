@@ -37,23 +37,6 @@ excerpt: Some excerpt about some stuff
 
 <h1>Projects</h1>
 
-{% comment %}
-
-<h1>Latest Post</h1>
-{% for post in site.posts limit:1 %}
-... Show the first post all big ...
-{% endfor %}
-
-<h1>Recent Posts</h1>
-{% for post in site.posts offset:1 limit:2 %}
-... Show the next two posts ...
-{% endfor %}
-
-{% endcomment %}
-
-
-
-
 <div class="button-group filter-button-group mb-4">
   <button class="filter-button is-checked" data-filter="*">Show All</button>
   {% for category in site.categories %}
@@ -84,8 +67,6 @@ excerpt: Some excerpt about some stuff
       <img class="preview-item-image" src="{{ post.featured_image_thumb }}" alt="{{ post.title }}"/>
     </a>
 
-
-
     <div class="preview-text">
       {% comment %}<a href="{{ post.url | prepend: site.baseurl }}"><h2>{{ post.title }}</h2></a>{% endcomment %}
       <h4>{{ post.title }}</h4>
@@ -94,8 +75,6 @@ excerpt: Some excerpt about some stuff
         {% include article-date.html %} • {% include article-read-time.html content=post.content %}
       </p>
       
-
-
 
       {% comment %}<span>&bull; posted in {{ post.categories | join: ', ' }}</span>{% endcomment %}
       <p>{{ post.excerpt }}</p>
