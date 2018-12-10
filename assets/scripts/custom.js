@@ -402,7 +402,8 @@ if ( isotopeWrapper != null ) {
 
 
 
-
+// copyright year
+document.getElementById("year").innerHTML = new Date().getFullYear();
 
 
 
