@@ -8,7 +8,7 @@
 // @import "themes/darkly";
 // @import "themes/flatly";
 // @import "themes/journal";
-@import "themes/litera";
+// @import "themes/litera";
 // @import "themes/lumen";
 // @import "themes/lux";
 // @import "themes/materia";
@@ -22,7 +22,7 @@
 // @import "themes/spacelab";
 // @import "themes/superhero";
 // @import "themes/united";
-// @import "themes/yeti";
+@import "themes/yeti";
 
 // Code highlighting
 @import "vendor/prism";
@@ -41,6 +41,25 @@
     margin-top: 4em;
 }
 
+
+
+
+
+
+
+
+
+.featured-project {
+  min-height: 300px;
+  padding: 120px 0;
+  color: #fff;
+  margin-bottom: 30px;
+  @include bgImage;
+
+  h4 {
+    font-size: 3.6rem;
+  }
+}
 
 // preview item card layout container
 .preview-item {
