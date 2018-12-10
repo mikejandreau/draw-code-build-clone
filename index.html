@@ -5,13 +5,49 @@ title: Testing Title
 excerpt: Some excerpt about some stuff
 ---
 
+
+{% for post in site.posts limit:1 %}
+<div class="featured-project" style="background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url('{{ post.featured_image }}');">
+  <div class="container">
+
+  <div class="featured-item {{ post.categories | join: ' ' }}" data-category="{{ post.categories | join: ' ' }}">
+    <div class="featured-item-container">
+      
+    <div class="featured-text">
+      <h4>{{ post.title }}</h4>
+      <p class="post-meta">
+        {% include article-date.html %} • {% include article-read-time.html content=post.content %}
+      </p>
+      <p>{{ post.excerpt }}</p>
+      <a class="btn btn-primary" href="{{ post.url | prepend: site.baseurl }}">Read Post</a>
+    </div>
+
+    </div>
+
+  </div>
+</div>
+</div>
+
+  {% endfor %}
+
+
+
+
+<div class="container">
+
 <h1>Projects</h1>
 
 {% comment %}
 
-<img src="assets/img/friday.gif" alt="">
+<h1>Latest Post</h1>
+{% for post in site.posts limit:1 %}
+... Show the first post all big ...
+{% endfor %}
 
-<h4>Title of Image</h4><p>Backpackers following a dirt trail with a link</p><a href="#">Link to Something</a>
+<h1>Recent Posts</h1>
+{% for post in site.posts offset:1 limit:2 %}
+... Show the next two posts ...
+{% endfor %}
 
 {% endcomment %}
 
@@ -27,7 +63,9 @@ excerpt: Some excerpt about some stuff
 
 
 <div class="grid row">
-  {% for post in site.posts %}
+  <!-- get most recent 3 posts, skip latest -->
+  <!-- to get all posts, use "for post in site.posts" -->
+  {% for post in site.posts limit:12 offset:1 %}
   <div class="col-md-6 col-lg-4 preview-item {{ post.categories | join: ' ' }}" data-category="{{ post.categories | join: ' ' }}">
     <div class="preview-item-container">
       
@@ -71,40 +109,7 @@ excerpt: Some excerpt about some stuff
 </div>
 
 
-
-{% comment %}
-
-<div class="button-group filter-buttons center-text">
-  <button class="filter-button is-checked" data-filter="*">Show All</button>
-  {% for category in site.categories %}
-    <button class="filter-button" data-filter=".{{ category | first }}">{{ category | first }}</button>
-  {% endfor %}
 </div>
-
-<div class="grid-row row">
-
-  {% for post in site.posts %}
-  <div class="col-sm-6 col-md-4 preview-item {{ post.categories | join: ' ' }}" data-category="{{ post.categories | join: ' ' }}">
-    <div class="preview-block">
-      <a href="{{ post.url | prepend: site.baseurl }}"><img src="{{ post.featured_image }}" alt="{{ post.title }}"/></a>
-      <div class="preview-text">
-          
-        <a href="{{ post.url | prepend: site.baseurl }}"><h2>{{ post.title }}</h2></a>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <span>&bull; posted in {{ post.categories | join: ', ' }}</span>
-
-        <p>{{ post.excerpt }}</p>
-
-        <a class="button" href="{{ post.url | prepend: site.baseurl }}">Read Post</a>
-      </div>
-    </div>
-  </div>
-  {% endfor %}
-</div> 
-
-
-
-{% endcomment %}
 
 
   <hr style="display: block; margin: 50px 0;">
