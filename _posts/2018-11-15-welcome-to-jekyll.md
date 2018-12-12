@@ -2,10 +2,10 @@
 layout: post
 title:  "Welcome to Jekyll!"
 date:   2018-11-15 09:32:02 -0500
-categories: Jekyll
+categories: Code
 excerpt: Fancy excerpt about some such whatever thing about stuff.
-featured_image: /assets/img/featured04.jpg
-featured_image_thumb: /assets/img/thumbs/featured04.jpg
+featured_image: /assets/img/featured09.jpg
+featured_image_thumb: /assets/img/thumbs/featured09.jpg
 ---
 Bloop bloop bloop.
 

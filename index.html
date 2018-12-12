@@ -5,7 +5,7 @@ title: Testing Title
 excerpt: Some excerpt about some stuff
 ---
 
-
+{% comment %}
 {% for post in site.posts limit:1 %}
 <div class="featured-project" style="background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url('{{ post.featured_image }}');">
   <div class="container">
@@ -27,11 +27,27 @@ excerpt: Some excerpt about some stuff
   </div>
 </div>
 </div>
+{% endfor %}
+{% endcomment %}
 
-  {% endfor %}
+<div class="featured-project" style="background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url('/assets/img/featured04.jpg');">
+  <div class="container">
 
+  <div class="featured-item">
+    <div class="featured-item-container">
+      
+    <div class="featured-text">
+      <h4>Hey There</h4>
+      <p>I build things.</p>
+      <a class="btn btn-primary" href="#">Button</a>
+      <a class="btn btn-secondary" href="#">More Button</a>
+    </div>
 
+    </div>
 
+  </div>
+</div>
+</div>
 
 <div class="container">
 
@@ -48,7 +64,7 @@ excerpt: Some excerpt about some stuff
 <div class="grid row">
   <!-- get most recent 3 posts, skip latest -->
   <!-- to limit posts, use "for post in site.posts limit:12 offset:1" -->
-  {% for post in site.posts offset:1 %}
+  {% for post in site.posts %}
   <div class="col-md-6 col-lg-4 preview-item {{ post.categories | join: ' ' }}" data-category="{{ post.categories | join: ' ' }}">
     <div class="preview-item-container">
       

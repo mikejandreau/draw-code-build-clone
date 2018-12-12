@@ -2,9 +2,9 @@
 layout: post
 title:  "Yoga Block Boombox"
 date:   2018-02-28 00:00:00 -0500
-categories: Builds Music Video
+categories: Builds Music
 excerpt: The perfect workout companion, with a 3D printed outer shell.
-featured_image: https://www.youtube.com/watch?v=9f4MwZLr0J8
+featured_image: /assets/img/featured06.jpg
 featured_image_thumb: /assets/img/thumbs/featured06.jpg
 ---
 
@@ -14,6 +14,8 @@ featured_image_thumb: /assets/img/thumbs/featured06.jpg
 <h2>Overview</h2>
 <p>The goal of this project was to build a portable audio amplifier that balanced decent volume with long battery life. I considered building the outer shell out of wood, but we have a 3D printer at work and I had the opportunity to try it out. Since 3D printers rely on 3D designs, I needed to "build" the shell virtually first.</p>
 <p>To build the 3D model for the printer, I used Autodesk's Tinkercad. It's free, easy to use, and capable of creating pretty detailed models. If you need a more full-featured 3D program, Blender is another good option. I won't be going over how to use Tinkercad or Blender here, but may in the future if enough people express interest.</p>
+
+Video: https://www.youtube.com/watch?v=9f4MwZLr0J8
 
 <h3>Design Process</h3>
 <p>I took measurements of the internal components to determine the minimum internal space needed to house two 4-inch speakers, PCB (printed circuit board), battery box, and controls. The intent was to have a <em>usable</em> yoga block, so I decided the outside walls should be &frac14;-inch thick for strength.</p>
