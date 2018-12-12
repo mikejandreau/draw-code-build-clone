@@ -42,7 +42,12 @@
 }
 
 
-
+.navbar {
+  // font-size: 0.8203125rem;
+  // font-weight: 300;
+  font-size: 1rem;
+  font-weight: 400;
+}
 
 
 
@@ -276,16 +281,19 @@ img {
 
 
 .site-footer {
-  background: tan;
+  background: #fff;
+  border-top: 1px solid #efefef;
+  padding: 30px 0;
 }
 
 // test styles
 
 
 .site-header {
-	background: #ddd;
-  position: relative;
-  z-index: 9000;
+	// background: #ddd;
+ //  position: relative;
+ //  z-index: 9000;
+  border-bottom: 1px solid #efefef;
 }
 
 .post-header {
@@ -299,10 +307,10 @@ img {
   // }
 }
 
-// make nav text bold when on the page
-.active {
-	font-weight: bold;
-}
+// // make nav text bold when on the page
+// .active {
+// 	font-weight: bold;
+// }
 
 // nav {
 // 	background: #efefef;
