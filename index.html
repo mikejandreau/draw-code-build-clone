@@ -5,18 +5,18 @@ title: Testing Title
 excerpt: Some excerpt about some stuff
 ---
 
-{% comment %}
 {% for post in site.posts limit:1 %}
-<div class="featured-project" style="background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url('{{ post.featured_image }}');">
+<div class="featured-project" style="background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url('{{ post.featured_image }}');">
   <div class="container">
 
-  <div class="featured-item {{ post.categories | join: ' ' }}" data-category="{{ post.categories | join: ' ' }}">
+  <div class="featured-item">
     <div class="featured-item-container">
       
     <div class="featured-text">
       <h4>{{ post.title }}</h4>
       <p class="post-meta">
-        {% include article-date.html %} • {% include article-read-time.html content=post.content %}
+        {% include article-date.html %}
+        {% include article-read-time.html content=post.content %}
       </p>
       <p>{{ post.excerpt }}</p>
       <a class="btn btn-primary" href="{{ post.url | prepend: site.baseurl }}">Read Post</a>
@@ -28,26 +28,30 @@ excerpt: Some excerpt about some stuff
 </div>
 </div>
 {% endfor %}
-{% endcomment %}
 
+{% comment %}
 <div class="featured-project" style="background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url('/assets/img/featured04.jpg');">
   <div class="container">
 
-  <div class="featured-item">
-    <div class="featured-item-container">
-      
-    <div class="featured-text">
-      <h4>Hey There</h4>
-      <p>I build things.</p>
-      <a class="btn btn-primary" href="#">Button</a>
-      <a class="btn btn-secondary" href="#">More Button</a>
-    </div>
+    <div class="featured-item">
+      <div class="featured-item-container">
+
+        <div class="featured-text">
+          <h4>Hey There</h4>
+          <p>I build things.</p>
+          <a class="btn btn-primary" href="#">Button</a>
+          <a class="btn btn-secondary" href="#">More Button</a>
+        </div>
+
+      </div>
 
     </div>
-
   </div>
 </div>
-</div>
+
+{% endcomment %}
+
+
 
 <div class="container">
 
@@ -64,7 +68,7 @@ excerpt: Some excerpt about some stuff
 <div class="grid row">
   <!-- get most recent 3 posts, skip latest -->
   <!-- to limit posts, use "for post in site.posts limit:12 offset:1" -->
-  {% for post in site.posts %}
+  {% for post in site.posts offset:1 %}
   <div class="col-md-6 col-lg-4 preview-item {{ post.categories | join: ' ' }}" data-category="{{ post.categories | join: ' ' }}">
     <div class="preview-item-container">
       
@@ -78,7 +82,8 @@ excerpt: Some excerpt about some stuff
       <h4>{{ post.title }}</h4>
       {% comment %}<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>{% endcomment %}
       <p class="post-meta">
-        {% include article-date.html %} • {% include article-read-time.html content=post.content %}
+        {% include article-date.html %}
+        {% include article-read-time.html content=post.content %}
       </p>
       
 
@@ -97,4 +102,20 @@ excerpt: Some excerpt about some stuff
 </div>
 
 
-  <hr style="display: block; margin: 50px 0;">
+<section class="dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p>blah</p>
+    </div>
+  </div>
+</div>
