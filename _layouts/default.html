@@ -10,19 +10,13 @@
   </div>
 
   {% if site.search %}
-  <div class="search-content">
-    <div class="container">
-      {% include search-form.html %}
-    </div>
-  </div>
+    {% include search-form.html %}
   {% endif %}
 
   <main class="site-content">
-    <!-- <div class="container"> -->
-      <div class="main-content"><!-- in scripts it was labeled "initial-content" -->
-        {{ content }}
-      </div>
-    <!-- </div> -->
+    <div class="main-content">
+      {{ content }}
+    </div>
   </main>
 
   <footer class="site-footer">
