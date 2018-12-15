@@ -1,13 +1,10 @@
 
 
+// gutter between columns calculated in grid
+$code_margin: 20px; 
+$code_block_padding: $code_margin * 1.2;
 
-
-
-
-$column_margin: 20px; // gutter between columns calculated in grid
-$code_block_padding: $column_margin * 1.2;
-
-$code_block_title: $column_margin * 2.4;
+$code_block_title: $code_margin * 2.4;
 // Color scheme for code blocks
 // BASE16 THEMES: https://chriskempson.github.io/base16/
 //––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -35,13 +32,13 @@ $font_weight_pre: 400;
 $font_line_height_pre: 1.6;
 $border_radius: 4px;
 
-
+// Wrapper for code blocks, position set for aligning child elements
 .code-toolbar {
     position: relative;
 }
 
+// Wrapper for the "Copy" code button
 .toolbar {
-    // background: red;
     color: $base07;
     position: absolute;
     bottom: 5px;
@@ -53,7 +50,6 @@ $border_radius: 4px;
     &:hover {
     	cursor: pointer;
     }
-
 }
 
 // Prism code styles
@@ -142,9 +138,15 @@ pre {
 		content: 'jQuery';
 	}
 
+	// &[rel="jQuery"]::before, 
+	&[class*="-ruby"]::before {
+		background: darken($base08, 5%);
+		content: 'Ruby';
+	}
+
 	code {
 		background: none;
-		padding: $column_margin $code_block_padding;
+		padding: $code_margin $code_block_padding;
 		white-space: pre;
 		-webkit-overflow-scrolling: touch;
 		display: block;
