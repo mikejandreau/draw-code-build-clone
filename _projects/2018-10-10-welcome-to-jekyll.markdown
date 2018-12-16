@@ -1,10 +1,14 @@
 ---
 layout: post
-title:  "Project 2"
-tags: 
-  - code
-  - syntax highlighting
+title:  "Project 3"
+date: 2018-10-10 09:32:02 -0500
+excerpt: Fancy excerpt about some such whatever thing about stuff.
+featured_image: /assets/img/featured09.jpg
+featured_image_thumb: /assets/img/thumbs/featured09.jpg
 ---
+
+<div class="row">
+<div class="col-lg-8">
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia at quia et earum laboriosam velit iste, dolorem ex dolores ea nostrum aperiam incidunt rerum, corporis. Incidunt, numquam! Sit, quae, voluptatibus.
 
@@ -15,9 +19,21 @@ To add new posts, simply add a file in the `_posts` directory that follows the c
 Jekyll also offers powerful support for code snippets:
 
 
-
+</div>
+<div class="col-lg-4">
+	<div class="sidebar-block" markdown="1" >
+  <h3>Project Info</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi accusantium placeat quibusdam blanditiis deserunt, reiciendis non, amet tempora animi odio fuga ab magnam, harum? Beatae ut, ea fugiat accusamus excepturi?.</p>
+  
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-talk]: https://talk.jekyllrb.com/
+</div>
+
+</div>
+</div>
+
+
+

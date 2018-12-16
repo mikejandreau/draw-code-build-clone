@@ -241,15 +241,15 @@ Video: https://www.youtube.com/watch?v=9f4MwZLr0J8
 		<p>If you're interested in tinkering with 3D modeling or electronics, below are links to some great places to start.</p>
 
 <div class="row">
-<div class="column sm-4 lg-12">
+<div class="col-sm-4 col-lg-12">
 <p><a href="https://www.adafruit.com/category/526" target="_blank"><img src="{{ page.img_logo_1 }}" alt="Adafruit"></a></p>
 </div>
-<div class="column sm-4 lg-12">
+<div class="col-sm-4 col-lg-12">
 <p><a href="https://www.tinkercad.com/" target="_blank">
 <img src="{{ page.img_logo_2 }}" alt="Tinkercad">
 </a></p>
 </div>
-<div class="column sm-4 lg-12">
+<div class="col-sm-4 col-lg-12">
 <p><a href="https://www.blender.org/" target="_blank">
 <img src="{{ page.img_logo_3 }}" alt="Blender">
 </a></p>
@@ -258,6 +258,7 @@ Video: https://www.youtube.com/watch?v=9f4MwZLr0J8
 
 </div>
 </div>
+
 </div>
 
 

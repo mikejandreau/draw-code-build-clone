@@ -1,10 +1,15 @@
 ---
 layout: post
-title: "Project 4"
-categories: junk
-author: "Bart Simpson"
-meta: "Springfield"
+title: "Project 1"
+date: 2016-05-20 09:32:02 -0500
+categories: Code
+excerpt: Fancy excerpt about some such whatever thing about stuff.
+featured_image: /assets/img/featured09.jpg
+featured_image_thumb: /assets/img/thumbs/featured09.jpg
 ---
+
+<div class="row">
+<div class="col-lg-8" markdown="1" >
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.
 
@@ -36,23 +41,25 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eg
 
 Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum.
 
+
 ```html
 <html>
-  <head>
-  </head>
-  <body>
-    <p>Hello, World!</p>
-  </body>
+<head>
+</head>
+<body>
+<p>Hello, World!</p>
+</body>
 </html>
 ```
 
+
 ```php
 <?php if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) : ?>
-	<?php the_custom_logo(); ?>
+<?php the_custom_logo(); ?>
 <?php else : ?> 
-	<span class="site-title">
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-	</span>
+<span class="site-title">
+<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+</span>
 <?php endif; ?>
 ```
 
@@ -60,17 +67,17 @@ Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin con
 
 ```css
 .someclass {
-	color: blue;
+color: blue;
 }
 ```
 
 ```scss
 .someclass {
-	color: blue;
+color: blue;
 
-	a {
-		font-size: 20px;
-	}
+a {
+font-size: 20px;
+}
 }
 ```
 
@@ -78,32 +85,32 @@ Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin con
 ```javascript
 // jquery easing
 (function($) {
-  "use strict"; // Start of use strict
+"use strict"; // Start of use strict
 
-  // Smooth scrolling using jQuery easing
-  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: (target.offset().top - 54)
-        }, 1000, "easeInOutExpo");
-        return false;
-      }
-    }
-  });
+// Smooth scrolling using jQuery easing
+$('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
+if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+var target = $(this.hash);
+target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+if (target.length) {
+$('html, body').animate({
+  scrollTop: (target.offset().top - 54)
+}, 1000, "easeInOutExpo");
+return false;
+}
+}
+});
 
-  // Closes responsive menu when a scroll trigger link is clicked
-  $('.js-scroll-trigger').click(function() {
-    $('.navbar-collapse').collapse('hide');
-  });
+// Closes responsive menu when a scroll trigger link is clicked
+$('.js-scroll-trigger').click(function() {
+$('.navbar-collapse').collapse('hide');
+});
 
-  // Activate scrollspy to add active class to navbar items on scroll
-  $('body').scrollspy({
-    target: '#mainNav',
-    offset: 54
-  });
+// Activate scrollspy to add active class to navbar items on scroll
+$('body').scrollspy({
+target: '#mainNav',
+offset: 54
+});
 
 })(jQuery); // End of use strict
 ```
@@ -139,8 +146,6 @@ In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla e
 3. Third item, what what?!
 4. Fourth item, fo sheezy my neezy
 
-
-
 ## Headings are cool! (h2)
 
 Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
@@ -165,3 +170,24 @@ lorem | lorem ipsum | lorem ipsum dolor | lorem ipsum dolor sit
 lorem ipsum dolor sit amet | lorem ipsum dolor sit amet consectetur | lorem ipsum dolor sit amet | lorem ipsum dolor sit
 lorem ipsum dolor | lorem ipsum | lorem | lorem ipsum
 lorem ipsum dolor | lorem ipsum dolor sit | lorem ipsum dolor sit amet | lorem ipsum dolor sit amet consectetur
+
+</div>
+
+<div class="col-lg-4">
+<div class="sidebar-block">
+
+  <h3>Project Info</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi accusantium placeat quibusdam blanditiis deserunt, reiciendis non, amet tempora animi odio fuga ab magnam, harum? Beatae ut, ea fugiat accusamus excepturi?.</p>
+  <p>
+  <strong>Dimensions</strong>: 9&frac12; x 6 x 4 in. <br>
+  <strong>Material</strong>: 2.85 mm. PLA <br>
+  <strong>Power</strong>: 9v battery / 12v AC<br>
+  <strong>Output</strong>: 5 watts
+  </p>
+
+</div>
+</div>
+
+</div>
+
+
