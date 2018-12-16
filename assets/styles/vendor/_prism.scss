@@ -144,6 +144,12 @@ pre {
 		content: 'Ruby';
 	}
 
+	// &[rel="jQuery"]::before, 
+	&[class*="-xml"]::before {
+		background: darken($base0C, 5%);
+		content: 'XML';
+	}
+
 	code {
 		background: none;
 		padding: $code_margin $code_block_padding;
