@@ -24,7 +24,7 @@ var scriptSRC             = [
                               "./assets/scripts/vendor/jquery.fancybox.min.js", // Lightbox plugin for galleries
                               "./assets/scripts/vendor/imagesloaded.pkgd.js", // Pure js image loading
                               "./assets/scripts/vendor/isotope-pkgd.js", // Isotope filtering (optional)
-                              "./assets/scripts/vendor/prism.js", // Syntax highlighting for code samples
+                              // "./assets/scripts/vendor/prism.js", // Syntax highlighting for code samples
                               "./assets/scripts/custom.js"
                             ]; // Path to JS vendor and custom files in desired concat order.
 var scriptDest            = "./assets/js"; // Path to save the compiled JS file
