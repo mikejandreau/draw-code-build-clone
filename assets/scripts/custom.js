@@ -43,14 +43,14 @@ function toggleClass(elem, className) {
 
 
 // Toggle search icon and content
-var searchToggle = document.querySelector('.search-toggle');
-    mainContent = document.querySelector('.main-content');
-    searchContent = document.querySelector('.search-content');
+// var searchToggle = document.querySelector('.search-toggle');
+//     mainContent = document.querySelector('.main-content');
+//     searchContent = document.querySelector('.search-content');
 
-searchToggle.onclick = function() {
-  toggleClass(searchContent, 'is--visible');
-  toggleClass(mainContent, 'is--hidden');
-};
+// searchToggle.onclick = function() {
+//   toggleClass(searchContent, 'is--visible');
+//   toggleClass(mainContent, 'is--hidden');
+// };
 
 // searchContent.onclick = function() {
 //   removeClass(searchContent, 'is--visible');
@@ -66,11 +66,6 @@ searchToggle.onclick = function() {
 //   }
 //   removeClass = true;
 // });
-
-
-
-
-
 
 
 
@@ -126,6 +121,17 @@ $(window).resize(function() {
 
 
 
+// // CONTACT FORM
+// // If contact form is present, add action attribute and email
+// // Shortened from => if (typeof(contactForm) != 'undefined' && contactForm != null) 
+// var contactForm =  document.getElementById('contactform');
+// if ( contactForm != null ) {
+
+//     contactForm.setAttribute('action', '//formspree.io/' + 'northeastcreativedesign' + '@' + 'gmail' + '.' + 'com');
+
+// }
+
+
 
 
 // show scrollup button after scrolling 300px
@@ -159,7 +165,8 @@ window.addEventListener("scroll", showScrollToTop);
       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
       if (target.length) {
         $('html, body').animate({
-          scrollTop: (target.offset().top - 54)
+          // scrollTop: (target.offset().top - 54)
+          scrollTop: (target.offset().top - 10)
         }, 1000, "easeInOutExpo");
         return false;
       }
@@ -177,90 +184,71 @@ window.addEventListener("scroll", showScrollToTop);
   //   offset: 54
   // });
 
+  // FANCYBOX GALLERY
+  // Initialize and use only visible items
+  $().fancybox({
+    selector : '.preview-item:visible > .preview-item-container > a',
+    margin: 0,
+    infobar: false,
+    buttons: [
+      "zoom",
+      //"share",
+      // "slideShow",
+      //"fullScreen",
+      //"download",
+      // "thumbs",
+      "close"
+    ],
+    animationEffect : "fade",
+    idleTime : false
+  })
 
+  // ISOTOPE FILTERING
+  // External js: isotope.pkgd.js
+  var isotopeWrapper =  document.querySelector('.grid');
+  if ( isotopeWrapper != null ) {
 
+    var iso;
 
-
-// // CONTACT FORM
-// // If contact form is present, add action attribute and email
-// // Shortened from => if (typeof(contactForm) != 'undefined' && contactForm != null) 
-// var contactForm =  document.getElementById('contactform');
-// if ( contactForm != null ) {
-
-//     contactForm.setAttribute('action', '//formspree.io/' + 'northeastcreativedesign' + '@' + 'gmail' + '.' + 'com');
-
-// }
-
-
-
-
-
-// Init fancyBox
-$().fancybox({
-  selector : '.preview-item:visible > .preview-item-container > a',
-  margin: 0,
-  infobar: false,
-  buttons: [
-    "zoom",
-    //"share",
-    // "slideShow",
-    //"fullScreen",
-    //"download",
-    // "thumbs",
-    "close"
-  ],
-  animationEffect : "fade",
-  idleTime : false
-})
-
-
-
-// ISOTOPE FILTERING
-// external js: isotope.pkgd.js
-var isotopeWrapper =  document.querySelector('.grid');
-if ( isotopeWrapper != null ) {
-
-  var iso;
-
-  imagesLoaded( isotopeWrapper, function() {
-    // init Isotope after all images have loaded
-    iso = new Isotope( isotopeWrapper, {
-      itemSelector: '.preview-item',
-      layoutMode: 'fitRows' // fitRows, masonry, packery
+    imagesLoaded( isotopeWrapper, function() {
+      // init Isotope after all images have loaded
+      iso = new Isotope( isotopeWrapper, {
+        itemSelector: '.preview-item',
+        layoutMode: 'fitRows' // fitRows, masonry, packery
+      });
     });
-  });
 
-  // bind filter button click
-  var filtersElem = document.querySelector('.filter-button-group');
-  filtersElem.addEventListener( 'click', function( event ) {
-    // only work with buttons
-    if ( !matchesSelector( event.target, 'button' ) ) {
-      return;
-    }
-    var filterValue = event.target.getAttribute('data-filter');
-    // use matching filter function
-    // filterValue = filterFns[ filterValue ] || filterValue;
-    iso.arrange({ filter: filterValue });
-  });
-
-  // change is-checked class on buttons
-  var buttonGroups = document.querySelectorAll('.button-group');
-  for ( var i=0, len = buttonGroups.length; i < len; i++ ) {
-    var buttonGroup = buttonGroups[i];
-    radioButtonGroup( buttonGroup );
-  }
-
-  function radioButtonGroup( buttonGroup ) {
-    buttonGroup.addEventListener( 'click', function( event ) {
+    // bind filter button click
+    var filtersElem = document.querySelector('.filter-button-group');
+    filtersElem.addEventListener( 'click', function( event ) {
       // only work with buttons
       if ( !matchesSelector( event.target, 'button' ) ) {
         return;
       }
-      buttonGroup.querySelector('.is-checked').classList.remove('is-checked');
-      event.target.classList.add('is-checked');
+      var filterValue = event.target.getAttribute('data-filter');
+      // use matching filter function
+      // filterValue = filterFns[ filterValue ] || filterValue;
+      iso.arrange({ filter: filterValue });
     });
+
+    // change is-checked class on buttons
+    var buttonGroups = document.querySelectorAll('.button-group');
+    for ( var i=0, len = buttonGroups.length; i < len; i++ ) {
+      var buttonGroup = buttonGroups[i];
+      radioButtonGroup( buttonGroup );
+    }
+
+    function radioButtonGroup( buttonGroup ) {
+      buttonGroup.addEventListener( 'click', function( event ) {
+        // only work with buttons
+        if ( !matchesSelector( event.target, 'button' ) ) {
+          return;
+        }
+        buttonGroup.querySelector('.is-checked').classList.remove('is-checked');
+        event.target.classList.add('is-checked');
+      });
+    }
   }
-}
 
 })(jQuery); // End of use strict
 
@@ -268,8 +256,15 @@ if ( isotopeWrapper != null ) {
 
 
 
-// copyright year
+
+
+
+
+// COPYRIGHT YEAR
+// Get current year for copyright in footer
 document.getElementById("year").innerHTML = new Date().getFullYear();
+
+
 
 
 

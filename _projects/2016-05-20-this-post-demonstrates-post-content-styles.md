@@ -9,7 +9,7 @@ featured_image_thumb: /assets/img/thumbs/featured09.jpg
 ---
 
 <div class="row">
-<div class="col-lg-8" markdown="1" >
+<div class="col-lg-8 post-main" markdown="1">
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.
 
@@ -29,7 +29,7 @@ Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutru
 
 Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc.
 
-### Some great subheading (h3)
+<h3 id="href01">HREF 1</h3>
 
 Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
 
@@ -44,11 +44,11 @@ Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin con
 
 ```html
 <html>
-<head>
-</head>
-<body>
-<p>Hello, World!</p>
-</body>
+  <head>
+  </head>
+  <body>
+    <p>Hello, World!</p>
+  </body>
 </html>
 ```
 
@@ -67,17 +67,17 @@ Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin con
 
 ```css
 .someclass {
-color: blue;
+  color: blue;
 }
 ```
 
 ```scss
 .someclass {
-color: blue;
+  color: blue;
 
-a {
-font-size: 20px;
-}
+  a {
+    font-size: 20px;
+  }
 }
 ```
 
@@ -184,6 +184,10 @@ lorem ipsum dolor | lorem ipsum dolor sit | lorem ipsum dolor sit amet | lorem i
   <strong>Power</strong>: 9v battery / 12v AC<br>
   <strong>Output</strong>: 5 watts
   </p>
+
+
+<a class="js-scroll-trigger" href="#href01">HTML Code</a>
+
 
 </div>
 </div>

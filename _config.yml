@@ -23,7 +23,7 @@ search: true # true, false (default)
 # Build settings
 incremental: true
 markdown: kramdown
-highlighter: null
+highlighter: rouge # or pygments or null
 plugins:
   - jekyll-feed
 

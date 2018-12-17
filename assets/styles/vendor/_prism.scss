@@ -32,6 +32,294 @@ $font_weight_pre: 400;
 $font_line_height_pre: 1.6;
 $border_radius: 4px;
 
+// Fallback Jekyll-Rouge styles if JS is disabled
+
+// // Code block styling
+// // ROUGE
+// //––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// [class*="language-"],
+// [class*="code-"] {
+//     position: relative;
+//     border-radius: $border_radius;
+//     margin-bottom: 2.5rem;
+//     overflow: hidden;
+
+//     // border: 1px solid $base07; // for use with light code theme
+//     // box-shadow: 0px 0px $column_margin 0px rgba(0,0,0,0.3); // for use with light code theme
+
+//     // @include dropShadow;
+
+//     &:before {
+//         font-family: $font_pre;
+//         font-weight: $font_weight_pre;
+//         display: block;
+//         content: 'example';
+//         position: absolute;
+//         z-index: 10;
+//         text-transform: uppercase;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         margin-bottom: 0;
+//         box-sizing: border-box;
+//         padding: 0 $code_block_padding;
+//         line-height: $code_block_title + 4;
+//         height: $code_block_title;
+//         background: $base01;
+//         color: $base07; // default color of code language title blocks
+//     }
+
+//     &[class*="-output"] {
+//         background: #fff;
+//         // background: $base07;
+//         // border: 1px solid $base05;
+//         padding: ($code_block_title + $code_block_padding) $code_block_padding $code_block_padding;
+
+//         &:before {
+//             background: $base03;
+//             content: 'Output';
+//         }
+//     }
+
+//     &[class*="-js"]:before {
+//         background: darken($base0A, 15%);
+//         content: 'JavaScript';
+//     }
+
+//     &[class*="-jquery"]:before {
+//         background: darken($base09, 5%);
+//         content: 'jQuery';
+//     }
+
+//     &[class*="-html"]:before {
+//         background: darken($base0D, 10%);
+//         content: 'HTML';
+//     }
+
+//     &[class*="-scss"]:before {
+//         background: darken($base0C, 10%);
+//         content: 'SCSS';
+//     }
+
+//     &[class*="-php"]:before {
+//         background: darken($base0E, 10%);
+//         content: 'PHP';
+//     }
+
+//     &[class*="-ruby"]:before {
+//         background: darken($base08, 5%);
+//         content: 'Ruby';
+//     }
+
+//     &[class*="-css"]:before {
+//         background: darken($base0B, 10%);
+//         content: 'CSS';
+//     }
+
+//     &[class*="-python"]:before {
+//         background: darken($base0C, 20%);
+//         content: 'Python';
+//     }
+// }
+
+// .highlight  { 
+//     border: none;
+//     padding: 0;
+//     margin: 0;
+//     overflow-x: auto;
+//     background: $base00; 
+//     color: $base05;
+
+//     code {
+//         position: relative;
+//         background: none;
+//         padding: ($code_block_title + $code_block_padding) $code_block_padding $code_block_padding;
+//         white-space: pre;
+//         -webkit-overflow-scrolling: touch;
+//         display: block;
+//         overflow: auto;
+//         color: $base06;
+
+//         .line-numbers & {
+//             padding: $code_block_title 0 0;
+//         }
+
+//         &::-webkit-scrollbar {
+//             width: .5em;
+//             height: .5em;
+//         }
+
+//         &::-webkit-scrollbar-thumb {
+//             background: $base04;
+//         }
+
+//         &::-webkit-scrollbar-track {
+//             background: none;
+//         }
+//     }
+
+//     table {
+//         margin: 0;
+//     }
+
+//     td,
+//     th {
+//         border: none;
+//     }
+
+//     pre.lineno {
+//         color: $base02;
+//         border: none;
+//     }
+
+//     .lineno {
+//         user-select: none;
+//         color: $base03;
+//     }
+
+//     .gutter {
+//         border-right: 1px dotted darken($base02, 5%);
+//         padding: $code_block_padding;
+//     }
+
+//     .code {
+//         padding: $code_block_padding;
+//     }
+
+//     pre {
+//         display: block;
+//         position: relative;
+//         margin: 0;
+//         padding: 0;
+
+//         pre {
+//             border: none;
+//             margin-bottom: 0px;
+//         }
+//     }
+
+//     .c   { color: $base03; } // Comment 
+//     .cm  { color: $base03; } // Comment.Multiline 
+//     .c1  { color: $base03; } // Comment.Single 
+//     .cs  { color: $base0E; } // Comment.Special 
+//     .cp  { color: $base0F; } // Comment.Preproc 
+//     .n   { color: $base05; } // Name 
+//     .na  { color: $base09; } // Name.Attribute 
+//     .nb  { color: $base05; } // Name.Builtin 
+//     .nc  { color: $base09; } // Name.Class 
+//     .no  { color: $base08; } // Name.Constant 
+//     .nd  { color: $base0C; } // Name.Decorator 
+//     .ni  { color: $base08; } // Name.Entity 
+//     .ne  { color: $base08; } // Name.Exception 
+//     .nf  { color: $base09; } // Name.Function 
+//     .nl  { color: $base05; } // Name.Label 
+//     .nn  { color: $base05; } // Name.Namespace 
+//     .nx  { color: $base08; } // Name.Other 
+//     .py  { color: $base05; } // Name.Property 
+//     .nt  { color: $base08; } // Name.Tag 
+//     .nv  { color: $base08; } // Name.Variable 
+//     .bp  { color: $base09; } // Name.Builtin.Pseudo 
+//     .vc  { color: $base09; } // Name.Variable.Class 
+//     .vg  { color: $base09; } // Name.Variable.Global 
+//     .vi  { color: $base09; } // Name.Variable.Instance 
+//     .w   { color: $base05; } // Text.Whitespace 
+//     .k   { color: $base0E; } // Keyword 
+//     .kc  { color: $base09; } // Keyword.Constant 
+//     .kd  { color: $base0E; } // Keyword.Declaration 
+//     .kn  { color: $base0E; } // Keyword.Namespace 
+//     .kp  { color: $base0E; } // Keyword.Pseudo 
+//     .kr  { color: $base09; } // Keyword.Reserved 
+//     .kt  { color: $base08; } // Keyword.Type 
+//     .l   { color: $base05; } // Literal 
+//     .ld  { color: $base05; } // Literal.Date 
+//     .m   { color: $base09; } // Literal.Number 
+//     .s   { color: $base0B; } // Literal.String 
+//     .mf  { color: $base0B; } // Literal.Number.Float 
+//     .mh  { color: $base0C; } // Literal.Number.Hex 
+//     .mi  { color: $base09; } // Literal.Number.Integer 
+//     .mo  { color: $base0B; } // Literal.Number.Oct 
+//     .sb  { color: $base03; } // Literal.String.Backtick 
+//     .sc  { color: $base0B; } // Literal.String.Char 
+//     .sd  { color: $base05; } // Literal.String.Doc 
+//     .s2  { color: $base0B; } // Literal.String.Double 
+//     .se  { color: $base08; } // Literal.String.Escape 
+//     .sh  { color: $base05; } // Literal.String.Heredoc 
+//     .si  { color: $base0B; } // Literal.String.Interpol 
+//     .sx  { color: $base0B; } // Literal.String.Other 
+//     .sr  { color: $base08; } // Literal.String.Regex 
+//     .s1  { color: $base0B; } // Literal.String.Single 
+//     .ss  { color: $base0B; } // Literal.String.Symbol 
+//     .il  { color: $base0B; } // Literal.Number.Integer.Long 
+//     .o   { color: $base0E; } // Operator 
+//     .ow  { color: $base0E; } // Operator.Word 
+//     .x   { color: $base08; } // Other 
+//     .p   { color: $base05; } // Punctuation 
+//     .err { color: $base05; } // Error 
+//     .g   { color: $base05; } // Generic 
+//     .gr  { color: $base08; } // Generic.Error 
+//     .gd  { color: $base0B; } // Generic.Deleted 
+//     .gh  { color: $base08; } // Generic.Heading 
+//     .gi  { color: $base0E; } // Generic.Inserted 
+//     .go  { color: $base05; } // Generic.Output 
+//     .gp  { color: $base05; } // Generic.Prompt 
+//     .gu  { color: $base08; } // Generic.Subheading 
+//     .gt  { color: $base05; } // Generic.Traceback 
+//     .ge  { color: $base05; font-style: italic; } // Generic.Emph 
+//     .gs  { color: $base05; font-weight: bold; } // Generic.Strong 
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Wrapper for code blocks, position set for aligning child elements
 .code-toolbar {
     position: relative;
@@ -57,7 +345,6 @@ $border_radius: 4px;
 
 
 pre {
-	background: $color_background_pre;
 	font-family: $font_pre;
 	font-weight: $font_weight_pre;
 	line-height: $font_line_height_pre;
@@ -73,6 +360,8 @@ pre {
 	tab-size: 4;
 	// padding: $code_block_padding;
 	// background: $base00;
+	background: $base02;
+	color: $base07;
 
 	&[class*="language-"],
 	&[rel] {
@@ -94,7 +383,7 @@ pre {
 		text-indent: $code_block_padding;
 		text-transform: uppercase;
 		height: $code_block_title;
-		color: #fff;
+		color: $base07;
 		// @include font-size(1);
 	}
 
@@ -157,7 +446,10 @@ pre {
 		-webkit-overflow-scrolling: touch;
 		display: block;
 		overflow: auto;
-		color: $base06;
+		// background: $color_background_pre;
+		// color: $base06;
+		// background: $base02;
+		// color: $base07;
 
 		&::-webkit-scrollbar {
 			width: .5em;
@@ -294,3 +586,5 @@ pre>code.highlight {
     outline: 0.4em solid $base08;
     outline-offset: .4em
 }
+
+
