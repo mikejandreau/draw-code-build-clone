@@ -21,3 +21,7 @@ docs:
 - title: Resume
   url: /resume/
   active: resume
+
+- title: Search
+  url: /search/
+  active: search
