@@ -9,7 +9,7 @@ featured_image_thumb: /assets/img/thumbs/featured09.jpg
 ---
 
 <div class="row">
-<div class="col-lg-8" markdown="1" >
+<div class="col-lg-8 post-main" markdown="1">
 
 You'll find this post in your 'posts' directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code>jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.
 

@@ -8,7 +8,7 @@ featured_image_thumb: /assets/img/thumbs/featured09.jpg
 ---
 
 <div class="row">
-<div class="col-lg-8">
+<div class="col-lg-8 post-main" markdown="1">
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia at quia et earum laboriosam velit iste, dolorem ex dolores ea nostrum aperiam incidunt rerum, corporis. Incidunt, numquam! Sit, quae, voluptatibus.
 
