@@ -469,3 +469,53 @@ button.navbar-toggler {
 
 
 
+
+
+.redirect-countdown {
+  position: relative;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: Consolas, monaco, courier new, Courier, monospace;
+  border-radius: 4px;
+  background: #343d46;
+  color: #c0c5ce;
+  border: 8px solid #4f6174;
+  margin-bottom: 2.5rem;
+  padding: 0;
+  width: 280px;
+  font-size: 12px;
+  font-size: 1.2rem;
+  line-height: 1.2;
+
+  p {
+    margin: 20px 0;
+  }
+
+  a {
+    font-size: 14px;
+    font-size: 1.4rem;
+    display: inline-block;
+    margin: 20px 0;
+    color: #65737e;
+    border: 1px solid #65737e;
+    padding: 6.66667px 10px;
+    border-radius: 4px;
+
+    &:focus,
+    &:hover {
+      text-decoration: none;
+      color: #a7adba;
+      border-color: #a7adba;
+    }
+  }
+
+  span {
+    font-size: 42px;
+    font-size: 4.2rem;
+    color: #bf616a;
+    display: block;
+    width: 100%;
+    line-height: 1;
+  }
+}
+
