@@ -166,7 +166,7 @@ window.addEventListener("scroll", showScrollToTop);
       if (target.length) {
         $('html, body').animate({
           // scrollTop: (target.offset().top - 54)
-          scrollTop: (target.offset().top - 10)
+          scrollTop: (target.offset().top - 0)
         }, 1000, "easeInOutExpo");
         return false;
       }

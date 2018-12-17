@@ -58,13 +58,15 @@
 // }
 
 
-
+.previous-projects {
+  padding: 30px 0;
+}
 
 .featured-project {
   min-height: 300px;
   padding: 80px 0;
   color: #fff;
-  margin-bottom: 30px;
+  // margin-bottom: 30px;
   @include bgImage;
 
   h4 {
