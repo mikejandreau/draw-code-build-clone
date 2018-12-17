@@ -21,6 +21,7 @@ excerpt: Some excerpt about some stuff
       </p>
       <p>{{ post.excerpt }}</p>
       <a class="btn btn-primary" href="{{ post.url | prepend: site.baseurl }}">Read Post</a>
+      <a class="btn btn-secondary js-scroll-trigger" href="#previous-projects">More Projects</a>
     </div>
 
     </div>
@@ -54,6 +55,7 @@ excerpt: Some excerpt about some stuff
 
 
 
+<section class="previous-projects" id="previous-projects">
 <div class="container">
 
 <h2>Previous Projects</h2>
@@ -69,7 +71,7 @@ excerpt: Some excerpt about some stuff
 <div class="grid row">
   <!-- get most recent 3 posts, skip latest -->
   <!-- to limit posts, use "for post in site.posts limit:12 offset:1" -->
-  {% for post in site.posts offset:1 %}
+  {% for post in site.posts %}
   <div class="col-md-6 col-lg-4 preview-item {{ post.categories | join: ' ' }}" data-category="{{ post.categories | join: ' ' }}">
     <div class="preview-item-container">
       
@@ -101,6 +103,7 @@ excerpt: Some excerpt about some stuff
 
 
 </div>
+</section>
 
 
 <section class="dark">
