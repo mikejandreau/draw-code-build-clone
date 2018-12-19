@@ -125,8 +125,11 @@
 
 
 
-
-
+// animate gallery height
+.preview-item-grid {
+  transition-duration: 0.3s;
+  transition-property: height, width;
+}
 
 
 /* ---- button ---- */
