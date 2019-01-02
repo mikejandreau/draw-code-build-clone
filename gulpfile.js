@@ -100,10 +100,10 @@ gulp.task("styles", function () {
 
 
 // run after pages have build to generate critical css
-gulp.task('critical', function (done) {
+gulp.task("critical", function (done) {
   critical.generate({
-    base: '_site/',
-    src: 'index.html',
+    base: "_site/",
+    src: "index.html",
     css: criticalStyles,
     dimensions: [{
       width: 320,
@@ -115,10 +115,10 @@ gulp.task('critical', function (done) {
       width: 1280,
       height: 960
     }],
-    dest: '../_includes/critical.css',
+    dest: "../_includes/critical.css",
     minify: true,
     extract: false,
-    ignore: ['font-face']
+    ignore: ["font-face"]
   });
   done();
 });
@@ -150,7 +150,7 @@ gulp.task("images", function() {
 
 
 // Wait for jekyll-build, then launch the Server
-gulp.task('browser-sync', gulp.series("styles", "scripts", "images", "jekyll-build", function(done) {
+gulp.task('browser-sync', gulp.series("styles", "scripts", "images", "jekyll-build", "critical", function(done) {
   browserSync.init({
     server: {
       baseDir: "./_site"
@@ -189,5 +189,5 @@ function watch(done) {
 gulp.task("default", gulp.series("browser-sync", watch));
 
 // build task
-gulp.task("build", gulp.series("styles", "scripts", "images", "jekyll-rebuild"));
+gulp.task("build", gulp.series("styles", "scripts", "images", "jekyll-rebuild", "critical"));
 
