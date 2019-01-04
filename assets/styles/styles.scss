@@ -11,7 +11,7 @@
 // @import "themes/litera";
 // @import "themes/lumen";
 // @import "themes/lux";
-// @import "themes/materia";
+@import "themes/materia";
 // @import "themes/minty";
 // @import "themes/pulse";
 // @import "themes/sandstone";
@@ -22,7 +22,7 @@
 // @import "themes/spacelab";
 // @import "themes/superhero";
 // @import "themes/united";
-@import "themes/yeti";
+// @import "themes/yeti";
 
 // Code highlighting
 @import "vendor/prism";
@@ -116,13 +116,6 @@
     // background: orange;
   }
 }
-
-.post-meta {
-  display: block;
-  margin-bottom: 5px;
-  // background: pink;
-}
-
 
 
 // animate gallery height
@@ -254,10 +247,14 @@ img {
 .icon { 
   position: relative;
   display: inline-flex;
-  width: 1em;
-  height: 1em;
-  margin: 0 auto;
-  bottom: -.125em;
+  // width: 1em;
+  // height: 1em;
+  // margin: 0 auto;
+  // bottom: -.125em;
+  width: 1.2em;
+  height: 1.2em;
+  margin: 0 .3rem 0 0;
+  bottom: 1px;
   fill: currentColor;
 }
 
@@ -280,14 +277,31 @@ img {
 
 .post-header {
   background-color: #efefef;
-  margin-bottom: 1.5em;
-  padding-top: 1.5em;
-  padding-bottom: 1.5em;
+  // margin-bottom: 1.5em;
+  // padding-top: 1.5em;
+  // padding-bottom: 1.5em;
+
+
+  margin-bottom: 2.5em;
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
+
+box-shadow: inset 0 -10px 3px -9px rgba(0,0,0,0.3); // for material theme
 
   // p {
   //   margin: 0;
   // }
 }
+
+
+
+.post-meta {
+  display: block;
+  // margin-bottom: 5px;
+  margin-bottom: 0;
+  // background: pink;
+}
+
 
 // primary section of main content
 .post-main {
@@ -376,6 +390,16 @@ img {
 // // input[type=search] {
 // //     -webkit-appearance: none;
 // // }
+
+
+
+
+.share-bar {
+  // background: pink;
+  margin-top: $column_margin;
+  margin-bottom: $column_margin * 3;
+}
+
 
 // .icon {
 //     position: relative;
