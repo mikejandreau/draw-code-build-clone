@@ -16,6 +16,29 @@ $shadow_outer: rgba(0,0,0,0.2);
 $shadow_size: $column_margin;
 
 
+// COLORS
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// Generic 
+$color_white: #fff;
+$color_ltgray: #efefef;
+$color_mdgray: #ddd;
+$color_dkgray: #333;
+$color_black: #111;
+$color_trans_white: rgba(255,255,255,0.8);
+
+// Social media 
+$color_share_base: #888888;
+$color_facebook: #365397;
+$color_twitter: #00a9f1;
+$color_google_plus: #e0452c;
+$color_linkedin: #006db3;
+$color_skype: #12A5F4;
+$color_sharethis: #01BF01;
+$color_github: #6e5494;
+$color_soundcloud: #ff8800;
+$color_rss: #f26522;
+
 // Media queries
 // @include mobile { selector: style; }
 //––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -519,3 +542,124 @@ button.navbar-toggler {
   }
 }
 
+
+
+
+
+
+
+
+
+.btn {
+
+  // social sharing buttons 
+  &[class*="social-"] {
+    color: $color_white;
+    background-color: $color_share_base;
+    border: none;
+    // text-transform: none;
+
+    &:hover {
+      color: $color_white;
+      background-color: darken($color_share_base, 10%);
+    }
+
+    &:active,
+    &:focus {
+      color: $color_white;
+      background-color: darken($color_share_base, 20%);
+    }
+  }
+
+  &[class*="-facebook"] {
+    background-color: $color_facebook;
+
+    &:hover {
+      background-color: darken($color_facebook, 10%);
+    }
+  }
+
+  &[class*="-twitter"] {
+    background-color: $color_twitter;
+
+    &:hover {
+      background-color: darken($color_twitter, 10%);
+    }
+  }
+
+  &[class*="-linkedin"] {
+    background-color: $color_linkedin;
+
+    &:hover {
+      background-color: darken($color_linkedin, 10%);
+    }
+  }
+
+  &[class*="-github"] {
+    background-color: $color_github;
+
+    &:hover {
+      background-color: darken($color_github, 10%);
+    }
+  }
+
+  &[class*="-soundcloud"] {
+    background-color: $color_soundcloud;
+
+    &:hover {
+      background-color: darken($color_soundcloud, 10%);
+    }
+  }
+
+  &[class*="-rss"] {
+    background-color: $color_rss;
+
+    &:hover {
+      background-color: darken($color_rss, 10%);
+    }
+  }
+
+  // &[class*="-email"] {
+  //   background-color: $base03;
+
+  //   &:hover {
+  //     background-color: darken($base03, 10%);
+  //   }
+  // }
+  
+  // &.button-primary {
+  //   color: $color_white;
+  //   background-color: $brand_primary;
+  //   border-color: $brand_primary;
+
+  //   &:hover {
+  //     color: $color_white;
+  //     background-color: darken($brand_primary, 10%);
+  //     border-color: darken($brand_primary, 10%);
+  //   }
+
+  //   &:active,
+  //   &:focus {
+  //     color: $color_white;
+  //     background-color: darken($brand_primary, 20%);
+  //     border-color: darken($brand_primary, 20%);
+  //   }
+  // }
+
+  // .call-to-action & { // makes buttons in hero area larger
+  //   @extend .lg;
+  //   margin-right: $column_margin;
+
+  //   &:last-of-type {
+  //     margin-right: 0;
+  //   }
+  // }
+
+  // .social-block & { // gives some spacing between social buttons
+  //   margin-right: $column_margin / 2;
+
+  //   &:last-of-type {
+  //     margin-right: 0;
+  //   }
+  // }
+}
