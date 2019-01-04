@@ -6,8 +6,7 @@
 	<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 	<meta name="author" content="{{ site.author }}">
 
-<!-- Facebook open graph -->
-
+	{% comment %} <!-- Facebook open graph --> {% endcomment %}
 	<meta content="{{ site.title }}" property="og:site_name">
 	{% if page.title %}
 	<meta content="{{ page.title }}" property="og:title">
@@ -54,8 +53,7 @@
 	{% endfor %}
 	{% endif %}
 
-<!-- Twitter cards -->
-
+	{% comment %} <!-- Twitter cards --> {% endcomment %}
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:site" content="@{{ site.twitter_username }}">
 	<meta name="twitter:creator" content="@{{ site.twitter_username }}">
@@ -82,22 +80,18 @@
 	<meta name="twitter:image:src" content="{{ site.url }}/assets/images/hey.jpg">
 	{% endif %}
 
-<!-- automatic redirect to homepage if page not found -->
+	{% comment %} <!-- automatic redirect to homepage if page not found --> {% endcomment %}
 	{% if page.url == "/404.html" %}
 	<meta http-equiv="refresh" content="11; url=/">
 	{% endif %}
 
-<!-- Styles, scripts, and RSS -->
+	{% comment %} <!-- Styles, scripts, and RSS --> {% endcomment %}
 	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 	<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
 
-
-
-	<link rel="stylesheet" href="{{ "/assets/css/styles.min.css" | prepend: site.baseurl }}">
-
 	{% comment %}
+	<link rel="stylesheet" href="{{ "/assets/css/styles.min.css" | prepend: site.baseurl }}">
 	<!-- When we generate critical CSS, uncomment this Jekyll statement -->
-	<style type="text/css">{% include critical.css %}</style>
 	{% endcomment %}
-
+	<style type="text/css">{% include critical.css %}</style>
 </head>
