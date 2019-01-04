@@ -43,10 +43,7 @@ active: contact
 </div>
 
 <div class="col-md-4">
-  social links
-  {% comment %}
   {% include sidebar-social.html %}
-  {% endcomment %}
 </div>
 
 </div>
