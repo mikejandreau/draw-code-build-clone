@@ -1,0 +1,7 @@
+{% if page.featured_video != null %}
+<div class="video-container" style="background-image: url('{{ page.featured_image }}');">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ page.featured_video }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+{% else %}
+<img class="featured-image" src="{{ page.featured_image }}" alt="{{ page.title }}">
+{% endif %}
