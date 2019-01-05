@@ -11,7 +11,7 @@ description: >- # ignore newlines until "baseurl:"
   I draw pictures, play music, code websites, and write stories.
   Every now and then I even do something useful.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "" # the base hostname & protocol for your site, e.g. https://example.com
 
 # Social
 twitter_username: losaidos

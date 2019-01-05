@@ -5,7 +5,7 @@ excerpt: "A post to custom sidebar content."
 author_profile: false
 sidebar:
   - title: "Title"
-    image: http://placehold.it/350x250
+    image: https://placehold.it/350x250
     image_alt: "image"
     text: "Some text here."
   - title: "Another Title"
@@ -19,7 +19,7 @@ An example of how that YAML could look is:
 ```yaml
 sidebar:
   - title: "Title"
-    image: http://placehold.it/350x250
+    image: https://placehold.it/350x250
     image_alt: "image"
     text: "Some text here."
   - title: "Another Title"
