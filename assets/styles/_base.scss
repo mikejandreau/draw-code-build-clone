@@ -153,6 +153,8 @@ scroll to top button
   @extend .btn;
   @extend .btn-primary;
 
+  // box-shadow: none;
+
   line-height: 36px;
   height: 40px;
   width: 40px; 
@@ -551,6 +553,7 @@ button.navbar-toggler {
 
 
 .btn {
+  box-shadow: none;
 
   // social sharing buttons 
   &[class*="social-"] {
