@@ -84,10 +84,11 @@
   margin-bottom: 60px;
 }
 
-// // preview item card layout container
-// .preview-item-container {
-//   @include dropShadow;
-// }
+// preview item card layout container
+.preview-item-container {
+  // @include dropShadow;
+  border: 1px solid #efefef;
+}
 
 // link that wraps around the thumbnail image
 .preview-item-link {
@@ -109,10 +110,13 @@
 // text container with excerpt and button
 .preview-text {
   background: #fff;
+  // background: #f4f4f4;
   // padding: 15px 0 0;
+  padding: 20px;
 
   h4 {
-    margin: 10px 0 5px;
+    // margin: 10px 0 5px;
+    margin: 0 0 5px;
     // background: orange;
   }
 }
@@ -297,8 +301,8 @@ box-shadow: inset 0 -10px 3px -9px rgba(0,0,0,0.3); // for material theme
 
 .post-meta {
   display: block;
-  // margin-bottom: 5px;
-  margin-bottom: 0;
+  margin-bottom: 5px;
+  // margin-bottom: 0;
   // background: pink;
 }
 
