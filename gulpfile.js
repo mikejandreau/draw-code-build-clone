@@ -162,7 +162,7 @@ gulp.task('browser-sync', gulp.series("styles", "scripts", "images", "jekyll-bui
         borderBottomLeftRadius: "0",
       }
     },
-    port: 3000
+    port: 4000
   });
   done();
 }));
