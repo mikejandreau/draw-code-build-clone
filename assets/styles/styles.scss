@@ -73,6 +73,10 @@
     font-size: 3.6rem;
   }
 
+  a {
+    margin-right: 10px;
+  }
+
   @include tablet {
     padding: 120px 0;
   }
