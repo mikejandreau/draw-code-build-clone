@@ -1,3 +1,5 @@
+{% comment %}
+
 <noscript id="deferred-styles">
   <link rel="stylesheet" href="{{ "/assets/css/styles.min.css" | prepend: site.baseurl }}">
 </noscript>
@@ -16,9 +18,8 @@
   else window.addEventListener('load', loadDeferredStyles);
 </script>
 
+{% endcomment %}
 
 <script async src="{{ "/assets/js/scripts.min.js" | prepend: site.baseurl }}"></script>
-{% comment %}
-{% endcomment %}
 
 
