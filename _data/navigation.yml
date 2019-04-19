@@ -22,6 +22,6 @@ docs:
   url: /resume/
   active: resume
 
-- title: Search
-  url: /search/
-  active: search
+# - title: Search
+#   url: /search/
+#   active: search

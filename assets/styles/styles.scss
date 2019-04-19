@@ -49,13 +49,14 @@
   font-weight: 400;
 }
 
-// .navbar-nav {
-//   @include tablet {
+.navbar-nav {
+  @include tablet {
 
-//     margin-right: -.5rem;
-//     border: 1px solid red;
-//   }
-// }
+    // margin-right: -.5rem;
+    margin-right: .5rem;
+    // border: 1px solid red;
+  }
+}
 
 
 .previous-projects {
@@ -356,48 +357,52 @@ box-shadow: inset 0 -10px 3px -9px rgba(0,0,0,0.3); // for material theme
 
 
 
-// // search styles 
-// /* ==========================================================================
-//    SEARCH
-//    ========================================================================== */
+// search styles 
+/* ==========================================================================
+   SEARCH
+   ========================================================================== */
 
 
-// .search-toggle {
-//   border: 0;
-//   outline: none;
-//   background-color: transparent;
-//   cursor: pointer;
-//   padding: 0;
-//   line-height: 38px;
-//   height: 40px;
-//   // width: 38px;
-//   width: 24px;
-//   margin-right: 10px;
-//   position: relative;
-//   z-index: 20;
+.search-toggle {
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  // line-height: 38px;
+  // height: 40px;
+  // width: 38px;
+  // width: 24px;
+  margin-right: 10px;
+  position: relative;
+  z-index: 20;
 
-//     // line-height: 30px;
-//     // line-height: 52px;
-//     // float: right;
-//     // margin: 0 0 0 20px;
-//   // -webkit-transition: 0.2s;
-//   // transition: 0.2s;
+    // line-height: 30px;
+    // line-height: 52px;
+    // float: right;
+    // margin: 0 0 0 20px;
+  // -webkit-transition: 0.2s;
+  // transition: 0.2s;
 
-//   &:focus {
-//     outline: none;
-//   }
+  &:focus {
+    outline: none;
+  }
 
-//   @include tablet {
-//     margin: 0;
-//   }
-// }
+  @include tablet {
+    margin: 0;
+  }
 
-// // input[type=search]::-webkit-search-cancel-button {
-// //     -webkit-appearance: searchfield-cancel-button;
-// // }
-// // input[type=search] {
-// //     -webkit-appearance: none;
-// // }
+  &.is-active {
+    background-color: red;
+  }
+}
+
+input[type=search]::-webkit-search-cancel-button {
+    -webkit-appearance: searchfield-cancel-button;
+}
+input[type=search] {
+    -webkit-appearance: none;
+}
 
 
 
@@ -409,26 +414,29 @@ box-shadow: inset 0 -10px 3px -9px rgba(0,0,0,0.3); // for material theme
 }
 
 
-// .icon {
-//     position: relative;
-//     display: -ms-inline-flexbox;
-//     display: inline-flex;
-//     width: 1.8em;
-//     height: 1.8em;
-//     margin: 0 auto;
-//     // bottom: -.125em;
-//     bottom: 0;
-//     fill: currentColor;
-//     // fill: red;
-// }
+.icon {
+    position: relative;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 1.6em;
+    height: 1.6em;
+    margin: 0 auto;
+    bottom: -.125em;
+    fill: currentColor;
+    // fill: red;
+
+    @include tablet {
+      bottom: 0.1em;
+    }
+}
 
 
 .search-content {
-  // display: none;
-  // visibility: hidden;
+  display: none;
+  visibility: hidden;
   padding-top: 1.5em;
   padding-bottom: 1.5em;
-  // transition: all .5s;
+  transition: all .5s;
   
   .entry-excerpt {
     p {
@@ -436,14 +444,14 @@ box-shadow: inset 0 -10px 3px -9px rgba(0,0,0,0.3); // for material theme
     }
   }
 
-  // &.is--visible::after {
-  //   content: "";
-  //   display: block;
-  // }
+  &.is--visible::after {
+    content: "";
+    display: block;
+  }
 
-  // .search-label {
-  //   @extend .h1;
-  // }
+  .search-label {
+    @extend .h1;
+  }
 
   .results-found {
     margin: 1em 0;
@@ -458,15 +466,15 @@ box-shadow: inset 0 -10px 3px -9px rgba(0,0,0,0.3); // for material theme
 
 
 
-// .is--hidden {
-//   display: none;
-//   visibility: hidden;
-// }
+.is--hidden {
+  display: none;
+  visibility: hidden;
+}
 
-// .is--visible {
-//   display: block;
-//   visibility: visible;
-// }
+.is--visible {
+  display: block;
+  visibility: visible;
+}
 
 
 

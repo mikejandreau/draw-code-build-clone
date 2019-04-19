@@ -43,14 +43,15 @@ function toggleClass(elem, className) {
 
 
 // Toggle search icon and content
-// var searchToggle = document.querySelector('.search-toggle');
-//     mainContent = document.querySelector('.main-content');
-//     searchContent = document.querySelector('.search-content');
+var searchToggle = document.querySelector('.search-toggle');
+    mainContent = document.querySelector('.main-content');
+    searchContent = document.querySelector('.search-content');
 
-// searchToggle.onclick = function() {
-//   toggleClass(searchContent, 'is--visible');
-//   toggleClass(mainContent, 'is--hidden');
-// };
+searchToggle.onclick = function() {
+  toggleClass(searchContent, 'is--visible');
+  toggleClass(mainContent, 'is--hidden');
+  toggleClass(searchToggle, 'is-active');
+};
 
 // searchContent.onclick = function() {
 //   removeClass(searchContent, 'is--visible');
