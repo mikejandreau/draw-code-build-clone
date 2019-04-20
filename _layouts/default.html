@@ -3,7 +3,7 @@
 
 {%- include head.html -%}
 
-<body id="page-top" class="site">
+<body id="page-top" class="site {% if page.slug %}{{ page.slug }}{% endif %}">
 
   {% include icons.html %}
 
