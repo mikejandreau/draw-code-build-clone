@@ -3,6 +3,7 @@ layout: page
 title: About
 permalink: /about/
 active: about
+slug: about
 ---
 
 <h2>testing testing</h2>

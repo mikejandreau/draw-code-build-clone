@@ -3,6 +3,7 @@ layout: page
 title: Projects
 permalink: /projects/
 active: projects
+slug: projects
 ---
 
 portfolio page stuff.

@@ -3,6 +3,7 @@ layout: page
 title: Search
 permalink: /search/
 active: search
+slug: search
 ---
 
 <div class="row">

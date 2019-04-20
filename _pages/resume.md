@@ -3,6 +3,7 @@ layout: page
 title: Resumé
 permalink: /resume/
 active: resume
+slug: resume
 ---
 
 {% assign cv = site.data.cv %}
