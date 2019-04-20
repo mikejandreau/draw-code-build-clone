@@ -2,6 +2,7 @@
 	<div class="container">
 		{% if site.search %}
 		<label class="search-label" for="search">{{ site.data.theme.t.site_search | default: 'Site Search' }}</label>
+		<p>Looking for something specific? If you can't remember the what you were looking for but you have a general idea, you can start typing in the box below to find it.</p>
 		<input type="text" id="search" class="form-control search-input" aria-describedby="results-count" tabindex="-1" placeholder="{{ site.data.theme.t.menu.search_placeholder_text | default: 'Enter your search term...' }}" />
 		<div id="results" class="results"></div>
 		{% endif %}
