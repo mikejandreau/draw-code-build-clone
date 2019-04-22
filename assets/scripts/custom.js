@@ -42,10 +42,15 @@ function toggleClass(elem, className) {
 
 
 
+
+
+
+
 // Toggle search icon and content
 var searchToggle = document.querySelector('.search-toggle');
-    mainContent = document.querySelector('.main-content');
-    searchContent = document.querySelector('.search-content');
+var mainContent = document.querySelector('.main-content');
+var searchContent = document.querySelector('.search-content');
+var searchClose = document.querySelector('.search-close');
 
 searchToggle.onclick = function() {
   toggleClass(searchContent, 'is--visible');
@@ -53,25 +58,11 @@ searchToggle.onclick = function() {
   toggleClass(searchToggle, 'is-active');
 };
 
-// searchContent.onclick = function() {
-//   removeClass(searchContent, 'is--visible');
-//   addClass(mainContent, 'is--hidden');
-// };
-
-
-
-// // close search if page is clicked
-// $("html").click(function () {
-//   if (removeClass) {
-//     $(".search-content").removeClass('is--visible');
-//   }
-//   removeClass = true;
-// });
-
-
-
-
-
+searchClose.onclick = function() {
+  toggleClass(searchContent, 'is--visible');
+  toggleClass(mainContent, 'is--hidden');
+  toggleClass(searchToggle, 'is-active');
+};
 
 
 
@@ -117,6 +108,29 @@ $(window).resize(function() {
 });
 
 
+
+
+
+
+
+
+// // close nav if link is clicked
+// searchClose.click(function () {
+//   if (removeClass) {
+//     searchContent.removeClass('is-active');
+//     mainContent.removeClass('is-active');
+//     searchToggle.removeClass('is-active');
+//   }
+//   removeClass = true;
+// });
+
+// // close search if page is clicked
+// $("html").click(function () {
+//   if (removeClass) {
+//     $(".search-content").removeClass('is--visible');
+//   }
+//   removeClass = true;
+// });
 
 
 
