@@ -305,7 +305,9 @@ box-shadow: inset 0 -10px 3px -9px rgba(0,0,0,0.3); // for material theme
 
   p:first-of-type {
     // color: blue;
-    font-size: 1.1rem;
+    // font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: 300;
   }
 }
 
@@ -481,10 +483,16 @@ input[type=search] {
 
 
 
-// .portfolio-item {
-//     margin-bottom: 30px;
-// }
+.portfolio-item {
+    margin-bottom: 30px;
+}
 
+.card {
+  // -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  //         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  // background: #efefef;
+  overflow: hidden;
+}
 
 // // testing navbar and search toggle placement
 
