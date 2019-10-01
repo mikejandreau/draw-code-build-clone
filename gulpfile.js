@@ -35,6 +35,7 @@ var scriptFile            = "scripts"; // Compiled JS file name
 var imagesSRC               = "./assets/images/**/*"; // Source folder of unoptimized images
 var imagesDest              = "./assets/img"; // Destination folder of optimized images
 var imagesDestSite          = "./_site/assets/img"; // Destination folder of optimized images
+var imagesDestThumbs        = "./_site/assets/img/thumbs"; // Destination folder of optimized images
 
 // File paths
 var styleWatchFiles         = "./assets/styles/**/*.scss"; // Path to all *.scss files in all subfolders
@@ -52,6 +53,7 @@ var gulp        = require("gulp");
 var cp          = require("child_process");
 var browserSync = require('browser-sync').create();
 var jekyll      = process.platform === "win32" ? "jekyll.bat" : "jekyll";
+var newer       = require("gulp-newer");
 
 // Style related
 var sass        = require("gulp-sass");
@@ -66,6 +68,7 @@ var uglify      = require("gulp-uglify");
 
 // Image related
 var imagemin    = require('gulp-imagemin');
+var imageResize = require('gulp-image-resize');
 
 
 
@@ -142,11 +145,26 @@ gulp.task("scripts", function() {
 // Optimize Images
 gulp.task("images", function() {
   return gulp.src(imagesSRC)
+  .pipe(newer(imagesDestSite))
   .pipe(imagemin())
   .pipe(gulp.dest(imagesDest))
   .pipe(browserSync.reload({stream:true}))
   .pipe(gulp.dest(imagesDestSite))
 });
+
+
+gulp.task("thumbs", function(done) {
+  [100, 300, 800, 1000, 2000].forEach(function (size) {
+    gulp.src(imagesSRC)
+      pipe(newer(imagesDestThumbs))
+      .pipe(imageResize({ width: size }))
+      .pipe(rename(function (path) { path.basename = `${path.basename}@${size}w`; }))
+      .pipe(imagemin())
+      .pipe(gulp.dest(imagesDestThumbs))
+  });
+  done();
+});
+
 
 
 // Wait for jekyll-build, then launch the Server
@@ -189,5 +207,5 @@ function watch(done) {
 gulp.task("default", gulp.series("browser-sync", watch));
 
 // build task
-gulp.task("build", gulp.series("styles", "scripts", "images", "jekyll-rebuild", "critical"));
+gulp.task("build", gulp.series("styles", "scripts", "images", "thumbs", "jekyll-rebuild", "critical"));
 
