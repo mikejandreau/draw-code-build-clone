@@ -175,8 +175,8 @@ gulp.task('browser-sync', gulp.series("styles", "scripts", "images", "jekyll-bui
     },
     notify: {
       styles: {
-        top: "auto",
-        bottom: "0",
+        top: "0",
+        bottom: "auto",
         borderBottomLeftRadius: "0",
       }
     },
