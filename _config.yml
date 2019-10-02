@@ -42,6 +42,9 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - README.md
+  - assets/styles/
+  - assets/scripts/
+  - assets/images/
 
 # Include for processing
 include:
