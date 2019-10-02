@@ -41,7 +41,6 @@ var imagesDestThumbs        = "./_site/assets/img/thumbs"; // Destination folder
 var styleWatchFiles         = "./assets/styles/**/*.scss"; // Path to all *.scss files in all subfolders
 var scriptWatchFiles        = "./assets/scripts/**/*.js"; // Path to all JS files in all subfolders
 var markupWatchFiles        = ["./*.html", "./_data/**/*", "./_includes/**/*", "./_layouts/**/*", "./_pages/**/*", "./_posts/**/*", "./_projects/**/*" ]; // Paths to all markup files.
-var assetBuildFolder        = ["./_site/assets/"]; // assets folder in _site to be cleared after build
 
 // Browsers for autoprefixing
 var autoprefixBrowsers      = ["last 2 versions", "> 1%", "ie >= 9", "ie_mob >= 10", "ff >= 30", "chrome >= 34", "safari >= 7", "opera >= 23", "ios >= 7", "android >= 4", "bb >= 10"];
@@ -142,33 +141,54 @@ gulp.task("scripts", function() {
 });
 
 
-// Optimize Images
-gulp.task("images", function() {
-  return gulp.src(imagesSRC)
-  .pipe(newer(imagesDestSite))
-  .pipe(imagemin())
-  .pipe(gulp.dest(imagesDest))
-  .pipe(browserSync.reload({stream:true}))
-  .pipe(gulp.dest(imagesDestSite))
-});
 
 
-gulp.task("thumbs", function(done) {
+
+
+gulp.task("images", function (done) {
   [100, 300, 800, 1000, 2000].forEach(function (size) {
-    gulp.src(imagesSRC)
-      pipe(newer(imagesDestThumbs))
-      .pipe(imageResize({ width: size }))
-      .pipe(rename(function (path) { path.basename = `${path.basename}@${size}w`; }))
-      .pipe(imagemin())
-      .pipe(gulp.dest(imagesDestThumbs))
+    return gulp.src(imagesSRC)
+    .pipe(newer(imagesDestSite))
+    .pipe(imageResize({ width: size }))
+    .pipe(rename(function (path) { path.basename = `${path.basename}@${size}w`; }))
+    .pipe(imagemin())
+    .pipe(gulp.dest(imagesDest))
+    .pipe(browserSync.reload({stream:true}))
+    .pipe(gulp.dest(imagesDestSite))
   });
   done();
 });
 
 
 
+
+// // Optimize Images
+// gulp.task("images", function() {
+//   return gulp.src(imagesSRC)
+//   .pipe(newer(imagesDestSite))
+//   .pipe(imagemin())
+//   .pipe(gulp.dest(imagesDest))
+//   .pipe(browserSync.reload({stream:true}))
+//   .pipe(gulp.dest(imagesDestSite))
+// });
+
+
+// gulp.task("thumbs", function(done) {
+//   [100, 300, 800, 1000, 2000].forEach(function (size) {
+//     gulp.src(imagesSRC)
+//       pipe(newer(imagesDestThumbs))
+//       .pipe(imageResize({ width: size }))
+//       .pipe(rename(function (path) { path.basename = `${path.basename}@${size}w`; }))
+//       .pipe(imagemin())
+//       .pipe(gulp.dest(imagesDestThumbs))
+//   });
+//   done();
+// });
+
+
+
 // Wait for jekyll-build, then launch the Server
-gulp.task('browser-sync', gulp.series("styles", "scripts", "images", "jekyll-build", "critical", function(done) {
+gulp.task('browser-sync', gulp.series("styles", "scripts", "images",  "jekyll-build", "critical", function(done) {
   browserSync.init({
     server: {
       baseDir: "./_site"
@@ -207,5 +227,5 @@ function watch(done) {
 gulp.task("default", gulp.series("browser-sync", watch));
 
 // build task
-gulp.task("build", gulp.series("styles", "scripts", "images", "thumbs", "jekyll-rebuild", "critical"));
+gulp.task("build", gulp.series("styles", "scripts", "images", "jekyll-rebuild", "critical"));
 
