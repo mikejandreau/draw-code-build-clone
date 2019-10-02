@@ -142,9 +142,38 @@ gulp.task("scripts", function() {
 
 
 
+// var sizeInPxAbbrev = [{
+//   xs: 100,
+//   sm: 300,
+//   md: 800,
+//   lg: 1000,
+//   xl: 2000
+// }]
+
+// var obj = {
+//   "flammable": "inflammable",
+//   "duh": "no duh"
+// };
+// $.each( obj, function( key, value ) {
+//   alert( key + ": " + value );
+// });
+
+// gulp.task("images", function (done) {
+//   [100, 300, 800, 1000, 2000].forEach(function (size) {
+//     return gulp.src(imagesSRC)
+//     .pipe(newer(imagesDestSite))
+//     .pipe(imageResize({ width: size }))
+//     .pipe(rename(function (path) { path.basename = `${path.basename}@${size}`; }))
+//     .pipe(imagemin())
+//     .pipe(gulp.dest(imagesDest))
+//     .pipe(browserSync.reload({stream:true}))
+//     .pipe(gulp.dest(imagesDestSite))
+//   });
+//   done();
+// });
 
 
-
+// working image task
 gulp.task("images", function (done) {
   [100, 300, 800, 1000, 2000].forEach(function (size) {
     return gulp.src(imagesSRC)
