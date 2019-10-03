@@ -5,7 +5,7 @@ date:   2017-09-04 00:00:00 -0500
 categories: Builds DIY
 excerpt: Two more old doors become a trunk for pillows and blankets.
 featured_image: /assets/img/featured08.jpg
-featured_image_thumb: /assets/img/thumbs/featured08.jpg
+featured_image_thumb: /assets/img/featured08.jpg
 ---
 
 <div class="row">

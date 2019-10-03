@@ -6,7 +6,7 @@ author: Mike Jandreau
 categories: Builds Music
 excerpt: A stripped down 3-string electric guitar made from leftover parts.
 featured_image: /assets/img/featured12.jpg
-featured_image_thumb: /assets/img/thumbs/featured12.jpg
+featured_image_thumb: /assets/img/featured12.jpg
 ---
 
 <div class="row">

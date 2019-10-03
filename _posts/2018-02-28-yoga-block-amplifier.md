@@ -4,8 +4,14 @@ title:  "Yoga Block Boombox"
 date:   2018-02-28 00:00:00 -0500
 categories: Builds Music
 excerpt: The perfect workout companion, with a 3D printed outer shell.
-featured_image: /assets/img/featured06.jpg
-featured_image_thumb: /assets/img/thumbs/featured06.jpg
+featured_image: /assets/img/featured06-2000px.jpg
+featured_image_thumb: /assets/img/featured06-300px.jpg
+
+post_image_name: featured04
+img:
+  small:  featured06-100px.jpg
+  medium: featured06-800px.jpg
+  large:  featured06-2000px.jpg
 ---
 
 <div class="row">
@@ -21,6 +27,22 @@ Video: https://www.youtube.com/watch?v=9f4MwZLr0J8
 <p>I took measurements of the internal components to determine the minimum internal space needed to house two 4-inch speakers, PCB (printed circuit board), battery box, and controls. The intent was to have a <em>usable</em> yoga block, so I decided the outside walls should be &frac14;-inch thick for strength.</p>
 <p>Two &frac14;-inch outer walls plus two 4-inch speakers totals 8&frac12; inches - the absolute minimum width of the block. That would be a bit tight for assembly later, so I added &frac14; inch of space from the outer wall and &frac12; inch of space between the speakers, giving a total outer width of  9&frac12; inches. With the rough dimensions in mind, I started building the basic shapes in Tinkercad.</p>
 
+
+
+
+
+
+{% for image in site.static_files %}
+    {% if image.path contains 'assets/img/{{ page.post_image_name }}' %}
+        <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+    {% endif %}
+{% endfor %}
+
+<p>{% for image in site.static_files %}
+    {% if image.path contains 'assets/img/featured04' %}
+        {{ site.baseurl }}{{ image.path }}
+    {% endif %}
+{% endfor %}</p>
 
 <div class="gallery">
 

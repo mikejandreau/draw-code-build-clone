@@ -5,7 +5,7 @@ date: 2017-05-20 09:32:02 -0500
 author: Tim Bob
 excerpt: Fancy excerpt about some such whatever thing about stuff.
 featured_image: /assets/img/featured09.jpg
-featured_image_thumb: /assets/img/thumbs/featured09.jpg
+featured_image_thumb: /assets/img/featured09.jpg
 ---
 
 <div class="row">

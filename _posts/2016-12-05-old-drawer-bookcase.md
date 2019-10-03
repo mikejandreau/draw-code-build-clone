@@ -5,7 +5,7 @@ date: 2016-12-05 00:00:00 -0500
 categories: Builds DIY
 excerpt: Drawers from a repurposed dresser become a small bookcase.
 featured_image: /assets/img/featured01.jpg
-featured_image_thumb: /assets/img/thumbs/featured01.jpg
+featured_image_thumb: /assets/img/featured01.jpg
 ---
 
 <div class="row">

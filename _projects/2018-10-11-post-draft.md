@@ -5,7 +5,7 @@ date: 2018-10-11 09:32:02 -0500
 categories: Jekyll
 excerpt: Fancy excerpt about some such whatever thing about stuff.
 featured_image: /assets/img/featured09.jpg
-featured_image_thumb: /assets/img/thumbs/featured09.jpg
+featured_image_thumb: /assets/img/featured09.jpg
 ---
 
 
