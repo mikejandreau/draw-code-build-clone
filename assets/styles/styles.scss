@@ -34,6 +34,42 @@
 @import "base";
 
 
+
+
+
+// .img-size-test img {
+//   display: inline-block;
+
+//   &:nth-of-type(1) {
+//     border: 1px solid red;
+//     max-width: 80px;
+//   }
+
+//   &:nth-of-type(2) {
+//     border: 1px solid orange;
+//     max-width: 160px;
+//   }
+
+//   &:nth-of-type(3) {
+//     border: 1px solid green;
+//     max-width: 240px;
+//   }
+
+//   &:nth-of-type(4) {
+//     border: 1px solid blue;
+//     max-width: 320px;
+//   }
+
+//   &:nth-of-type(5) {
+//     border: 1px solid purple;
+//     max-width: 400px;
+//   }
+// }
+
+
+
+
+
 .bs-component+.bs-component {
     margin-top: 1rem;
 }
