@@ -143,7 +143,7 @@ gulp.task("scripts", function() {
 
 // Optimize Images
 gulp.task("images", function (done) {
-  [100, 300, 800, 1000, 2000].forEach(function (size) {
+  [360, 1440].forEach(function (size) {
     return gulp.src(imagesSRC)
     .pipe(newer(imagesDestSite)) // get newer images
     .pipe(imageResize({ width: size })) // resize each according to array above
