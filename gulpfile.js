@@ -199,3 +199,6 @@ gulp.task("default", gulp.series("browser-sync", watch));
 // build task
 gulp.task("build", gulp.series("styles", "scripts", "images", "jekyll-rebuild", "critical"));
 
+// dist task
+gulp.task("dist", gulp.series("styles", "scripts", "images", "jekyll-build", "critical"));
+
