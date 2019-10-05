@@ -35,7 +35,7 @@ var scriptFile            = "scripts"; // Compiled JS file name
 var imagesSRC               = "./assets/images/**/*"; // Source folder of unoptimized images
 var imagesDest              = "./assets/img"; // Destination folder of optimized images
 var imagesDestSite          = "./_site/assets/img"; // Destination folder of optimized images
-var imagesDestThumbs        = "./_site/assets/img/thumbs"; // Destination folder of optimized images
+
 
 // File paths
 var styleWatchFiles         = "./assets/styles/**/*.scss"; // Path to all *.scss files in all subfolders
@@ -145,7 +145,7 @@ gulp.task("scripts", function() {
 gulp.task("images", function (done) {
   [360, 1440].forEach(function (size) {
     return gulp.src(imagesSRC)
-    .pipe(newer(imagesDestSite)) // get newer images
+    .pipe(newer(imagesDest)) // get newer images
     .pipe(imageResize({ width: size })) // resize each according to array above
     .pipe(rename(function (path) { path.basename = `${path.basename}-${size}px`; })) // put size in filename
     .pipe(imagemin())
