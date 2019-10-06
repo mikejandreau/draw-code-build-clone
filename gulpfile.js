@@ -72,14 +72,10 @@ var imageResize = require('gulp-image-resize');
 
 
 // Build the Jekyll Site
-// gulp.task("jekyll-build", function (done) {
-//   return cp.spawn( jekyll , ["build"], {stdio: "inherit"})
-//   done();
-// });
-
-function jekyllBuild() {
-  return cp.spawn( jekyll , ['build'], {stdio: 'inherit'})
-}
+gulp.task("jekyll-build", function (done) {
+  return cp.spawn( jekyll , ["build"], {stdio: "inherit"})
+  done();
+});
 
 
 // Rebuild Jekyll & do page reload
@@ -151,7 +147,22 @@ gulp.task("images", function (done) {
     return gulp.src(imagesSRC)
     .pipe(newer(imagesDest)) // get newer images
     .pipe(imageResize({ width: size })) // resize each according to array above
-    .pipe(rename(function (path) { path.basename = `${path.basename}-${size}px`; })) // put size in filename
+    // .pipe(rename(function (path) { path.basename = `${path.basename}-${size}px`; })) // put size in filename
+    .pipe(rename(function (path) {
+
+
+if (size === 1000) {
+  var foo = "large"
+} else {
+  var foo = "small"
+}
+
+      path.basename = `${path.basename}-${foo}`; 
+
+})) // put size in filename
+
+
+
     .pipe(imagemin())
     .pipe(gulp.dest(imagesDest))
     .pipe(browserSync.reload({stream:true}))
