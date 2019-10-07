@@ -4,8 +4,8 @@ title:  "Welcome to Jekyll!"
 date: 2018-11-15 09:32:02 -0500
 categories: Code
 excerpt: Fancy excerpt about some such whatever thing about stuff.
-featured_image: /assets/img/featured09-1440px.jpg
-featured_image_thumb: /assets/img/featured09-360px.jpg
+featured_image: /assets/img/featured09-large.jpg
+featured_image_thumb: /assets/img/featured09-small.jpg
 ---
 
 <div class="row">
