@@ -5,8 +5,8 @@ date:   2018-02-28 00:00:00 -0500
 categories: Builds Music
 excerpt: The perfect workout companion, with a 3D printed outer shell.
 overview: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae distinctio, ea aspernatur beatae voluptatum sapiente ipsum asperiores harum qui! Consequuntur repellat voluptatum, tempora iure cumque ipsum nam, voluptate at temporibus.
-featured_image: /assets/img/blacktele08-1440px.jpg
-featured_image_thumb: /assets/img/blacktele08-360px.jpg
+featured_image: /assets/img/blacktele08-large.jpg
+featured_image_thumb: /assets/img/blacktele08-small.jpg
 
 ---
 
@@ -56,9 +56,9 @@ featured_image_thumb: /assets/img/blacktele08-360px.jpg
 	<div class="gallery">
 	{% for image in site.static_files %}
 	  {% if image.path contains 'assets/img/blacktele' %}
-	    {% unless image.path contains '-360px.' %}
+	    {% unless image.path contains '-small.' %}
 	      <a href="{{ image.path }}" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
-	        <img src="{{ site.imgpath }}{{ image.basename | remove: '-1440px' | append: '-360px' | append: image.extname }}" alt="">
+	        <img src="{{ site.imgpath }}{{ image.basename | remove: '-large' | append: '-small' | append: image.extname }}" alt="">
 	      </a>
 	    {% endunless %}
 	  {% endif %}

@@ -147,7 +147,25 @@ gulp.task("images", function (done) {
     return gulp.src(imagesSRC)
     .pipe(newer(imagesDestSite)) // get newer images
     .pipe(imageResize({ width: size })) // resize each according to array above
-    .pipe(rename(function (path) { path.basename = `${path.basename}-${size}px`; })) // put size in filename
+    // .pipe(rename(function (path) { path.basename = `${path.basename}-${size}px`; })) // put size in filename
+
+    .pipe(rename(function (path) {
+
+
+if (size === 1440) {
+  var foo = "large"
+} else {
+  var foo = "small"
+}
+
+      path.basename = `${path.basename}-${foo}`; 
+
+})) // put size in filename
+
+
+
+     .pipe(imagemin())
+
     .pipe(imagemin())
     .pipe(gulp.dest(imagesDest))
     .pipe(browserSync.reload({stream:true}))
