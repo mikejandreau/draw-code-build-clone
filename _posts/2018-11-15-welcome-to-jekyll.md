@@ -1,12 +1,74 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Apocalypse Telecaster"
 date: 2018-11-15 09:32:02 -0500
-categories: Code
+categories: Guitar Builds
 excerpt: Fancy excerpt about some such whatever thing about stuff.
-featured_image: /assets/img/featured09-large.jpg
-featured_image_thumb: /assets/img/featured09-small.jpg
+
+overview: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae distinctio, ea aspernatur beatae voluptatum sapiente ipsum asperiores harum qui! Consequuntur repellat voluptatum, tempora iure cumque ipsum nam, voluptate at temporibus.
+
+featured_image: /assets/img/esquire11-large.jpg
+featured_image_thumb: /assets/img/esquire11-small.jpg
+gallery_basename: esquire
 ---
+
+
+<div class="row">
+
+{% comment %}<!-- mobile overview -->{% endcomment %}
+<div class="col-lg-12 d-lg-none">
+	<h2>Overview</h2>
+	<p class="lead">{{ page.overview }}</p>
+</div>
+
+{% comment %}<!-- sidebar -->{% endcomment %}
+<div class="col-lg-4 order-lg-12">
+	<hr class="d-lg-none">
+	<div class="sidebar-block">
+		<h3>Project Specs</h3>
+		<p>Yadda yadda project blah blah.</p>
+		<p>
+			<strong>Dimensions</strong>: 9&frac12; x 6 x 4 in. <br>
+			<strong>Material</strong>: 2.85 mm. PLA <br>
+			<strong>Power</strong>: 9v battery / 12v AC<br>
+			<strong>Output</strong>: 5 watts
+		</p>
+		<div class="d-none d-lg-block">
+			<a class="js-scroll-trigger btn-block" href="#page-top">Back to Top</a>
+			<a class="js-scroll-trigger btn-block" href="#href01">Gallery</a>
+		</div>
+	</div>
+	<hr class="d-lg-none">
+</div>
+
+{% comment %}<!-- main content & desktop overview -->{% endcomment %}
+<div class="col-lg-8">
+	<div class="d-none d-lg-block">
+		<h2>Overview</h2>
+		<p class="lead">{{ page.overview }}</p>
+	</div>
+	<h3>Process</h3>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos reiciendis commodi aperiam in officiis minus necessitatibus, aspernatur nostrum voluptatibus unde quae error ipsum laudantium eius, praesentium deserunt nobis, architecto eveniet.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, minus. Libero excepturi, nam! Voluptatem nostrum laborum perspiciatis iste repudiandae provident eius sequi aliquid in, quasi repellendus mollitia ea harum, consequatur!</p>
+	<h3 id="href01" class="href-heading">Gallery</h3>
+	<p>Tap/click an image to zoom.</p>
+	<div class="gallery">
+		{% for gallery_item in (1..12) %} {% comment %}<!-- set number to the amount of images to show -->{% endcomment %}
+		<a href="/assets/img/{{ page.gallery_basename }}{{gallery_item | prepend: '00' | slice: -2, 2 }}-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+			<img src="/assets/img/{{ page.gallery_basename }}{{gallery_item | prepend: '00' | slice: -2, 2 }}-small.jpg" alt="{{ page.gallery_basename }}{{gallery_item | prepend: '00' | slice: -2, 2 }}" />
+		</a>
+		{% endfor %}
+	</div>
+	<h3>Details</h3>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo animi eaque sapiente vero modi quisquam molestiae, alias magnam dolor amet a iusto consequuntur beatae quos, quaerat quas. Doloribus, libero illum.</p>
+	<h3>Final Thoughts</h3>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus optio quae sunt aliquid provident iste, harum veritatis consequatur, molestias nulla non odio voluptatum porro. Perferendis nam quia hic quae distinctio!</p>
+</div>
+
+</div>
+
+
+
 
 <div class="row">
 <div class="col-lg-8" markdown="1">

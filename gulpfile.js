@@ -35,7 +35,6 @@ var scriptFile            = "scripts"; // Compiled JS file name
 var imagesSRC               = "./assets/images/**/*"; // Source folder of unoptimized images
 var imagesDest              = "./assets/img"; // Destination folder of optimized images
 var imagesDestSite          = "./_site/assets/img"; // Destination folder of optimized images
-var imagesDestThumbs        = "./_site/assets/img/thumbs"; // Destination folder of optimized images
 
 // File paths
 var styleWatchFiles         = "./assets/styles/**/*.scss"; // Path to all *.scss files in all subfolders
@@ -145,27 +144,17 @@ gulp.task("scripts", function() {
 gulp.task("images", function (done) {
   [360, 1440].forEach(function (size) {
     return gulp.src(imagesSRC)
-    .pipe(newer(imagesDestSite)) // get newer images
+    // .pipe(newer(imagesDest)) // get newer images
     .pipe(imageResize({ width: size })) // resize each according to array above
-    // .pipe(rename(function (path) { path.basename = `${path.basename}-${size}px`; })) // put size in filename
-
+    // .pipe(rename(function (path) { path.basename = `${path.basename}-${size}px`; })) // put size in filename as number
     .pipe(rename(function (path) {
-
-
-if (size === 1440) {
-  var foo = "large"
-} else {
-  var foo = "small"
-}
-
-      path.basename = `${path.basename}-${foo}`; 
-
-})) // put size in filename
-
-
-
-     .pipe(imagemin())
-
+      if (size === 1440) {
+        var foo = "large"
+      } else {
+        var foo = "small"
+      }
+      path.basename = `${path.basename}-${foo}`;  // put size in filename as text 
+    }))
     .pipe(imagemin())
     .pipe(gulp.dest(imagesDest))
     .pipe(browserSync.reload({stream:true}))
@@ -215,5 +204,5 @@ function watch(done) {
 gulp.task("default", gulp.series("browser-sync", watch));
 
 // build task
-gulp.task("build", gulp.series("jekyll-build", "styles", "scripts", "images", "jekyll-rebuild", "critical"));
+gulp.task("build-prod", gulp.series("styles", "scripts", "images", "jekyll-build", "critical", "jekyll-rebuild"));
 
