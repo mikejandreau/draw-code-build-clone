@@ -55,7 +55,7 @@ featured_image_thumb: /assets/img/blacktele08-small.jpg
 	<p>Tap/click an image to zoom.</p>
 	<div class="gallery">
 	{% for image in site.static_files %}
-	  {% if image.path contains 'assets/images/blacktele' %}
+	  {% if image.path contains 'assets/img/blacktele' %}
 	    {% unless image.path contains '-small.' %}
 	      <a href="{{ image.path }}" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
 	        <img src="{{ site.imgpath }}{{ image.basename | remove: '-large' | append: '-small' | append: image.extname }}" alt="">
