@@ -8,7 +8,7 @@ overview: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae di
 
 featured_image: /assets/img/blacktele08-large.jpg
 featured_image_thumb: /assets/img/blacktele08-small.jpg
-gallery_basename: featured
+gallery_basename: blacktele
 ---
 
 
@@ -54,21 +54,13 @@ gallery_basename: featured
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos reiciendis commodi aperiam in officiis minus necessitatibus, aspernatur nostrum voluptatibus unde quae error ipsum laudantium eius, praesentium deserunt nobis, architecto eveniet.</p>
 	<h3 id="href01" class="href-heading">Gallery</h3>
 	<p>Tap/click an image to zoom.</p>
-
-
-
-
-
+	
 <div class="gallery">
-
-
-{% for num in (1..12) %}
-<a href="/assets/img/{{ page.gallery_basename }}{{num | prepend: '00' | slice: -2, 2 }}-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
-<img src="/assets/img/{{ page.gallery_basename }}{{num | prepend: '00' | slice: -2, 2 }}-small.jpg" alt="" />
-</a>
-{% endfor %}
-
-
+	{% for gallery_item in (1..12) %}
+	<a href="/assets/img/{{ page.gallery_basename }}{{gallery_item | prepend: '00' | slice: -2, 2 }}-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+		<img src="/assets/img/{{ page.gallery_basename }}{{gallery_item | prepend: '00' | slice: -2, 2 }}-small.jpg" alt="{{ page.gallery_basename }}{{gallery_item | prepend: '00' | slice: -2, 2 }}" />
+	</a>
+	{% endfor %}
 </div>
 
 
