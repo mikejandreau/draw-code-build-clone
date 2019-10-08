@@ -87,9 +87,9 @@
 
 	{% comment %} <!-- Styles, scripts, and RSS --> {% endcomment %}
 	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-	<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+	<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}" />
 
-	<link rel="stylesheet" href="{{ "/assets/css/styles.min.css" | prepend: site.baseurl }}">
+	<link rel="stylesheet" href="{{ '/assets/css/styles.min.css' | prepend: site.baseurl }}">
 	
 	{% comment %}
 	<!-- When we generate critical CSS, uncomment this Jekyll statement -->
