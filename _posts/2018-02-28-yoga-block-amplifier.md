@@ -55,6 +55,7 @@ gallery_basename: blacktele
 	<h3 id="href01" class="href-heading">Gallery</h3>
 	<p>Tap/click an image to zoom.</p>
 
+
 <div class="gallery">
 	{% for gallery_item in (1..8) %} {% comment %}<!-- set number to the amount of images to show -->{% endcomment %}
 	<a href="/assets/img/{{ page.gallery_basename }}{{gallery_item | prepend: '00' | slice: -2, 2 }}-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
