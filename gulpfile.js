@@ -145,7 +145,7 @@ gulp.task("scripts", function() {
 gulp.task("images", function (done) {
   [360, 1440].forEach(function (size) {
     return gulp.src(imagesSRC)
-    .pipe(newer(imagesDest)) // get newer images
+    // .pipe(newer(imagesDest)) // get newer images
     .pipe(imageResize({ width: size })) // resize each according to array above
     // .pipe(rename(function (path) { path.basename = `${path.basename}-${size}px`; })) // put size in filename as number
     .pipe(rename(function (path) {
