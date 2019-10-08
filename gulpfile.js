@@ -204,5 +204,5 @@ function watch(done) {
 gulp.task("default", gulp.series("browser-sync", watch));
 
 // build task
-gulp.task("build-prod", gulp.series("styles", "scripts", "images", "jekyll-build", "jekyll-rebuild", "critical"));
+gulp.task("build-prod", gulp.series("styles", "scripts", "images", "jekyll-build", "critical", "jekyll-rebuild"));
 
