@@ -53,6 +53,33 @@ featured_image_thumb: /assets/img/blacktele08-small.jpg
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos reiciendis commodi aperiam in officiis minus necessitatibus, aspernatur nostrum voluptatibus unde quae error ipsum laudantium eius, praesentium deserunt nobis, architecto eveniet.</p>
 	<h3 id="href01" class="href-heading">Gallery</h3>
 	<p>Tap/click an image to zoom.</p>
+
+<a href="/assets/img/blacktele01-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+<img src="/assets/img/blacktele01-small.jpg" alt="" />
+</a>
+<a href="/assets/img/blacktele02-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+<img src="/assets/img/blacktele02-small.jpg" alt="" />
+</a>
+<a href="/assets/img/blacktele03-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+<img src="/assets/img/blacktele03-small.jpg" alt="" />
+</a>
+<a href="/assets/img/blacktele04-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+<img src="/assets/img/blacktele04-small.jpg" alt="" />
+</a>
+<a href="/assets/img/blacktele05-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+<img src="/assets/img/blacktele05-small.jpg" alt="" />
+</a>
+<a href="/assets/img/blacktele06-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+<img src="/assets/img/blacktele06-small.jpg" alt="" />
+</a>
+<a href="/assets/img/blacktele07-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+<img src="/assets/img/blacktele07-small.jpg" alt="" />
+</a>
+<a href="/assets/img/blacktele08-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+<img src="/assets/img/blacktele08-small.jpg" alt="" />
+</a>
+
+	{% comment %}
 	<div class="gallery">
 	{% for image in site.static_files %}
 	  {% if image.path contains 'assets/img/blacktele' %}
@@ -64,6 +91,8 @@ featured_image_thumb: /assets/img/blacktele08-small.jpg
 	  {% endif %}
 	{% endfor %}
 	</div>
+	{% endcomment %}
+
 	<h3>Details</h3>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo animi eaque sapiente vero modi quisquam molestiae, alias magnam dolor amet a iusto consequuntur beatae quos, quaerat quas. Doloribus, libero illum.</p>
 	<h3>Final Thoughts</h3>
