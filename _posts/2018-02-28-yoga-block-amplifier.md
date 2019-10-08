@@ -5,9 +5,10 @@ date:   2018-02-28 00:00:00 -0500
 categories: Builds Music
 excerpt: The perfect workout companion, with a 3D printed outer shell.
 overview: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae distinctio, ea aspernatur beatae voluptatum sapiente ipsum asperiores harum qui! Consequuntur repellat voluptatum, tempora iure cumque ipsum nam, voluptate at temporibus.
+
 featured_image: /assets/img/blacktele08-large.jpg
 featured_image_thumb: /assets/img/blacktele08-small.jpg
-
+gallery_basename: featured
 ---
 
 
@@ -54,37 +55,59 @@ featured_image_thumb: /assets/img/blacktele08-small.jpg
 	<h3 id="href01" class="href-heading">Gallery</h3>
 	<p>Tap/click an image to zoom.</p>
 
+
+
+
+
 <div class="gallery">
-<a href="/assets/img/blacktele01-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
-<img src="/assets/img/blacktele01-small.jpg" alt="" />
+
+
+{% for num in (1..12) %}
+<a href="/assets/img/{{ page.gallery_basename }}{{num | prepend: '00' | slice: -2, 2 }}-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+<img src="/assets/img/{{ page.gallery_basename }}{{num | prepend: '00' | slice: -2, 2 }}-small.jpg" alt="" />
 </a>
-<a href="/assets/img/blacktele02-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
-<img src="/assets/img/blacktele02-small.jpg" alt="" />
-</a>
-<a href="/assets/img/blacktele03-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
-<img src="/assets/img/blacktele03-small.jpg" alt="" />
-</a>
-<a href="/assets/img/blacktele04-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
-<img src="/assets/img/blacktele04-small.jpg" alt="" />
-</a>
-<a href="/assets/img/blacktele05-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
-<img src="/assets/img/blacktele05-small.jpg" alt="" />
-</a>
-<a href="/assets/img/blacktele06-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
-<img src="/assets/img/blacktele06-small.jpg" alt="" />
-</a>
-<a href="/assets/img/blacktele07-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
-<img src="/assets/img/blacktele07-small.jpg" alt="" />
-</a>
-<a href="/assets/img/blacktele08-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
-<img src="/assets/img/blacktele08-small.jpg" alt="" />
-</a>
+{% endfor %}
+
+
 </div>
 
+
+
+
+<!-- 
+<div class="gallery">
+
+<a href="/assets/img/{{ page.gallery_basename }}01-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+<img src="/assets/img/{{ page.gallery_basename }}01-small.jpg" alt="" />
+</a>
+<a href="/assets/img/{{ page.gallery_basename }}02-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+<img src="/assets/img/{{ page.gallery_basename }}02-small.jpg" alt="" />
+</a>
+<a href="/assets/img/{{ page.gallery_basename }}03-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+<img src="/assets/img/{{ page.gallery_basename }}03-small.jpg" alt="" />
+</a>
+<a href="/assets/img/{{ page.gallery_basename }}04-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+<img src="/assets/img/{{ page.gallery_basename }}04-small.jpg" alt="" />
+</a>
+<a href="/assets/img/{{ page.gallery_basename }}05-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+<img src="/assets/img/{{ page.gallery_basename }}05-small.jpg" alt="" />
+</a>
+<a href="/assets/img/{{ page.gallery_basename }}06-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+<img src="/assets/img/{{ page.gallery_basename }}06-small.jpg" alt="" />
+</a>
+<a href="/assets/img/{{ page.gallery_basename }}07-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+<img src="/assets/img/{{ page.gallery_basename }}07-small.jpg" alt="" />
+</a>
+<a href="/assets/img/{{ page.gallery_basename }}08-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
+<img src="/assets/img/{{ page.gallery_basename }}08-small.jpg" alt="" />
+</a>
+
+</div>
+ -->
 	{% comment %}
 	<div class="gallery">
 	{% for image in site.static_files %}
-	  {% if image.path contains 'assets/img/blacktele' %}
+	  {% if image.path contains 'assets/img/{{ page.gallery_basename }}' %}
 	    {% unless image.path contains '-small.' %}
 	      <a href="{{ image.path }}" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
 	        <img src="{{ site.imgpath }}{{ image.basename | remove: '-large' | append: '-small' | append: image.extname }}" alt="">
