@@ -35,7 +35,6 @@ var scriptFile            = "scripts"; // Compiled JS file name
 var imagesSRC               = "./assets/images/**/*"; // Source folder of unoptimized images
 var imagesDest              = "./assets/img"; // Destination folder of optimized images
 var imagesDestSite          = "./_site/assets/img"; // Destination folder of optimized images
-var imagesDestThumbs        = "./_site/assets/img/thumbs"; // Destination folder of optimized images
 
 // File paths
 var styleWatchFiles         = "./assets/styles/**/*.scss"; // Path to all *.scss files in all subfolders
