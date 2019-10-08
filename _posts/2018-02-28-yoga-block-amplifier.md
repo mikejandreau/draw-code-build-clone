@@ -54,6 +54,7 @@ featured_image_thumb: /assets/img/blacktele08-small.jpg
 	<h3 id="href01" class="href-heading">Gallery</h3>
 	<p>Tap/click an image to zoom.</p>
 
+<div class="gallery">
 <a href="/assets/img/blacktele01-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
 <img src="/assets/img/blacktele01-small.jpg" alt="" />
 </a>
@@ -78,6 +79,7 @@ featured_image_thumb: /assets/img/blacktele08-small.jpg
 <a href="/assets/img/blacktele08-large.jpg" class="gallery-thumb col-md-6 col-lg-4" data-fancybox="images">
 <img src="/assets/img/blacktele08-small.jpg" alt="" />
 </a>
+</div>
 
 	{% comment %}
 	<div class="gallery">
