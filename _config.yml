@@ -50,6 +50,7 @@ exclude:
 # Include for processing
 include:
   - _pages
+  - assets/img/
 
 # Porfolio items
 collections:
