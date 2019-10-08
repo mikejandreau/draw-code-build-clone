@@ -57,35 +57,6 @@ slug: home
 
 
 <section class="previous-projects" id="previous-projects">
-
-
-<div class="container-fluid img-size-test">
-  <img src="/assets/img/featured01@100w.jpg" alt="">
-  <img src="/assets/img/featured01@300w.jpg" alt="">
-  <img src="/assets/img/featured01@800w.jpg" alt="">
-  <img src="/assets/img/featured01@1000w.jpg" alt="">
-  <img src="/assets/img/featured01@2000w.jpg" alt="">
-</div>
-
-<div class="container-fluid img-size-test">
-  <img src="/assets/img/featured01-100px.jpg" alt="">
-  <img src="/assets/img/featured01-300px.jpg" alt="">
-  <img src="/assets/img/featured01-800px.jpg" alt="">
-  <img src="/assets/img/featured01-1000px.jpg" alt="">
-  <img src="/assets/img/featured01-2000px.jpg" alt="">
-</div>
-
-<div class="container-fluid img-size-test">
-  <img src="/assets/img/featured01-xs.jpg" alt="">
-  <img src="/assets/img/featured01-sm.jpg" alt="">
-  <img src="/assets/img/featured01-md.jpg" alt="">
-  <img src="/assets/img/featured01-lg.jpg" alt="">
-  <img src="/assets/img/featured01-xl.jpg" alt="">
-</div>
-
-
-
-
 <div class="container">
 
 <h2>Previous Projects</h2>
@@ -97,7 +68,6 @@ slug: home
   {% endfor %}
 </div>
 
-
 <div class="grid row preview-item-grid">
   <!-- get most recent 3 posts, skip latest -->
   <!-- to limit posts, use "for post in site.posts limit:12 offset:1" -->
@@ -105,7 +75,6 @@ slug: home
   <div class="col-md-6 col-lg-4 preview-item {{ post.categories | join: ' ' }}" data-category="{{ post.categories | join: ' ' }}">
     <div class="preview-item-container">
       
-
     <a class="preview-item-link" href="{{ post.featured_image }}" data-fancybox="images" data-caption="&lt;h2&gt;{{ post.title }}&lt;/h2&gt;&lt;p&gt;{{ post.excerpt }}&lt;/p&gt;&lt;a href='{{ post.url | prepend: site.baseurl }}'&gt;Read More&lt;/a&gt;">
       <img class="preview-item-image" src="{{ post.featured_image_thumb }}" alt="{{ post.title }}"/>
     </a>
@@ -119,7 +88,6 @@ slug: home
         {% include article-read-time.html content=post.content %}
       </p>
       
-
       {% comment %}<span>&bull; posted in {{ post.categories | join: ', ' }}</span>{% endcomment %}
       <p>{{ post.excerpt }}</p>
       <a class="btn btn-primary" href="{{ post.url | prepend: site.baseurl }}">Read Post</a>
@@ -140,7 +108,7 @@ slug: home
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+        <p class="rss-subscribe">subscribe <a href="{{ '/feed.xml' | relative_url }}">via RSS</a></p>
       </div>
     </div>
   </div>

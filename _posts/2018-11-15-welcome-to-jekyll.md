@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Apocalypse Telecaster"
 date: 2018-11-15 09:32:02 -0500
-categories: Code
+categories: Guitar Builds
 excerpt: Fancy excerpt about some such whatever thing about stuff.
 
 overview: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae distinctio, ea aspernatur beatae voluptatum sapiente ipsum asperiores harum qui! Consequuntur repellat voluptatum, tempora iure cumque ipsum nam, voluptate at temporibus.
