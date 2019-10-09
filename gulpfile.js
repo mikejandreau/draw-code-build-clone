@@ -144,7 +144,7 @@ gulp.task("scripts", function() {
 gulp.task("images", function (done) {
   [360, 1440].forEach(function (size) {
     return gulp.src(imagesSRC)
-    // .pipe(newer(imagesDest)) // get newer images
+    .pipe(newer(imagesDest)) // get newer images
     .pipe(imageResize({ width: size })) // resize each according to array above
     // .pipe(rename(function (path) { path.basename = `${path.basename}-${size}px`; })) // put size in filename as number
     .pipe(rename(function (path) {
@@ -165,7 +165,7 @@ gulp.task("images", function (done) {
 
 
 // Wait for jekyll-build, then launch the Server
-gulp.task('browser-sync', gulp.series("styles", "scripts", "images",  "jekyll-build", "critical", function(done) {
+gulp.task('browser-sync', function(done) {
   browserSync.init({
     server: {
       baseDir: "./_site"
@@ -180,7 +180,7 @@ gulp.task('browser-sync', gulp.series("styles", "scripts", "images",  "jekyll-bu
     port: 4000
   });
   done();
-}));
+});
 
 
 // Reload helper function
@@ -200,9 +200,31 @@ function watch(done) {
 }
 
 
+gulp.task('default', gulp.series("styles", "scripts", "images",  "jekyll-build", "browser-sync", watch), function(done) {
+  done();
+});
+
+
+
 // Default task
-gulp.task("default", gulp.series("browser-sync", watch));
+// gulp.task("default", gulp.series("browser-sync", watch));
+
+
+
+
+
 
 // build task
 gulp.task("build-prod", gulp.series("styles", "scripts", "images", "jekyll-build", "critical", "jekyll-rebuild"));
 
+
+// gulp.task(
+//   'default',
+//   gulp.series( "styles", "scripts", "images",  "jekyll-build", "critical", "browser-sync", function(done) {
+//     gulp.watch(styleWatchFiles, gulp.series("styles", reload));
+//     gulp.watch(scriptWatchFiles, gulp.series("scripts", reload));
+//     gulp.watch(imagesSRC, gulp.series("images", reload));
+//     gulp.watch(markupWatchFiles, gulp.series("jekyll-rebuild", reload));
+//   done();
+//   })
+// );
