@@ -82,8 +82,8 @@ var imageResize = require('gulp-image-resize');
 
 
 gulp.task("jekyll-build", function (done) {
-  // return cp.spawn( jekyll , ["build"], {stdio: "inherit"})
-  return cp.spawn('bundle', ['exec', 'jekyll', 'build'], {stdio: 'inherit'})
+  return cp.spawn( jekyll , ["build"], {stdio: "inherit"})
+  // return cp.spawn('bundle', ['exec', 'jekyll', 'build'], {stdio: 'inherit'})
   done();
 });
 
